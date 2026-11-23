@@ -134,20 +134,21 @@ function masthead() {
 
 function strips() {
   const timelineWidths = stories.timeline.map(({ t, text: event }) =>
-    Math.max(fontFor(700).width(t, 11), fontFor(400).width(event, 11)) + 8,
+    Math.max(fontFor(700).width(t, 11), fontFor(400).width(event, 11)),
   );
   const extraWidth = (pageWidth - timelineWidths.reduce((sum, width) => sum + width, 0)) /
     timelineWidths.length;
+  const padding = Math.min(4, Math.max(0, extraWidth / 2));
   label('THE DAY IN UTC', box(24, 132, 230, 16));
   line(24, 150, 1000, 150, ink);
   let timelineX = margin;
   for (const [index, { t, text: event }] of stories.timeline.entries()) {
     const width = timelineWidths[index] + extraWidth;
     if (index) line(timelineX, 154, timelineX, 177);
-    text(t, box(timelineX + 4, 152, width - 8, 13), {
+    text(t, box(timelineX + padding, 152, width - 2 * padding, 13), {
       weight: 700, fill: '#174985', vertical: 'middle', maxLines: 1, inset: 0,
     });
-    text(event, box(timelineX + 4, 165, width - 8, 13), { maxLines: 1, inset: 0 });
+    text(event, box(timelineX + padding, 165, width - 2 * padding, 13), { maxLines: 1, inset: 0 });
     timelineX += width;
   }
 
@@ -190,6 +191,16 @@ const scenes = {
     <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10"
           fill="none" stroke="#af313b" stroke-width="3.5" stroke-linejoin="round"/>
     <circle cx="289" cy="58" r="4" fill="#af313b"/>`,
+  chartup: `
+    <rect width="320" height="70" fill="#e5efe5"/>
+    <path d="M24 14h274M24 26h274M24 38h274M24 50h274M24 62h274
+             M55 8v54M96 8v54M137 8v54M178 8v54M219 8v54M260 8v54"
+          fill="none" stroke="#c2d6c5"/>
+    <path d="M26 58 62 54 96 57 129 49 162 51 187 43 226 45 252 37 278 36 289 10V62H26Z"
+          fill="#cce4ce"/>
+    <path d="M26 58 62 54 96 57 129 49 162 51 187 43 226 45 252 37 278 36 289 10
+             M282 16l7-6 6 8"
+          fill="none" stroke="#1f7a3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`,
   plane: `
     <rect width="320" height="70" fill="#deeaee"/>
     <path d="M0 52H320V70H0Z" fill="#8e9fa8"/>
@@ -256,6 +267,13 @@ const icons = {
   drone: '<path d="m6 6 8 8m0-8-8 8"/><circle cx="4" cy="4" r="2"/><circle cx="16" cy="4" r="2"/><circle cx="4" cy="16" r="2"/><circle cx="16" cy="16" r="2"/><rect x="8" y="8" width="4" height="4" rx="1"/>',
   drop: '<path d="M10 2c2 4 6 7 6 10a6 6 0 0 1-12 0c0-3 4-6 6-10Zm-3 10c0 2 1 3 2 3"/>',
   pillar: '<path d="M2 7h16l-8-5Zm2 9h12m-14 2h16M6 8v7m4-7v7m4-7v7"/>',
+  chart: '<path d="M2 3v15h16M5 5l4 5 3-2 5 6m-4 0h4v-4"/>',
+  satellite: `
+    <g transform="rotate(-35 10 10)">
+      <rect x="8" y="5" width="4" height="8" rx="1"/>
+      <path d="M6 9h2m4 0h2M2 6h4v6H2Zm12 0h4v6h-4ZM2 9h4m8 0h4
+               M10 13v3m-3-1q3 3 6 0m-7 3q4 3 8 0"/>
+    </g>`,
 };
 
 function storyCard(story, index) {
@@ -264,10 +282,13 @@ function storyCard(story, index) {
   const w = 238;
   const h = 85;
   const [color, tint] = regions[story.region];
+  const icon = Object.hasOwn(icons, story.icon) ? icons[story.icon] : '';
   rect(x, y, w, h, white, `stroke="${rule}"`);
   rect(x, y, 3, h, color);
-  rect(x + 8, y + 3, 21, 21, tint, 'rx="3"');
-  add(`<g transform="translate(${x + 8.5} ${y + 3.5})" fill="none" stroke="${color}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${icons[story.icon]}</g>`);
+  if (icon) {
+    rect(x + 8, y + 3, 21, 21, tint, 'rx="3"');
+    add(`<g transform="translate(${x + 8.5} ${y + 3.5})" fill="none" stroke="${color}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${icon}</g>`);
+  }
   badge(index + 4, x + 32, y + 6, 19, 15);
   label(story.region, box(x + 54, y + 5, 106, 16), color);
   pill(story.status, x + 161, y + 5, statuses[story.status], 74);
@@ -490,14 +511,21 @@ function worldMap({ x, y, w, h }) {
       return [radius * Math.cos(angle), radius * Math.sin(angle)];
     }),
   );
-  for (const pin of pins) {
+  const candidates = pins.map(pin => {
     const [px, py] = pin.point;
-    pin.center = offsets.map(([dx, dy]) => [px + dx, py + dy]).find(center =>
+    const centers = offsets.map(([dx, dy]) => [px + dx, py + dy]).filter(center =>
       center[0] >= mapLeft + 10 && center[0] <= mapRight - 10 &&
       center[1] >= mapTop + 10 && center[1] <= mapBottom - 10 &&
       pins.every(other => distance(center, other.point) >= 11 &&
         (distance(pin.point, other.point) < 2 ||
-          distanceToSegment(other.point, pin.point, center) >= 1.5)) &&
+          distanceToSegment(other.point, pin.point, center) >= 1.5)),
+    );
+    return { pin, centers };
+  });
+  // Give pins with fewer available positions first choice in crowded areas.
+  candidates.sort((a, b) => a.centers.length - b.centers.length);
+  for (const { pin, centers } of candidates) {
+    pin.center = centers.find(center =>
       placed.every(other => distance(center, other.center) >= 2 * labelRadius + 2 &&
         distanceToSegment(center, other.point, other.center) >= labelRadius + 1 &&
         distanceToSegment(other.center, pin.point, center) >= labelRadius + 1),
