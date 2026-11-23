@@ -1,0 +1,450 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" font-family="FreeSans" font-kerning="none">
+<rect x="0" y="0" width="1024" height="1024" fill="#f7f5ef" />
+<rect x="24" y="14" width="976" height="113" fill="#14243b" />
+<rect x="24" y="14" width="5" height="113" fill="#d75450" />
+<text x="42.2" y="33.35" font-size="11" font-weight="700" text-anchor="start" fill="#d8e5ed" data-box="41 21 942 17">THE WORLD ON ONE PAGE</text>
+<text x="40.2" y="94.4" font-size="64" font-weight="700" text-anchor="start" fill="#ffffff" data-box="39 36 945 72">MONDAY 23 NOVEMBER 2026</text>
+<text x="42.2" y="118.35" font-size="11" font-weight="700" text-anchor="start" fill="#d8e5ed" data-box="41 107 942 15">29 STORIES · 5 REGIONS · 13 FIELDS · ALL FROM MONDAY 23 NOV 2026</text>
+<text x="25.2" y="143.85" font-size="11" font-weight="700" text-anchor="start" fill="#14243b" data-box="24 132 230 16">THE DAY IN UTC</text>
+<path d="M24 150L1000 150" stroke="#14243b" fill="none"/>
+<text x="31.2" y="164.35" font-size="11" font-weight="700" text-anchor="start" fill="#174985" data-box="30 154 150.667 13">00:00</text>
+<text x="31.2" y="178.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="30 169 150.667 25">Seoul opens; chip stocks slide</text>
+<path d="M186.667 156L186.667 185" stroke="#c8ced0" fill="none"/>
+<text x="193.867" y="164.35" font-size="11" font-weight="700" text-anchor="start" fill="#174985" data-box="192.667 154 150.667 13">06:00</text>
+<text x="193.867" y="178.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="192.667 169 150.667 25">Belgian airspace shuts for</text>
+<text x="193.867" y="191.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="192.667 169 150.667 25">strike</text>
+<path d="M349.333 156L349.333 185" stroke="#c8ced0" fill="none"/>
+<text x="356.533" y="164.35" font-size="11" font-weight="700" text-anchor="start" fill="#174985" data-box="355.333 154 150.667 13">06:30</text>
+<text x="356.533" y="178.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="355.333 169 150.667 25">KOSPI closes down 3.3%</text>
+<path d="M512 156L512 185" stroke="#c8ced0" fill="none"/>
+<text x="519.2" y="164.35" font-size="11" font-weight="700" text-anchor="start" fill="#174985" data-box="518 154 150.667 13">AM</text>
+<text x="519.2" y="178.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="518 169 150.667 25">Kyiv confirms Merkury sunk</text>
+<path d="M674.667 156L674.667 185" stroke="#c8ced0" fill="none"/>
+<text x="681.867" y="164.35" font-size="11" font-weight="700" text-anchor="start" fill="#174985" data-box="680.667 154 150.667 13">AM</text>
+<text x="681.867" y="178.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="680.667 169 150.667 25">NATO envoys meet on Poland</text>
+<path d="M837.333 156L837.333 185" stroke="#c8ced0" fill="none"/>
+<text x="844.533" y="164.35" font-size="11" font-weight="700" text-anchor="start" fill="#174985" data-box="843.333 154 150.667 13">20:00</text>
+<text x="844.533" y="178.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="843.333 169 150.667 25">Belgian flights due to resume</text>
+<rect x="24" y="198" width="976" height="47" fill="#e5ebed" />
+<text x="33.2" y="218.55" font-size="13" font-weight="700" text-anchor="start" fill="#14243b" data-box="32 202 94 39">THE DAY IN</text>
+<text x="33.2" y="233.55" font-size="13" font-weight="700" text-anchor="start" fill="#14243b" data-box="32 202 94 39">NUMBERS</text>
+<path d="M130 205L130 238" stroke="#aab8bf" fill="none"/>
+<text x="140.2" y="231.5" font-size="30" font-weight="700" text-anchor="start" fill="#14243b" data-box="139 201 23 40">7</text>
+<text x="171.2" y="218.25" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="170 202 170.5 38">sea drones used on the</text>
+<text x="171.2" y="232.15" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="170 202 170.5 38">Merkury, Kyiv says</text>
+<path d="M347.5 205L347.5 238" stroke="#aab8bf" fill="none"/>
+<text x="357.7" y="231.5" font-size="30" font-weight="700" text-anchor="start" fill="#14243b" data-box="356.5 201 84 40">-5.8%</text>
+<text x="449.7" y="218.25" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="448.5 202 109.5 38">KOSPI at its low of</text>
+<text x="449.7" y="232.15" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="448.5 202 109.5 38">the day</text>
+<path d="M565 205L565 238" stroke="#aab8bf" fill="none"/>
+<text x="575.2" y="231.5" font-size="30" font-weight="700" text-anchor="start" fill="#14243b" data-box="574 201 40 40">24</text>
+<text x="623.2" y="218.25" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="622 202 153.5 38">dead in Indonesian factory</text>
+<text x="623.2" y="232.15" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="622 202 153.5 38">fire</text>
+<path d="M782.5 205L782.5 238" stroke="#aab8bf" fill="none"/>
+<text x="792.7" y="231.5" font-size="30" font-weight="700" text-anchor="start" fill="#14243b" data-box="791.5 201 66 40">14 h</text>
+<text x="866.7" y="218.25" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="865.5 202 127.5 38">boy, 7, trapped under</text>
+<text x="866.7" y="232.15" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="865.5 202 127.5 38">rubble in Dymer</text>
+<rect x="24" y="254" width="318" height="225" fill="#fffefa" stroke="#c8ced0"/>
+<g transform="translate(24 254) scale(0.99375 1)">
+    <rect width="320" height="70" fill="#dce8e9"/>
+    <path d="M0 34H320V70H0Z" fill="#83b2be"/>
+    <path d="M0 50H320V70H0Z" fill="#568693"/>
+    <path d="M11 42h42m-14 15h49m151-15h67m-32 17h35M7 64h115m100-1h42"
+          fill="none" stroke="#b6d4d8" stroke-width="2"/>
+    <path d="M66 40h164l26-8-13 19-14 6H94L79 51Z" fill="#182f45"/>
+    <path d="M90 52h151l-12 5H94Z" fill="#ad4b4a"/>
+    <path d="M96 40v-7h23l12-10h56l13 17zm58-17v-7h19v7zm61 17v-6h11v6z" fill="#466273"/>
+    <path d="M163 21V7m-10 6h19m51 22 11-7" fill="none" stroke="#182f45" stroke-width="2"/>
+    <path d="M134 30h11m5 0h11m5 0h11" fill="none" stroke="#dce8e9" stroke-width="2"/></g>
+<rect x="24" y="254" width="318" height="3" fill="#8c3927" />
+<rect x="35" y="333" width="19" height="16" fill="#14243b" rx="2"/>
+<text x="44.5" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="35 333 19 16">1</text>
+<rect x="59" y="333" width="54" height="16" fill="#f5e6df" rx="8"/>
+<text x="86" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#8c3927" data-box="59 333 54 16">AFRICA</text>
+<rect x="117" y="333" width="59" height="16" fill="#e5edf8" rx="8"/>
+<text x="146.5" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#274d81" data-box="117 333 59 16">EUROPE</text>
+<text x="183.2" y="344.85" font-size="11" font-weight="700" text-anchor="start" fill="#46566a" data-box="182 333 72 16">CONFLICT</text>
+<rect x="251" y="333" width="80" height="16" fill="#e3eefb" rx="8"/>
+<text x="291" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="251 333 80 16">OFFICIAL</text>
+<text x="36.2" y="373.8" font-size="22" font-weight="700" text-anchor="start" fill="#14243b" data-box="35 354 296 51">Zelensky: Ukraine sank a</text>
+<text x="36.2" y="398.7" font-size="22" font-weight="700" text-anchor="start" fill="#14243b" data-box="35 354 296 51">Russian warship off Libya</text>
+<text x="36.2" y="418.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="35 409 296 53">Kyiv says 7 sea drones sank the corvette Merkury at</text>
+<text x="36.2" y="431.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="35 409 296 53">Benghazi port and also hit the cargo ship Angara and a Ka-27</text>
+<text x="36.2" y="444.5" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="35 409 296 53">helicopter. All crew rescued, local officials say; UN mission</text>
+<text x="36.2" y="457.3" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="35 409 296 53">calls for an inquiry.</text>
+<text x="36.2" y="472.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="35 463 296 14">Source: Al Jazeera, BBC</text>
+<rect x="352" y="254" width="318" height="225" fill="#fffefa" stroke="#c8ced0"/>
+<g transform="translate(352 254) scale(0.99375 1)">
+    <rect width="320" height="70" fill="#f2e5e2"/>
+    <path d="M24 14h274M24 26h274M24 38h274M24 50h274M24 62h274
+             M55 8v54M96 8v54M137 8v54M178 8v54M219 8v54M260 8v54"
+          fill="none" stroke="#d8c2bd"/>
+    <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10v4H26Z" fill="#edcdca"/>
+    <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10"
+          fill="none" stroke="#af313b" stroke-width="3.5" stroke-linejoin="round"/>
+    <circle cx="289" cy="58" r="4" fill="#af313b"/></g>
+<rect x="352" y="254" width="318" height="3" fill="#10645d" />
+<rect x="363" y="333" width="19" height="16" fill="#14243b" rx="2"/>
+<text x="372.5" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="363 333 19 16">2</text>
+<rect x="387" y="333" width="39" height="16" fill="#dff0eb" rx="8"/>
+<text x="406.5" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#10645d" data-box="387 333 39 16">ASIA</text>
+<text x="433.2" y="344.85" font-size="11" font-weight="700" text-anchor="start" fill="#46566a" data-box="432 333 72 16">MARKETS</text>
+<rect x="579" y="333" width="80" height="16" fill="#deefe5" rx="8"/>
+<text x="619" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#185741" data-box="579 333 80 16">CONFIRMED</text>
+<text x="364.2" y="373.8" font-size="22" font-weight="700" text-anchor="start" fill="#14243b" data-box="363 354 296 51">Seoul stocks slump as</text>
+<text x="364.2" y="398.7" font-size="22" font-weight="700" text-anchor="start" fill="#14243b" data-box="363 354 296 51">chipmakers fall</text>
+<text x="364.2" y="419.8" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="363 409 296 53">KOSPI dives as much as 5.8% before closing 3.3%</text>
+<text x="364.2" y="433.7" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="363 409 296 53">lower; Samsung -3.1%, SK Hynix -2.5%. Taiwan&apos;s Taiex</text>
+<text x="364.2" y="447.6" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="363 409 296 53">ends 2.2% higher; Tokyo shut for a holiday.</text>
+<text x="364.2" y="472.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="363 463 296 14">Source: Al Jazeera</text>
+<rect x="680" y="254" width="320" height="225" fill="#fffefa" stroke="#c8ced0"/>
+<g transform="translate(680 254) scale(1 1)">
+    <rect width="320" height="70" fill="#deeaee"/>
+    <path d="M0 52H320V70H0Z" fill="#8e9fa8"/>
+    <path d="M0 52h320" stroke="#556a78" stroke-width="2"/>
+    <path d="M8 62h35m18 0h35m18 0h35m18 0h35m18 0h35m18 0h35" stroke="#edf1e9" stroke-width="2"/>
+    <path d="M30 29h10l15 9h48L89 19h13l29 19h46q15 0 23 7-2 5-16 5H63L42 43Z" fill="#233d55"/>
+    <path d="M119 44h25l-24 14h-13Z" fill="#577585"/>
+    <path d="M99 48v5m69-5v5" stroke="#14243b" stroke-width="2"/>
+    <circle cx="99" cy="53" r="2.5" fill="#14243b"/><circle cx="168" cy="53" r="2.5" fill="#14243b"/>
+    <path d="M151 42h27m5 0h6" stroke="#d9e8ea" stroke-width="2" stroke-dasharray="3 3"/>
+    <circle cx="260" cy="32" r="22" fill="#ad2f39" stroke="#fffefa" stroke-width="2"/>
+    <rect x="246" y="28" width="28" height="8" rx="1" fill="#fffefa"/></g>
+<rect x="680" y="254" width="320" height="3" fill="#274d81" />
+<rect x="691" y="333" width="19" height="16" fill="#14243b" rx="2"/>
+<text x="700.5" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="691 333 19 16">3</text>
+<rect x="715" y="333" width="59" height="16" fill="#e5edf8" rx="8"/>
+<text x="744.5" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#274d81" data-box="715 333 59 16">EUROPE</text>
+<text x="781.2" y="344.85" font-size="11" font-weight="700" text-anchor="start" fill="#46566a" data-box="780 333 72 16">LABOUR</text>
+<rect x="909" y="333" width="80" height="16" fill="#deefe5" rx="8"/>
+<text x="949" y="344.85" font-size="11" font-weight="700" text-anchor="middle" fill="#185741" data-box="909 333 80 16">CONFIRMED</text>
+<text x="692.2" y="373.8" font-size="22" font-weight="700" text-anchor="start" fill="#14243b" data-box="691 354 298 51">National strike grounds all</text>
+<text x="692.2" y="398.7" font-size="22" font-weight="700" text-anchor="start" fill="#14243b" data-box="691 354 298 51">Belgian flights</text>
+<text x="692.2" y="419.8" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="691 409 298 53">Air traffic control halts 06:00-20:00 GMT as unions</text>
+<text x="692.2" y="433.7" font-size="12" font-weight="400" text-anchor="start" fill="#14243b" data-box="691 409 298 53">march in Brussels against EUR 10bn of budget cuts.</text>
+<text x="692.2" y="472.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="691 463 298 14">Source: Al Jazeera, DW</text>
+<rect x="24" y="487" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="24" y="487" width="3" height="87" fill="#10645d" />
+<rect x="33" y="493" width="21" height="21" fill="#dff0eb" rx="3"/>
+<g transform="translate(33.5 493.5)" fill="none" stroke="#10645d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2c2 4-1 6 2 7l2-3c4 4 6 12-3 12-6 0-8-5-5-9 0 3 2 3 2 3-1-4 2-6 2-10Z"/><path d="M9 16c0-2 2-3 3-4 1 2 2 3 0 5"/></g>
+<rect x="59" y="496" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="68.5" y="507.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="59 496 19 15">4</text>
+<text x="84.2" y="506.85" font-size="11" font-weight="700" text-anchor="start" fill="#10645d" data-box="83 495 84 16">ASIA</text>
+<rect x="174" y="495" width="79" height="16" fill="#fbedd1" rx="8"/>
+<text x="213.5" y="506.85" font-size="11" font-weight="700" text-anchor="middle" fill="#734400" data-box="174 495 79 16">REPORTED</text>
+<text x="32.2" y="527.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="31 514 225 34">Indonesian candy factory fire</text>
+<text x="32.2" y="544.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="31 514 225 34">kills 24</text>
+<text x="34.2" y="557.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="33 548 220 13">About 30 still missing in Serang, Banten</text>
+<text x="34.2" y="570.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="33 561 220 13">Source: Al Jazeera</text>
+<rect x="270" y="487" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="270" y="487" width="3" height="87" fill="#274d81" />
+<rect x="279" y="493" width="21" height="21" fill="#e5edf8" rx="3"/>
+<g transform="translate(279.5 493.5)" fill="none" stroke="#274d81" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m10 2 2 5 5-2-2 5 3 2-5 1 1 5-4-3-4 3 1-5-5-1 4-2-2-5 5 2Z"/></g>
+<rect x="305" y="496" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="314.5" y="507.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="305 496 19 15">5</text>
+<text x="330.2" y="506.85" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="329 495 84 16">EUROPE</text>
+<rect x="420" y="495" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="459.5" y="506.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="420 495 79 16">OFFICIAL</text>
+<text x="278.2" y="527.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="277 514 225 34">Russian strikes kill 15 in Kyiv</text>
+<text x="278.2" y="544.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="277 514 225 34">region</text>
+<text x="280.2" y="557.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="279 548 220 13">Boy, 7, pulled alive after 14 hours in Dymer</text>
+<text x="280.2" y="570.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="279 561 220 13">Source: France 24, BBC</text>
+<rect x="516" y="487" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="516" y="487" width="3" height="87" fill="#274d81" />
+<rect x="525" y="493" width="21" height="21" fill="#e5edf8" rx="3"/>
+<g transform="translate(525.5 493.5)" fill="none" stroke="#274d81" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m10 2 7 3v5c0 4-4 7-7 8-3-1-7-4-7-8V5Z"/><path d="m7 10 2 2 4-4"/></g>
+<rect x="551" y="496" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="560.5" y="507.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="551 496 19 15">6</text>
+<text x="576.2" y="506.85" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="575 495 84 16">EUROPE</text>
+<rect x="666" y="495" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="705.5" y="506.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="666 495 79 16">OFFICIAL</text>
+<text x="524.2" y="527.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="523 514 225 34">NATO meets on Polish</text>
+<text x="524.2" y="544.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="523 514 225 34">airspace breach</text>
+<text x="526.2" y="557.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="525 548 220 13">Allies weigh alleged Russian incursion</text>
+<text x="526.2" y="570.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="525 561 220 13">Source: DW, France 24</text>
+<rect x="762" y="487" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="762" y="487" width="3" height="87" fill="#274d81" />
+<rect x="771" y="493" width="21" height="21" fill="#e5edf8" rx="3"/>
+<g transform="translate(771.5 493.5)" fill="none" stroke="#274d81" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2c1 5 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 3-7 0 3 1 4 2 4 1-2 2-5 1-8Z"/></g>
+<rect x="797" y="496" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="806.5" y="507.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="797 496 19 15">7</text>
+<text x="822.2" y="506.85" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="821 495 84 16">EUROPE</text>
+<rect x="912" y="495" width="79" height="16" fill="#fbedd1" rx="8"/>
+<text x="951.5" y="506.85" font-size="11" font-weight="700" text-anchor="middle" fill="#734400" data-box="912 495 79 16">REPORTED</text>
+<text x="770.2" y="527.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="769 514 225 34">European gas prices jump</text>
+<text x="772.2" y="557.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="771 548 220 13">Traders brace for a cold snap</text>
+<text x="772.2" y="570.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="771 561 220 13">Source: The Guardian</text>
+<rect x="24" y="579" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="24" y="579" width="3" height="87" fill="#8c3927" />
+<rect x="33" y="585" width="21" height="21" fill="#f5e6df" rx="3"/>
+<g transform="translate(33.5 585.5)" fill="none" stroke="#8c3927" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="5"/><path d="M10 2v3m0 10v3M2 10h3m10 0h3M4 4l2 2m8 8 2 2m0-12-2 2m-8 8-2 2m4-7h.1m3 2h.1"/></g>
+<rect x="59" y="588" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="68.5" y="599.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="59 588 19 15">8</text>
+<text x="84.2" y="598.85" font-size="11" font-weight="700" text-anchor="start" fill="#8c3927" data-box="83 587 84 16">AFRICA</text>
+<rect x="174" y="587" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="213.5" y="598.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="174 587 79 16">OFFICIAL</text>
+<text x="32.2" y="619.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="31 606 225 34">WHO: fighting disrupts Ebola</text>
+<text x="32.2" y="636.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="31 606 225 34">response</text>
+<text x="34.2" y="649.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="33 640 220 13">Clashes near a hospital in eastern DR Congo</text>
+<text x="34.2" y="662.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="33 653 220 13">Source: BBC</text>
+<rect x="270" y="579" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="270" y="579" width="3" height="87" fill="#69447d" />
+<rect x="279" y="585" width="21" height="21" fill="#eee5f3" rx="3"/>
+<g transform="translate(279.5 585.5)" fill="none" stroke="#69447d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="1"/><rect x="8" y="8" width="4" height="4"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/></g>
+<rect x="305" y="588" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="314.5" y="599.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="305 588 19 15">9</text>
+<text x="330.2" y="598.85" font-size="11" font-weight="700" text-anchor="start" fill="#69447d" data-box="329 587 84 16">AMERICAS</text>
+<rect x="420" y="587" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="459.5" y="598.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="420 587 79 16">OFFICIAL</text>
+<text x="278.2" y="619.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="277 606 225 34">US curbs renting AI</text>
+<text x="278.2" y="636.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="277 606 225 34">computing to China</text>
+<text x="280.2" y="649.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="279 640 220 13">Overseas cloud firms will need permission</text>
+<text x="280.2" y="662.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="279 653 220 13">Source: US media</text>
+<rect x="516" y="579" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="516" y="579" width="3" height="87" fill="#8c3927" />
+<rect x="525" y="585" width="21" height="21" fill="#f5e6df" rx="3"/>
+<g transform="translate(525.5 585.5)" fill="none" stroke="#8c3927" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 8 4-5 4 2 4-2 4 5-4 5-3 3-5-2-4-3Zm8-3-3 4 2 1 2-2 4 4m-8 0 3 3"/></g>
+<rect x="551" y="588" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="560.5" y="599.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="551 588 19 15">10</text>
+<text x="576.2" y="598.85" font-size="11" font-weight="700" text-anchor="start" fill="#8c3927" data-box="575 587 84 16">AFRICA</text>
+<rect x="666" y="587" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="705.5" y="598.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="666 587 79 16">OFFICIAL</text>
+<text x="524.2" y="619.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="523 606 225 34">Kenya and DR Congo restore</text>
+<text x="524.2" y="636.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="523 606 225 34">ties</text>
+<text x="526.2" y="649.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="525 640 220 13">Ruto and Tshisekedi end a diplomatic rift</text>
+<text x="526.2" y="662.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="525 653 220 13">Source: BBC</text>
+<rect x="762" y="579" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="762" y="579" width="3" height="87" fill="#10645d" />
+<rect x="771" y="585" width="21" height="21" fill="#dff0eb" rx="3"/>
+<g transform="translate(771.5 585.5)" fill="none" stroke="#10645d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="12" height="9" rx="1"/><path d="M7 8V5a3 3 0 0 1 6 0v3m-3 4v2"/></g>
+<rect x="797" y="588" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="806.5" y="599.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="797 588 19 15">11</text>
+<text x="822.2" y="598.85" font-size="11" font-weight="700" text-anchor="start" fill="#10645d" data-box="821 587 84 16">ASIA</text>
+<rect x="912" y="587" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="951.5" y="598.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="912 587 79 16">OFFICIAL</text>
+<text x="770.2" y="619.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="769 606 225 34">Samsung Securities confirms</text>
+<text x="770.2" y="636.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="769 606 225 34">data breach</text>
+<text x="772.2" y="649.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="771 640 220 13">More than 8,000 customers affected</text>
+<text x="772.2" y="662.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="771 653 220 13">Source: Korean media</text>
+<rect x="24" y="671" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="24" y="671" width="3" height="87" fill="#8c3927" />
+<rect x="33" y="677" width="21" height="21" fill="#f5e6df" rx="3"/>
+<g transform="translate(33.5 677.5)" fill="none" stroke="#8c3927" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4 4-2 5 6-4 3Zm7 6 5 5M2 17h10m-8-2h6"/></g>
+<rect x="59" y="680" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="68.5" y="691.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="59 680 19 15">12</text>
+<text x="84.2" y="690.85" font-size="11" font-weight="700" text-anchor="start" fill="#8c3927" data-box="83 679 84 16">AFRICA</text>
+<rect x="174" y="679" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="213.5" y="690.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="174 679 79 16">OFFICIAL</text>
+<text x="32.2" y="711.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="31 698 225 34">Nigeria moves to</text>
+<text x="32.2" y="728.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="31 698 225 34">decriminalise suicide attempts</text>
+<text x="34.2" y="741.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="33 732 220 13">Tinubu sends a bill to parliament</text>
+<text x="34.2" y="754.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="33 745 220 13">Source: BBC</text>
+<rect x="270" y="671" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="270" y="671" width="3" height="87" fill="#274d81" />
+<rect x="279" y="677" width="21" height="21" fill="#e5edf8" rx="3"/>
+<g transform="translate(279.5 677.5)" fill="none" stroke="#274d81" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 8 8m0-8-8 8"/><circle cx="4" cy="4" r="2"/><circle cx="16" cy="4" r="2"/><circle cx="4" cy="16" r="2"/><circle cx="16" cy="16" r="2"/><rect x="8" y="8" width="4" height="4" rx="1"/></g>
+<rect x="305" y="680" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="314.5" y="691.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="305 680 19 15">13</text>
+<text x="330.2" y="690.85" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="329 679 84 16">EUROPE</text>
+<rect x="420" y="679" width="79" height="16" fill="#e8ebee" rx="8"/>
+<text x="459.5" y="690.85" font-size="11" font-weight="700" text-anchor="middle" fill="#475365" data-box="420 679 79 16">CLAIM</text>
+<text x="278.2" y="711.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="277 698 225 34">Drones hit industrial sites in</text>
+<text x="278.2" y="728.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="277 698 225 34">Perm</text>
+<text x="280.2" y="741.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="279 732 220 13">One dead, Russian officials say</text>
+<text x="280.2" y="754.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="279 745 220 13">Source: Al Jazeera</text>
+<rect x="516" y="671" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="516" y="671" width="3" height="87" fill="#805000" />
+<rect x="525" y="677" width="21" height="21" fill="#f8ecd5" rx="3"/>
+<g transform="translate(525.5 677.5)" fill="none" stroke="#805000" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2c2 4 6 7 6 10a6 6 0 0 1-12 0c0-3 4-6 6-10Zm-3 10c0 2 1 3 2 3"/></g>
+<rect x="551" y="680" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="560.5" y="691.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="551 680 19 15">14</text>
+<text x="576.2" y="690.85" font-size="11" font-weight="700" text-anchor="start" fill="#805000" data-box="575 679 84 16">MIDDLE EAST</text>
+<rect x="666" y="679" width="79" height="16" fill="#fbedd1" rx="8"/>
+<text x="705.5" y="690.85" font-size="11" font-weight="700" text-anchor="middle" fill="#734400" data-box="666 679 79 16">REPORTED</text>
+<text x="524.2" y="711.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="523 698 225 34">Report calls Gaza a &quot;toxic</text>
+<text x="524.2" y="728.7" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="523 698 225 34">wasteland&quot;</text>
+<text x="526.2" y="741.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="525 732 220 13">Soil and water contamination after the war</text>
+<text x="526.2" y="754.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="525 745 220 13">Source: The Guardian</text>
+<rect x="762" y="671" width="238" height="87" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="762" y="671" width="3" height="87" fill="#274d81" />
+<rect x="771" y="677" width="21" height="21" fill="#e5edf8" rx="3"/>
+<g transform="translate(771.5 677.5)" fill="none" stroke="#274d81" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h16l-8-5Zm2 9h12m-14 2h16M6 8v7m4-7v7m4-7v7"/></g>
+<rect x="797" y="680" width="19" height="15" fill="#14243b" rx="2"/>
+<text x="806.5" y="691.35" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="797 680 19 15">15</text>
+<text x="822.2" y="690.85" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="821 679 84 16">EUROPE</text>
+<rect x="912" y="679" width="79" height="16" fill="#e3eefb" rx="8"/>
+<text x="951.5" y="690.85" font-size="11" font-weight="700" text-anchor="middle" fill="#174985" data-box="912 679 79 16">OFFICIAL</text>
+<text x="770.2" y="711.5" font-size="15" font-weight="700" text-anchor="start" fill="#14243b" data-box="769 698 225 34">Burnham sells EU deal to MPs</text>
+<text x="772.2" y="741.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="771 732 220 13">UK PM: next decade could be &quot;much better&quot;</text>
+<text x="772.2" y="754.9" font-size="11" font-weight="400" text-anchor="start" fill="#46566a" data-box="771 745 220 13">Source: BBC, The Guardian</text>
+<rect x="24" y="766" width="306" height="204" fill="#edf2f1" stroke="#c8ced0"/>
+<rect x="24" y="766" width="306" height="22" fill="#e2e9e9" />
+<text x="33.2" y="780.85" font-size="11" font-weight="700" text-anchor="start" fill="#14243b" data-box="32 769 290 16">WHERE IT HAPPENED</text>
+<path d="M34.8 815.64L34.8 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M58.5 815.64L58.5 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M82.2 815.64L82.2 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M105.9 815.64L105.9 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M129.6 815.64L129.6 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M153.3 815.64L153.3 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M177 815.64L177 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M200.7 815.64L200.7 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M224.4 815.64L224.4 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M248.1 815.64L248.1 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M271.8 815.64L271.8 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M295.5 815.64L295.5 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M319.2 815.64L319.2 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 948.36L319.2 948.36" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 929.4L319.2 929.4" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 905.7L319.2 905.7" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 882L319.2 882" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 858.3L319.2 858.3" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 834.6L319.2 834.6" stroke="#d9e4e3" fill="none"/>
+<path d="M34.8 815.64L319.2 815.64" stroke="#d9e4e3" fill="none"/>
+<polygon points="44.28,830.65 55.34,825.91 68.77,827.49 76.67,825.12 91.68,824.33 105.11,822.75 116.17,826.7 128.81,836.18 125.65,841.71 134.34,844.08 124.86,847.24 116.17,853.56 113.01,861.46 106.69,859.88 100.37,864.62 106.69,866.2 109.85,871.73 115.38,874.89 111.43,875.68 101.95,869.36 94.05,864.62 84.57,856.72 77.46,844.08 69.56,836.18 57.71,836.18 49.02,839.34 43.49,838.55 52.97,833.81" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="119.33,820.38 133.55,816.43 152.51,818.8 161.2,825.12 148.56,831.44 140.66,835.39 131.18,830.65" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="113.01,874.89 120.91,872.52 128.02,874.89 136.71,878.05 138.29,883.58 148.56,886.74 149.35,891.48 143.82,900.17 137.5,905.7 134.34,910.44 128.02,915.18 124.86,924.66 119.33,923.08 118.54,913.6 120.91,904.12 116.17,895.43 113.01,886.74 115.38,881.21" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="169.1,853.56 169.1,847.24 173.84,844.08 180.95,840.92 184.9,838.55 181.74,835.39 188.06,827.49 196.75,825.91 201.49,831.44 210.97,828.28 221.24,826.7 231.51,823.54 251.26,821.17 266.27,824.33 283.65,825.12 300.24,830.65 314.46,829.07 317.62,833.02 304.98,836.18 301.03,840.92 291.55,841.71 287.6,847.24 281.28,848.82 276.54,855.14 271.01,858.3 272.59,863.83 263.11,867.78 259.95,874.1 258.37,880.42 255.21,877.26 254.42,870.15 248.1,864.62 242.57,866.2 237.04,875.68 233.09,868.57 229.14,863.04 222.03,861.46 219.66,869.36 214.13,871.73 210.97,870.94 206.23,860.67 203.07,857.51 205.44,853.56 199.12,849.61 196.75,852.77 194.38,850.4 188.85,846.45 185.69,848.03 188.85,851.98 185.69,851.98 181.74,848.03 177.79,848.03 175.42,853.56" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="169.1,841.71 170.68,836.18 174.63,836.18 177.79,840.13 174.63,842.5" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="158.04,830.65 164.36,829.07 166.73,831.44 160.41,832.23" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="279.7,857.51 283.65,855.14 288.39,848.82 291.55,847.24 289.97,851.98 286.02,855.14 282.86,857.51" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="163.57,870.15 166.73,860.67 173.05,854.35 182.53,852.77 188.06,855.93 196.75,856.72 202.28,857.51 205.44,863.83 211.76,872.52 218.08,872.52 213.34,878.84 209.39,885.16 207.81,893.06 204.65,900.17 200.7,907.28 192.01,909.65 188.85,903.33 186.48,895.43 185.69,887.53 183.32,879.63 174.63,878.05 170.68,878.05 165.15,874.1" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="214.92,892.27 217.29,894.64 214.13,901.75 211.76,901.75 211.76,897.01" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="252.05,878.05 257.58,881.21 260.74,885.95 267.06,888.32 263.9,889.11 256.79,886.74" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="263.11,881.21 268.64,876.47 271.01,878.84 269.43,884.37 264.69,884.37" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="271.8,887.53 275.75,887.53 278.12,889.11 274.17,889.9" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="280.49,883.58 288.39,884.37 296.29,886.74 293.92,889.9 287.6,888.32 282.07,885.95" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="267.85,899.38 273.38,896.22 278.91,893.85 284.44,891.48 288.39,895.43 291.55,890.69 296.29,900.17 297.87,904.12 293.13,911.23 286.81,912.81 279.7,907.28 272.59,908.86 267.85,908.86 266.27,904.12" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="313.67,909.65 317.62,912.02 315.25,915.18 312.88,913.6" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="312.88,914.39 315.25,915.97 310.51,919.13 308.14,918.34" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<polygon points="34.8,943.62 54.55,942.83 72.72,940.46 92.47,939.67 110.64,939.67 121.7,935.72 127.23,932.56 131.18,934.93 126.44,941.25 143.82,943.62 158.04,939.67 177.79,937.3 196.75,937.3 214.92,934.93 231.51,935.72 248.1,934.14 264.69,935.72 282.86,934.93 294.71,938.09 308.14,938.88 319.2,943.62 319.2,948.36 34.8,948.36" fill="#cbd3d3" stroke="#aababe" stroke-width=".65" stroke-linejoin="round"/>
+<path d="M277.33 852.296L277.33 838.296" stroke="#10645d" fill="none"/>
+<circle cx="277.33" cy="852.296" r="2" fill="#10645d" stroke="#ffffff" stroke-width=".5"/>
+<path d="M180.436 841.828L180.436 827.828" stroke="#274d81" fill="none"/>
+<circle cx="180.436" cy="841.828" r="2" fill="#274d81" stroke="#ffffff" stroke-width=".5"/>
+<path d="M200.937 841.868L200.937 827.868" stroke="#274d81" fill="none"/>
+<circle cx="200.937" cy="841.868" r="2" fill="#274d81" stroke="#ffffff" stroke-width=".5"/>
+<path d="M193.59 840.762L213.915 849.181" stroke="#274d81" fill="none"/>
+<circle cx="193.59" cy="840.762" r="2" fill="#274d81" stroke="#ffffff" stroke-width=".5"/>
+<path d="M180.871 840.604L172.452 860.929" stroke="#274d81" fill="none"/>
+<circle cx="180.871" cy="840.604" r="2" fill="#274d81" stroke="#ffffff" stroke-width=".5"/>
+<path d="M200.305 881.605L210.204 871.706" stroke="#8c3927" fill="none"/>
+<circle cx="200.305" cy="881.605" r="2" fill="#8c3927" stroke="#ffffff" stroke-width=".5"/>
+<path d="M206.072 883.027L215.971 892.926" stroke="#8c3927" fill="none"/>
+<circle cx="206.072" cy="883.027" r="2" fill="#8c3927" stroke="#ffffff" stroke-width=".5"/>
+<path d="M277.251 852.375L290.185 857.733" stroke="#10645d" fill="none"/>
+<circle cx="277.251" cy="852.375" r="2" fill="#10645d" stroke="#ffffff" stroke-width=".5"/>
+<path d="M182.925 874.811L188.283 887.745" stroke="#8c3927" fill="none"/>
+<circle cx="182.925" cy="874.811" r="2" fill="#8c3927" stroke="#ffffff" stroke-width=".5"/>
+<path d="M221.398 836.18L221.398 822.18" stroke="#274d81" fill="none"/>
+<circle cx="221.398" cy="836.18" r="2" fill="#274d81" stroke="#ffffff" stroke-width=".5"/>
+<path d="M204.176 857.194L234.176 857.194" stroke="#805000" fill="none"/>
+<circle cx="204.176" cy="857.194" r="2" fill="#805000" stroke="#ffffff" stroke-width=".5"/>
+<path d="M176.921 841.315L162.921 841.315" stroke="#274d81" fill="none"/>
+<circle cx="176.921" cy="841.315" r="2" fill="#274d81" stroke="#ffffff" stroke-width=".5"/>
+<circle cx="192.879" cy="856.641" r="8.7" fill="#8c3927" stroke="#fffefa" stroke-width="1"/>
+<text x="192.879" y="860.491" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="184.879 849.641 16 14">1</text>
+<circle cx="277.33" cy="838.296" r="8.7" fill="#10645d" stroke="#fffefa" stroke-width="1"/>
+<text x="277.33" y="842.146" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="269.33 831.296 16 14">2</text>
+<circle cx="180.436" cy="827.828" r="8.7" fill="#274d81" stroke="#fffefa" stroke-width="1"/>
+<text x="180.436" y="831.678" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="172.436 820.828 16 14">3</text>
+<circle cx="261.056" cy="886.898" r="8.7" fill="#10645d" stroke="#fffefa" stroke-width="1"/>
+<text x="261.056" y="890.748" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="253.056 879.898 16 14">4</text>
+<circle cx="200.937" cy="827.868" r="8.7" fill="#274d81" stroke="#fffefa" stroke-width="1"/>
+<text x="200.937" y="831.718" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="192.937 820.868 16 14">5</text>
+<circle cx="213.915" cy="849.181" r="8.7" fill="#274d81" stroke="#fffefa" stroke-width="1"/>
+<text x="213.915" y="853.031" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="205.915 842.181 16 14">6</text>
+<circle cx="172.452" cy="860.929" r="8.7" fill="#274d81" stroke="#fffefa" stroke-width="1"/>
+<text x="172.452" y="864.779" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="164.452 853.929 16 14">7</text>
+<circle cx="210.204" cy="871.706" r="8.7" fill="#8c3927" stroke="#fffefa" stroke-width="1"/>
+<text x="210.204" y="875.556" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="202.204 864.706 16 14">8</text>
+<circle cx="116.17" cy="851.269" r="8.7" fill="#69447d" stroke="#fffefa" stroke-width="1"/>
+<text x="116.17" y="855.119" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="108.17 844.269 16 14">9</text>
+<circle cx="215.971" cy="892.926" r="8.7" fill="#8c3927" stroke="#fffefa" stroke-width="1"/>
+<text x="215.971" y="896.776" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="207.971 885.926 16 14">10</text>
+<circle cx="290.185" cy="857.733" r="8.7" fill="#10645d" stroke="#fffefa" stroke-width="1"/>
+<text x="290.185" y="861.583" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="282.185 850.733 16 14">11</text>
+<circle cx="188.283" cy="887.745" r="8.7" fill="#8c3927" stroke="#fffefa" stroke-width="1"/>
+<text x="188.283" y="891.595" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="180.283 880.745 16 14">12</text>
+<circle cx="221.398" cy="822.18" r="8.7" fill="#274d81" stroke="#fffefa" stroke-width="1"/>
+<text x="221.398" y="826.03" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="213.398 815.18 16 14">13</text>
+<circle cx="234.176" cy="857.194" r="8.7" fill="#805000" stroke="#fffefa" stroke-width="1"/>
+<text x="234.176" y="861.044" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="226.176 850.194 16 14">14</text>
+<circle cx="162.921" cy="841.315" r="8.7" fill="#274d81" stroke="#fffefa" stroke-width="1"/>
+<text x="162.921" y="845.165" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff" data-box="154.921 834.315 16 14">15</text>
+<rect x="341" y="766" width="409" height="204" fill="#fffefa" stroke="#c8ced0"/>
+<rect x="341" y="766" width="409" height="22" fill="#e2e9e9" />
+<text x="350.2" y="780.85" font-size="11" font-weight="700" text-anchor="start" fill="#14243b" data-box="349 769 393 16">ALSO ON MONDAY</text>
+<rect x="342" y="788" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="798.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 788 18 13">16</text>
+<text x="372.2" y="798.35" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="371 788 81 13">EUROPE</text>
+<text x="453.2" y="798.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 788 292 13">Poland says Russia twice plotted to kill a Ukrainian rapper</text>
+<text x="356" y="811.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 801 18 13">17</text>
+<text x="372.2" y="811.35" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="371 801 81 13">EUROPE</text>
+<text x="453.2" y="811.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 801 292 13">IG Metall metalworkers strike across Germany</text>
+<rect x="342" y="814" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="824.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 814 18 13">18</text>
+<text x="372.2" y="824.35" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="371 814 81 13">EUROPE</text>
+<text x="453.2" y="824.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 814 292 13">Zelensky addresses NATO lawmakers in Berlin</text>
+<text x="356" y="837.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 827 18 13">19</text>
+<text x="372.2" y="837.35" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="371 827 81 13">EUROPE</text>
+<text x="453.2" y="837.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 827 292 13">Russia says it struck energy sites in Izmail, Ukraine</text>
+<rect x="342" y="840" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="850.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 840 18 13">20</text>
+<text x="372.2" y="850.35" font-size="11" font-weight="700" text-anchor="start" fill="#8c3927" data-box="371 840 81 13">AFRICA</text>
+<text x="453.2" y="850.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 840 292 13">Eastern Libya files UN complaint over Benghazi attack</text>
+<text x="356" y="863.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 853 18 13">21</text>
+<text x="372.2" y="863.35" font-size="11" font-weight="700" text-anchor="start" fill="#805000" data-box="371 853 81 13">MIDDLE EAST</text>
+<text x="453.2" y="863.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 853 292 13">Israeli group PHRI: attacks on West Bank medics up 350%</text>
+<rect x="342" y="866" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="876.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 866 18 13">22</text>
+<text x="372.2" y="876.35" font-size="11" font-weight="700" text-anchor="start" fill="#69447d" data-box="371 866 81 13">AMERICAS</text>
+<text x="453.2" y="876.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 866 292 13">Trump: Iran strikes could resume after New Year</text>
+<text x="356" y="889.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 879 18 13">23</text>
+<text x="372.2" y="889.35" font-size="11" font-weight="700" text-anchor="start" fill="#69447d" data-box="371 879 81 13">AMERICAS</text>
+<text x="453.2" y="889.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 879 292 13">Colombia files charges against Starlink&apos;s local unit</text>
+<rect x="342" y="892" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="902.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 892 18 13">24</text>
+<text x="372.2" y="902.35" font-size="11" font-weight="700" text-anchor="start" fill="#69447d" data-box="371 892 81 13">AMERICAS</text>
+<text x="453.2" y="902.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 892 292 13">US Army plans Iowa explosive disposal despite court stay</text>
+<text x="356" y="915.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 905 18 13">25</text>
+<text x="372.2" y="915.35" font-size="11" font-weight="700" text-anchor="start" fill="#69447d" data-box="371 905 81 13">AMERICAS</text>
+<text x="453.2" y="915.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 905 292 13">Delta fixes weight-and-balance glitch that slowed flights</text>
+<rect x="342" y="918" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="928.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 918 18 13">26</text>
+<text x="372.2" y="928.35" font-size="11" font-weight="700" text-anchor="start" fill="#10645d" data-box="371 918 81 13">ASIA</text>
+<text x="453.2" y="928.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 918 292 13">Hang Seng ends flat; Japan closed for Labour Thanksgiving</text>
+<text x="356" y="941.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 931 18 13">27</text>
+<text x="372.2" y="941.35" font-size="11" font-weight="700" text-anchor="start" fill="#10645d" data-box="371 931 81 13">ASIA</text>
+<text x="453.2" y="941.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 931 292 13">Cricket: India v New Zealand first Test ends in a draw</text>
+<rect x="342" y="944" width="407" height="13" fill="#f3f5f3" />
+<text x="356" y="954.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 944 18 13">28</text>
+<text x="372.2" y="954.35" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="371 944 81 13">EUROPE</text>
+<text x="453.2" y="954.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 944 292 13">Fire at a Berlin hospital forces evacuations</text>
+<text x="356" y="967.35" font-size="11" font-weight="700" text-anchor="middle" fill="#14243b" data-box="347 957 18 13">29</text>
+<text x="372.2" y="967.35" font-size="11" font-weight="700" text-anchor="start" fill="#274d81" data-box="371 957 81 13">EUROPE</text>
+<text x="453.2" y="967.35" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="452 957 292 13">Spain: last week of campaigning before 29 Nov election</text>
+<rect x="761" y="766" width="239" height="204" fill="#fff8f5" stroke="#a52e37" stroke-width="1.5"/>
+<rect x="762" y="767" width="237" height="20" fill="#f3dedd" />
+<text x="770.2" y="781.9" font-size="14" font-weight="700" text-anchor="start" fill="#a52e37" data-box="769 768 223 18">DATE CHECK:</text>
+<text x="770.2" y="801.9" font-size="11" font-weight="700" text-anchor="start" fill="#a52e37" data-box="769 792 223 26">LEFT OUT, FIRST REPORTED SUN 22</text>
+<text x="770.2" y="814.7" font-size="11" font-weight="700" text-anchor="start" fill="#a52e37" data-box="769 792 223 26">NOV OR EARLIER</text>
+<path d="M770 819L991 819" stroke="#dcb2b1" fill="none"/>
+<circle cx="772" cy="830.5" r="2" fill="#a52e37" />
+<text x="779.2" y="834.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 825 212 26">COP31 climate talks in Antalya end without</text>
+<text x="779.2" y="847.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 825 212 26">a deal (Sun)</text>
+<circle cx="772" cy="858.5" r="2" fill="#a52e37" />
+<text x="779.2" y="862.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 853 212 26">The Benghazi drone attack itself (Sun);</text>
+<text x="779.2" y="875.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 853 212 26">Kyiv&apos;s confirmation is Monday news</text>
+<circle cx="772" cy="886.5" r="2" fill="#a52e37" />
+<text x="779.2" y="890.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 881 212 26">Alcaraz wins the ATP Finals; Marquez&apos;s 8th</text>
+<text x="779.2" y="903.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 881 212 26">MotoGP title (Sun)</text>
+<circle cx="772" cy="914.5" r="2" fill="#a52e37" />
+<text x="779.2" y="918.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 909 212 26">Drone strikes on Khartoum; Istanbul</text>
+<text x="779.2" y="931.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 909 212 26">opposition rally (Sun)</text>
+<circle cx="772" cy="942.5" r="2" fill="#a52e37" />
+<text x="779.2" y="946.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 937 212 26">Democrats reach 258 House seats (called</text>
+<text x="779.2" y="959.7" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="778 937 212 26">Sun night)</text>
+<text x="25.2" y="983.9" font-size="11" font-weight="400" text-anchor="start" fill="#14243b" data-box="24 974 976 16">Editor’s note: Every item below was first reported on Monday 23 November 2026 (UTC). Earlier stories are listed in the Date Check box, not counted.</text>
+<rect x="24" y="994" width="976" height="20" fill="#14243b" />
+<text x="512" y="1007.85" font-size="11" font-weight="400" text-anchor="middle" fill="#ffffff" data-box="30 995 964 18">OFFICIAL = on the record from a government or agency · CONFIRMED = 2+ outlets · REPORTED = one outlet · CLAIM = one side&apos;s account, unverified</text>
+</svg>
