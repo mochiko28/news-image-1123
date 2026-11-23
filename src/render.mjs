@@ -18,12 +18,19 @@ const statuses = {
   CLAIM: ['#475365', '#e8ebee'],
 };
 const regions = {
-  AFRICA: ['#8c3927', '#f5e6df'],
-  EUROPE: ['#274d81', '#e5edf8'],
-  ASIA: ['#10645d', '#dff0eb'],
-  AMERICAS: ['#69447d', '#eee5f3'],
-  'MIDDLE EAST': ['#805000', '#f8ecd5'],
+  EUROPE: ['#245794', '#e5edf8'],
+  AFRICA: ['#9d3e23', '#f5e6df'],
+  'MIDDLE EAST': ['#765600', '#f8ecd5'],
+  'EAST ASIA': ['#006b73', '#dff0f0'],
+  'SOUTH-EAST ASIA': ['#366123', '#e8f0df'],
+  OCEANIA: ['#9b2f67', '#f6e5ef'],
+  'NORTH AMERICA': ['#583987', '#eee5f3'],
+  'LATIN AMERICA': ['#414959', '#e8ebf0'],
 };
+const regionNames = story => story.region.split(' · ');
+const mappedStories = [...stories.leads, ...stories.cards];
+const allStories = [...mappedStories, ...stories.briefs];
+const presentRegions = new Set(allStories.flatMap(regionNames));
 
 // Each text line includes the intended layout box for the separate SVG audit.
 const svg = [];
@@ -110,12 +117,10 @@ function pill(value, x, y, palette, width) {
 }
 
 function masthead() {
-  const { day, date, kicker, leads, cards, briefs } = stories;
-  const allStories = [...leads, ...cards, ...briefs];
-  const regionCount = new Set(allStories.flatMap(story => story.region.split(' · '))).size;
-  const fieldCount = new Set([...leads, ...cards].map(story => story.field)).size;
+  const { day, date, kicker } = stories;
+  const fieldCount = new Set(allStories.map(story => story.field).filter(Boolean)).size;
   const [dayOfMonth, month, year] = date.split(' ');
-  const stats = `${allStories.length} STORIES · ${regionCount} REGIONS · ${fieldCount} FIELDS · ALL FROM ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
+  const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · ALL FROM ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
 
   rect(24, 14, pageWidth, 113, ink);
   rect(24, 14, 5, 113, '#d75450');
@@ -132,24 +137,24 @@ function strips() {
   line(24, 150, 1000, 150, ink);
   for (const [index, { t, text: event }] of stories.timeline.entries()) {
     const x = 24 + index * timelineWidth;
-    if (index) line(x, 156, x, 185);
-    label(t, box(x + 6, 154, timelineWidth - 12, 13), '#174985');
-    text(event, box(x + 6, 169, timelineWidth - 12, 25), { maxLines: 2 });
+    if (index) line(x, 154, x, 177);
+    label(t, box(x + 4, 152, timelineWidth - 8, 13), '#174985');
+    text(event, box(x + 4, 165, timelineWidth - 7, 13), { maxLines: 1 });
   }
 
-  rect(24, 198, pageWidth, 47, '#e5ebed');
-  text('THE DAY IN NUMBERS', box(32, 202, 94, 39), {
+  rect(24, 183, pageWidth, 40, '#e5ebed');
+  text('THE DAY IN NUMBERS', box(32, 184, 94, 38), {
     size: 13, min: 13, weight: 700, vertical: 'middle',
   });
   const numberWidth = (pageWidth - 106) / stories.numbers.length;
   for (const [index, { v, l }] of stories.numbers.entries()) {
     const x = 130 + index * numberWidth;
-    line(x, 205, x, 238, '#aab8bf');
+    line(x, 188, x, 218, '#aab8bf');
     const valueWidth = Math.ceil(fontFor(700).width(v, 30)) + 6;
-    text(v, box(x + 9, 201, valueWidth, 40), {
+    text(v, box(x + 9, 184, valueWidth, 38), {
       size: 30, min: 30, weight: 700, vertical: 'middle', maxLines: 1,
     });
-    text(l, box(x + 17 + valueWidth, 202, numberWidth - 24 - valueWidth, 38), {
+    text(l, box(x + 17 + valueWidth, 184, numberWidth - 24 - valueWidth, 38), {
       size: 12, vertical: 'middle', maxLines: 3,
     });
   }
@@ -192,29 +197,35 @@ const scenes = {
 
 function leadPanel(story, index) {
   const x = 24 + index * 328;
-  const y = 254;
+  const y = 230;
   const w = index === 2 ? 320 : 318;
   const contentX = x + 11;
   const contentWidth = w - 22;
+  const names = regionNames(story);
+  const tagY = y + 61;
+  const statusX = x + w - 91;
 
-  rect(x, y, w, 225, white, `stroke="${rule}"`);
-  add(`<g transform="translate(${x} ${y}) scale(${w / 320} 1)">${scenes[story.scene]}</g>`);
-  rect(x, y, w, 3, regions[story.region.split(' · ')[0]][0]);
-
-  badge(index + 1, contentX, y + 79, 19, 16);
-  let tagX = contentX + 24;
-  for (const region of story.region.split(' · ')) {
-    tagX += pill(region, tagX, y + 79, regions[region]) + 4;
+  rect(x, y, w, 207, white, `stroke="${rule}"`);
+  add(`<g transform="translate(${x} ${y}) scale(${w / 320} ${55 / 70})">${scenes[story.scene]}</g>`);
+  const bandWidth = w / names.length;
+  for (const [i, region] of names.entries()) {
+    rect(x + i * bandWidth, y, bandWidth, 3, regions[region][0]);
   }
-  label(story.field, box(tagX + 2, y + 79, 72, 16), muted);
-  pill(story.status, x + w - 91, y + 79, statuses[story.status], 80);
-  text(story.head, box(contentX, y + 100, contentWidth, 51), {
+
+  badge(index + 1, contentX, tagY, 19, 16);
+  let tagX = contentX + 24;
+  for (const region of names) {
+    tagX += pill(region, tagX, tagY, regions[region]) + 4;
+  }
+  label(story.field, box(tagX + 2, tagY, statusX - tagX - 6, 16), muted);
+  pill(story.status, statusX, tagY, statuses[story.status], 80);
+  text(story.head, box(contentX, y + 82, contentWidth, 51), {
     size: 23, min: 20, weight: 700, maxLines: 2,
   });
-  text(story.sub, box(contentX, y + 155, contentWidth, 53), {
+  text(story.sub, box(contentX, y + 135, contentWidth, 53), {
     size: 12, maxLines: 4,
   });
-  text('Source: ' + story.src, box(contentX, y + 209, contentWidth, 14), {
+  text('Source: ' + story.src, box(contentX, y + 190, contentWidth, 14), {
     fill: muted, maxLines: 1,
   });
 }
@@ -236,23 +247,24 @@ const icons = {
 
 function storyCard(story, index) {
   const x = 24 + index % 4 * 246;
-  const y = 487 + Math.floor(index / 4) * 92;
+  const y = 443 + Math.floor(index / 4) * 89;
   const w = 238;
+  const h = 85;
   const [color, tint] = regions[story.region];
-  rect(x, y, w, 87, white, `stroke="${rule}"`);
-  rect(x, y, 3, 87, color);
-  rect(x + 9, y + 6, 21, 21, tint, 'rx="3"');
-  add(`<g transform="translate(${x + 9.5} ${y + 6.5})" fill="none" stroke="${color}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${icons[story.icon]}</g>`);
-  badge(index + 4, x + 35, y + 9, 19, 15);
-  label(story.region, box(x + 59, y + 8, 84, 16), color);
-  pill(story.status, x + 150, y + 8, statuses[story.status], 79);
-  const headY = y + 27;
+  rect(x, y, w, h, white, `stroke="${rule}"`);
+  rect(x, y, 3, h, color);
+  rect(x + 8, y + 3, 21, 21, tint, 'rx="3"');
+  add(`<g transform="translate(${x + 8.5} ${y + 3.5})" fill="none" stroke="${color}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${icons[story.icon]}</g>`);
+  badge(index + 4, x + 32, y + 6, 19, 15);
+  label(story.region, box(x + 54, y + 5, 106, 16), color);
+  pill(story.status, x + 161, y + 5, statuses[story.status], 74);
+  const headY = y + 24;
   const headHeight = text(story.head, box(x + 7, headY, w - 13, 34), {
     size: 15, min: 15, weight: 700, maxLines: 2,
   });
   const subY = Math.ceil(headY + headHeight);
-  text(story.sub, box(x + 9, subY, w - 18, 13), { maxLines: 1 });
-  text('Source: ' + story.src, box(x + 9, subY + 13, w - 18, 13), {
+  text(story.sub, box(x + 9, subY, w - 18, 12.5), { maxLines: 1 });
+  text('Source: ' + story.src, box(x + 9, subY + 12.5, w - 18, 13), {
     fill: muted, maxLines: 1,
   });
 }
@@ -394,16 +406,15 @@ function distanceToSegment([x, y], [ax, ay], [bx, by]) {
   return Math.hypot(x - ax - t * dx, y - ay - t * dy);
 }
 
-function worldMap() {
-  const x = 24;
-  const y = 766;
-  const w = 306;
-  const h = 204;
+function worldMap({ x, y, w, h }) {
   const sea = '#eef3f2';
+  const legend = Object.keys(regions).filter(region => presentRegions.has(region));
+  const legendRowHeight = 14;
+  const legendHeight = Math.ceil(legend.length / 2) * legendRowHeight + 5;
   const mapLeft = x + 1;
   const mapRight = x + w - 1;
-  const mapTop = y + 22;
-  const mapBottom = y + h - 19;
+  const mapTop = y + 20;
+  const mapBottom = y + h - legendHeight - 1;
   const west = -174;
   const east = 180;
   const north = 72;
@@ -418,8 +429,8 @@ function worldMap() {
   ];
 
   rect(x, y, w, h, sea, `stroke="${rule}"`);
-  rect(x, y, w, 22, '#e2e9e9');
-  label('WHERE IT HAPPENED', box(x + 8, y + 3, w - 16, 16));
+  rect(x, y, w, 20, '#e2e9e9');
+  label('WHERE IT HAPPENED', box(x + 8, y + 2, w - 16, 16));
 
   add('<clipPath id="map-window">');
   rect(mapLeft, mapTop, mapRight - mapLeft, mapBottom - mapTop, sea);
@@ -440,11 +451,10 @@ function worldMap() {
   }
   add('</g>');
 
-  const mapStories = [...stories.leads, ...stories.cards];
-  const pins = mapStories.map((story, index) => ({
+  const pins = mappedStories.map((story, index) => ({
     index: index + 1,
     point: project(story.lon, story.lat),
-    color: regions[story.region.split(' · ')[0]][0],
+    colors: regionNames(story).map(region => regions[region][0]),
   }));
   const labelRadius = 8.5;
   const distance = ([ax, ay], [bx, by]) => Math.hypot(ax - bx, ay - by);
@@ -472,82 +482,82 @@ function worldMap() {
     placed.push(pin);
   }
 
-  for (const { point: [px, py], center: [cx, cy], color } of pins) {
+  for (const { point: [px, py], center: [cx, cy], colors: [color] } of pins) {
     add(`<path d="M${n(px)} ${n(py)}L${n(cx)} ${n(cy)}" stroke="${color}" stroke-width=".75"/>`);
   }
-  for (const { point, color } of pins) {
+  for (const { point, colors: [color] } of pins) {
     circle(...point, 1.1, color, 'stroke="#fffefa" stroke-width=".4"');
   }
-  for (const { center: [cx, cy], index, color } of pins) {
-    circle(cx, cy, labelRadius, color, 'stroke="#fffefa" stroke-width="1"');
+  for (const { center: [cx, cy], index, colors: [color, secondColor] } of pins) {
+    circle(cx, cy, labelRadius, color);
+    if (secondColor) {
+      add(`<path d="M${n(cx)} ${n(cy - labelRadius)}A${labelRadius} ${labelRadius} 0 0 1 ${n(cx)} ${n(cy + labelRadius)}Z" fill="${secondColor}"/>`);
+    }
+    circle(cx, cy, labelRadius, 'none', 'stroke="#fffefa" stroke-width="1"');
     text(index, box(cx - 8, cy - 7, 16, 14), {
       weight: 700, fill: '#ffffff', align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
     });
   }
 
-  const presentRegions = new Set(mapStories.flatMap(story => story.region.split(' · ')));
-  const legend = Object.keys(regions).filter(region => presentRegions.has(region)).map(region => {
-    const name = region.toLowerCase().replace(/\b\w/g, initial => initial.toUpperCase());
-    return { name, color: regions[region][0], width: Math.ceil(fontFor(700).width(name, 11)) };
-  });
-  const legendWidth = legend.reduce((total, { width }) => total + width + 10, 0) +
-    (legend.length - 1) * 7;
-  rect(mapLeft, mapBottom, mapRight - mapLeft, 18, '#f7f9f6');
+  rect(mapLeft, mapBottom, mapRight - mapLeft, legendHeight, '#f7f9f6');
   line(mapLeft, mapBottom, mapRight, mapBottom, '#d4dfdd');
-  let legendX = x + (w - legendWidth) / 2;
-  for (const { name, color, width } of legend) {
-    circle(legendX + 3, mapBottom + 9, 3, color);
-    text(name, box(legendX + 10, mapBottom + 2, width, 14), {
-      weight: 700, fill: color, vertical: 'middle', maxLines: 1, inset: 0,
-    });
-    legendX += width + 17;
+  for (const [index, region] of legend.entries()) {
+    const columnX = x + 8 + index % 2 * (w / 2);
+    const rowY = mapBottom + 2 + Math.floor(index / 2) * legendRowHeight;
+    const color = regions[region][0];
+    rect(columnX, rowY + 3.75, 6.5, 6.5, color);
+    label(region, box(columnX + 10, rowY, w / 2 - 21, legendRowHeight), color);
   }
 }
 
-function briefs() {
-  const x = 341;
-  const y = 766;
-  const w = 409;
-  const h = 204;
+function briefs({ x, y, w, h }) {
+  const headerHeight = 20;
+  const rows = Math.ceil(stories.briefs.length / 2);
+  const rowHeight = (h - headerHeight - 2) / rows;
+  const columnWidth = w / 2;
+  if (rowHeight < 11 * (fontFor(400).ascent + fontFor(400).descent)) {
+    throw new Error(`Cannot fit ${stories.briefs.length} briefs in two columns at 11px`);
+  }
   rect(x, y, w, h, white, `stroke="${rule}"`);
-  rect(x, y, w, 22, '#e2e9e9');
-  label('ALSO ON MONDAY', box(x + 8, y + 3, w - 16, 16));
+  rect(x, y, w, headerHeight, '#e2e9e9');
+  label('ALSO ON ' + stories.day, box(x + 8, y + 2, w - 16, 16));
+  line(x + columnWidth, y + headerHeight, x + columnWidth, y + h - 1);
 
-  const firstNumber = stories.leads.length + stories.cards.length + 1;
   for (const [index, brief] of stories.briefs.entries()) {
-    const rowY = y + 22 + index * 13;
-    if (index % 2 === 0) rect(x + 1, rowY, w - 2, 13, '#f3f5f3');
-    text(firstNumber + index, box(x + 6, rowY, 18, 13), {
+    const columnX = x + Math.floor(index / rows) * columnWidth;
+    const row = index % rows;
+    const rowY = y + headerHeight + row * rowHeight;
+    if (row % 2 === 0) rect(columnX + 1, rowY, columnWidth - 2, rowHeight, '#f3f5f3');
+    rect(columnX + 5, rowY + (rowHeight - 6.5) / 2, 6.5, 6.5, regions[brief.region][0]);
+    text(mappedStories.length + index + 1, box(columnX + 13, rowY, 14, rowHeight), {
       weight: 700, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
     });
-    label(brief.region, box(x + 30, rowY, 81, 13), regions[brief.region][0]);
-    text(brief.text, box(x + 111, rowY, w - 117, 13), {
-      vertical: 'middle', maxLines: 1,
+    text(brief.text, box(columnX + 29, rowY, columnWidth - 31, rowHeight), {
+      size: 12, vertical: 'middle', maxLines: 1, inset: 0.8,
     });
   }
 }
 
-function dateCheck() {
-  const x = 761;
-  const y = 766;
-  const w = 239;
-  const h = 204;
+function dateCheck({ x, y, w, h }) {
   rect(x, y, w, h, '#fff8f5', `stroke="${red}" stroke-width="1.5"`);
-  rect(x + 1, y + 1, w - 2, 20, '#f3dedd');
+  rect(x + 1, y + 1, w - 2, 17, '#f3dedd');
 
   const separator = stories.datecheck.title.indexOf(':');
   const title = stories.datecheck.title.slice(0, separator + 1);
   const subtitle = stories.datecheck.title.slice(separator + 1).trim();
-  text(title, box(x + 8, y + 2, w - 16, 18), {
+  const titleWidth = Math.ceil(fontFor(700).width(title, 14)) + 4;
+  text(title, box(x + 6, y + 1, titleWidth, 17), {
     size: 14, min: 14, weight: 700, fill: red, vertical: 'middle', maxLines: 1,
   });
-  text(subtitle, box(x + 8, y + 26, w - 16, 26), { weight: 700, fill: red });
-  line(x + 9, y + 53, x + w - 9, y + 53, '#dcb2b1');
+  label(subtitle, box(x + 12 + titleWidth, y + 1, w - 18 - titleWidth, 17), red);
 
+  const itemWidth = w / stories.datecheck.items.length;
   for (const [index, item] of stories.datecheck.items.entries()) {
-    const itemY = y + 59 + index * 28;
-    circle(x + 11, itemY + 5.5, 2, red);
-    text(item, box(x + 17, itemY, w - 27, 26), { maxLines: 2 });
+    const itemX = x + index * itemWidth;
+    if (index) line(itemX, y + 20, itemX, y + h - 3, '#dcb2b1');
+    text(item, box(itemX + 6, y + 18, itemWidth - 9, h - 19), {
+      vertical: 'middle', maxLines: 2, inset: 0,
+    });
   }
 }
 
@@ -565,9 +575,13 @@ masthead();
 strips();
 stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
-worldMap();
-briefs();
-dateCheck();
+const lowerY = 712;
+const lowerHeight = 211;
+const mapWidth = 270;
+const panelGap = 8;
+worldMap(box(margin, lowerY, mapWidth, lowerHeight));
+briefs(box(margin + mapWidth + panelGap, lowerY, pageWidth - mapWidth - panelGap, lowerHeight));
+dateCheck(box(margin, lowerY + lowerHeight + 5, pageWidth, 44));
 footer();
 add('</svg>');
 
