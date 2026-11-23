@@ -21,6 +21,7 @@ const regions = {
   EUROPE: ['#245794', '#e5edf8'],
   AFRICA: ['#9d3e23', '#f5e6df'],
   'MIDDLE EAST': ['#765600', '#f8ecd5'],
+  'SOUTH ASIA': ['#9a5a12', '#f6ecdd'],
   'EAST ASIA': ['#006b73', '#dff0f0'],
   'SOUTH-EAST ASIA': ['#366123', '#e8f0df'],
   OCEANIA: ['#9b2f67', '#f6e5ef'],
@@ -85,7 +86,7 @@ function text(value, bounds, options = {}) {
     if (height > h + 0.001) continue;
 
     const start = y + (vertical === 'middle' ? (h - height) / 2 : 0);
-    const anchorX = align === 'middle' ? x + w / 2 : x + inset;
+    const anchorX = { start: x + inset, middle: x + w / 2, end: x + w - inset }[align];
     const baseline = start + font.ascent * fontSize;
     for (const [index, content] of lines.entries()) {
       add(`<text x="${n(anchorX)}" y="${n(baseline + index * (lineHeight + gap))}" font-size="${fontSize}" font-weight="${weight}" text-anchor="${align}" fill="${fill}" data-box="${[x, y, w, h].map(n).join(' ')}">${xml(content)}</text>`);
@@ -132,14 +133,22 @@ function masthead() {
 }
 
 function strips() {
-  const timelineWidth = pageWidth / stories.timeline.length;
+  const timelineWidths = stories.timeline.map(({ t, text: event }) =>
+    Math.max(fontFor(700).width(t, 11), fontFor(400).width(event, 11)) + 8,
+  );
+  const extraWidth = (pageWidth - timelineWidths.reduce((sum, width) => sum + width, 0)) /
+    timelineWidths.length;
   label('THE DAY IN UTC', box(24, 132, 230, 16));
   line(24, 150, 1000, 150, ink);
+  let timelineX = margin;
   for (const [index, { t, text: event }] of stories.timeline.entries()) {
-    const x = 24 + index * timelineWidth;
-    if (index) line(x, 154, x, 177);
-    label(t, box(x + 4, 152, timelineWidth - 8, 13), '#174985');
-    text(event, box(x + 4, 165, timelineWidth - 7, 13), { maxLines: 1 });
+    const width = timelineWidths[index] + extraWidth;
+    if (index) line(timelineX, 154, timelineX, 177);
+    text(t, box(timelineX + 4, 152, width - 8, 13), {
+      weight: 700, fill: '#174985', vertical: 'middle', maxLines: 1, inset: 0,
+    });
+    text(event, box(timelineX + 4, 165, width - 8, 13), { maxLines: 1, inset: 0 });
+    timelineX += width;
   }
 
   rect(24, 183, pageWidth, 40, '#e5ebed');
@@ -202,11 +211,12 @@ function leadPanel(story, index) {
   const contentX = x + 11;
   const contentWidth = w - 22;
   const names = regionNames(story);
-  const tagY = y + 61;
+  const tagY = y + (story.t ? 47 : 61);
+  const sceneHeight = tagY - y - 6;
   const statusX = x + w - 91;
 
   rect(x, y, w, 207, white, `stroke="${rule}"`);
-  add(`<g transform="translate(${x} ${y}) scale(${w / 320} ${55 / 70})">${scenes[story.scene]}</g>`);
+  add(`<g transform="translate(${x} ${y}) scale(${w / 320} ${sceneHeight / 70})">${scenes[story.scene]}</g>`);
   const bandWidth = w / names.length;
   for (const [i, region] of names.entries()) {
     rect(x + i * bandWidth, y, bandWidth, 3, regions[region][0]);
@@ -219,6 +229,9 @@ function leadPanel(story, index) {
   }
   label(story.field, box(tagX + 2, tagY, statusX - tagX - 6, 16), muted);
   pill(story.status, statusX, tagY, statuses[story.status], 80);
+  if (story.t) {
+    label(`FIRST REPORT ${story.t} UTC`, box(contentX, y + 64, contentWidth, 14), muted);
+  }
   text(story.head, box(contentX, y + 82, contentWidth, 51), {
     size: 23, min: 20, weight: 700, maxLines: 2,
   });
@@ -264,9 +277,20 @@ function storyCard(story, index) {
   });
   const subY = Math.ceil(headY + headHeight);
   text(story.sub, box(x + 9, subY, w - 18, 12.5), { maxLines: 1 });
-  text('Source: ' + story.src, box(x + 9, subY + 12.5, w - 18, 13), {
-    fill: muted, maxLines: 1,
+  const sourceY = subY + 12.5;
+  const reportTime = story.t ? `${story.t} UTC` : '';
+  const timeWidth = Math.ceil(fontFor(400).width(reportTime, 11));
+  const sourceX = x + 7;
+  const timeX = x + w - 4 - timeWidth;
+  const sourceRight = reportTime ? timeX - 4 : timeX;
+  text('Source: ' + story.src, box(sourceX, sourceY, sourceRight - sourceX, 13), {
+    fill: muted, maxLines: 1, inset: 0,
   });
+  if (reportTime) {
+    text(reportTime, box(timeX, sourceY, timeWidth, 13), {
+      fill: muted, align: 'end', maxLines: 1, inset: 0,
+    });
+  }
 }
 
 // Hand-drawn coastlines in longitude/latitude order. Europe and Asia share
