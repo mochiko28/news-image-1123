@@ -1,102 +1,288 @@
 {
-  "day": "MONDAY",
-  "date": "23 NOVEMBER 2026",
-  "kicker": "THE WORLD ON ONE PAGE",
-  "note": "Every item below was first reported on Monday 23 November 2026 (UTC). Earlier stories are listed in the Date Check box, not counted.",
-  "timeline": [
-    {"t": "00:00", "text": "Seoul opens; chip stocks slide"},
-    {"t": "06:00", "text": "Belgian airspace shuts for strike"},
-    {"t": "06:30", "text": "KOSPI closes down 3.3%"},
-    {"t": "AM", "text": "Kyiv confirms Merkury sunk"},
-    {"t": "AM", "text": "NATO envoys meet on Poland"},
-    {"t": "20:00", "text": "Belgian flights due to resume"}
-  ],
-  "numbers": [
-    {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
-    {"v": "-5.8%", "l": "KOSPI at its low of the day"},
-    {"v": "24", "l": "dead in Indonesian factory fire"},
-    {"v": "14 h", "l": "boy, 7, trapped under rubble in Dymer"}
-  ],
-  "leads": [
-    {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "OFFICIAL", "scene": "warship",
-     "lat": 32.1, "lon": 20.1,
-     "head": "Zelensky: Ukraine sank a Russian warship off Libya",
-     "sub": "Kyiv says 7 sea drones sank the corvette Merkury at Benghazi port and also hit the cargo ship Angara and a Ka-27 helicopter. All crew rescued, local officials say; UN mission calls for an inquiry.",
-     "src": "Al Jazeera, BBC"},
-    {"region": "ASIA", "field": "MARKETS", "status": "CONFIRMED", "scene": "chart",
-     "lat": 37.6, "lon": 127.0,
-     "head": "Seoul stocks slump as chipmakers fall",
-     "sub": "KOSPI dives as much as 5.8% before closing 3.3% lower; Samsung -3.1%, SK Hynix -2.5%. Taiwan's Taiex ends 2.2% higher; Tokyo shut for a holiday.",
-     "src": "Al Jazeera"},
-    {"region": "EUROPE", "field": "LABOUR", "status": "CONFIRMED", "scene": "plane",
-     "lat": 50.85, "lon": 4.35,
-     "head": "National strike grounds all Belgian flights",
-     "sub": "Air traffic control halts 06:00-20:00 GMT as unions march in Brussels against EUR 10bn of budget cuts.",
-     "src": "Al Jazeera, DW"}
-  ],
-  "cards": [
-    {"region": "ASIA", "field": "DISASTER", "status": "REPORTED", "icon": "fire", "lat": -6.2, "lon": 106.4,
-     "head": "Indonesian candy factory fire kills 24",
-     "sub": "About 30 still missing in Serang, Banten", "src": "Al Jazeera"},
-    {"region": "EUROPE", "field": "CONFLICT", "status": "OFFICIAL", "icon": "blast", "lat": 50.8, "lon": 30.3,
-     "head": "Russian strikes kill 15 in Kyiv region",
-     "sub": "Boy, 7, pulled alive after 14 hours in Dymer", "src": "France 24, BBC"},
-    {"region": "EUROPE", "field": "SECURITY", "status": "OFFICIAL", "icon": "shield", "lat": 52.2, "lon": 21.0,
-     "head": "NATO meets on Polish airspace breach",
-     "sub": "Allies weigh alleged Russian incursion", "src": "DW, France 24"},
-    {"region": "EUROPE", "field": "ENERGY", "status": "REPORTED", "icon": "flame", "lat": 52.4, "lon": 4.9,
-     "head": "European gas prices jump",
-     "sub": "Traders brace for a cold snap", "src": "The Guardian"},
-    {"region": "AFRICA", "field": "HEALTH", "status": "OFFICIAL", "icon": "virus", "lat": 0.5, "lon": 29.5,
-     "head": "WHO: fighting disrupts Ebola response",
-     "sub": "Clashes near a hospital in eastern DR Congo", "src": "BBC"},
-    {"region": "AMERICAS", "field": "TECH", "status": "OFFICIAL", "icon": "chip", "lat": 38.9, "lon": -77.0,
-     "head": "US curbs renting AI computing to China",
-     "sub": "Overseas cloud firms will need permission", "src": "US media"},
-    {"region": "AFRICA", "field": "DIPLOMACY", "status": "OFFICIAL", "icon": "handshake", "lat": -1.3, "lon": 36.8,
-     "head": "Kenya and DR Congo restore ties",
-     "sub": "Ruto and Tshisekedi end a diplomatic rift", "src": "BBC"},
-    {"region": "ASIA", "field": "CYBER", "status": "OFFICIAL", "icon": "lock", "lat": 37.5, "lon": 126.9,
-     "head": "Samsung Securities confirms data breach",
-     "sub": "More than 8,000 customers affected", "src": "Korean media"},
-    {"region": "AFRICA", "field": "LAW", "status": "OFFICIAL", "icon": "gavel", "lat": 9.1, "lon": 7.5,
-     "head": "Nigeria moves to decriminalise suicide attempts",
-     "sub": "Tinubu sends a bill to parliament", "src": "BBC"},
-    {"region": "EUROPE", "field": "CONFLICT", "status": "CLAIM", "icon": "drone", "lat": 58.0, "lon": 56.2,
-     "head": "Drones hit industrial sites in Perm",
-     "sub": "One dead, Russian officials say", "src": "Al Jazeera"},
-    {"region": "MIDDLE EAST", "field": "ENVIRONMENT", "status": "REPORTED", "icon": "drop", "lat": 31.4, "lon": 34.4,
-     "head": "Report calls Gaza a \"toxic wasteland\"",
-     "sub": "Soil and water contamination after the war", "src": "The Guardian"},
-    {"region": "EUROPE", "field": "POLITICS", "status": "OFFICIAL", "icon": "pillar", "lat": 51.5, "lon": -0.1,
-     "head": "Burnham sells EU deal to MPs",
-     "sub": "UK PM: next decade could be \"much better\"", "src": "BBC, The Guardian"}
-  ],
-  "briefs": [
-    {"region": "EUROPE", "text": "Poland says Russia twice plotted to kill a Ukrainian rapper"},
-    {"region": "EUROPE", "text": "IG Metall metalworkers strike across Germany"},
-    {"region": "EUROPE", "text": "Zelensky addresses NATO lawmakers in Berlin"},
-    {"region": "EUROPE", "text": "Russia says it struck energy sites in Izmail, Ukraine"},
-    {"region": "AFRICA", "text": "Eastern Libya files UN complaint over Benghazi attack"},
-    {"region": "MIDDLE EAST", "text": "Israeli group PHRI: attacks on West Bank medics up 350%"},
-    {"region": "AMERICAS", "text": "Trump: Iran strikes could resume after New Year"},
-    {"region": "AMERICAS", "text": "Colombia files charges against Starlink's local unit"},
-    {"region": "AMERICAS", "text": "US Army plans Iowa explosive disposal despite court stay"},
-    {"region": "AMERICAS", "text": "Delta fixes weight-and-balance glitch that slowed flights"},
-    {"region": "ASIA", "text": "Hang Seng ends flat; Japan closed for Labour Thanksgiving"},
-    {"region": "ASIA", "text": "Cricket: India v New Zealand first Test ends in a draw"},
-    {"region": "EUROPE", "text": "Fire at a Berlin hospital forces evacuations"},
-    {"region": "EUROPE", "text": "Spain: last week of campaigning before 29 Nov election"}
-  ],
-  "datecheck": {
-    "title": "DATE CHECK: LEFT OUT, FIRST REPORTED SUN 22 NOV OR EARLIER",
-    "items": [
-      "COP31 climate talks in Antalya end without a deal (Sun)",
-      "The Benghazi drone attack itself (Sun); Kyiv's confirmation is Monday news",
-      "Alcaraz wins the ATP Finals; Marquez's 8th MotoGP title (Sun)",
-      "Drone strikes on Khartoum; Istanbul opposition rally (Sun)",
-      "Democrats reach 258 House seats (called Sun night)"
-    ]
+ "day": "MONDAY",
+ "date": "23 NOVEMBER 2026",
+ "kicker": "THE WORLD ON ONE PAGE",
+ "note": "Every item below was first reported on Monday 23 November 2026 (UTC). Earlier stories are listed in the Date Check box, not counted.",
+ "timeline": [
+  {
+   "t": "00:00",
+   "text": "Seoul opens; chip stocks slide"
   },
-  "footer": "OFFICIAL = on the record from a government or agency · CONFIRMED = 2+ outlets · REPORTED = one outlet · CLAIM = one side's account, unverified"
+  {
+   "t": "06:00",
+   "text": "Belgian airspace shuts for strike"
+  },
+  {
+   "t": "06:30",
+   "text": "KOSPI closes down 3.3%"
+  },
+  {
+   "t": "AM",
+   "text": "Kyiv confirms Merkury sunk"
+  },
+  {
+   "t": "AM",
+   "text": "NATO envoys meet on Poland"
+  },
+  {
+   "t": "20:00",
+   "text": "Belgian flights due to resume"
+  }
+ ],
+ "numbers": [
+  {
+   "v": "7",
+   "l": "sea drones used on the Merkury, Kyiv says"
+  },
+  {
+   "v": "-5.8%",
+   "l": "KOSPI at its low of the day"
+  },
+  {
+   "v": "24",
+   "l": "dead in Indonesian factory fire"
+  },
+  {
+   "v": "14 h",
+   "l": "boy, 7, trapped under rubble in Dymer"
+  }
+ ],
+ "leads": [
+  {
+   "region": "AFRICA · EUROPE",
+   "field": "CONFLICT",
+   "status": "OFFICIAL",
+   "scene": "warship",
+   "lat": 32.1,
+   "lon": 20.1,
+   "head": "Zelensky: Ukraine sank a Russian warship off Libya",
+   "sub": "Kyiv says 7 sea drones sank the corvette Merkury at Benghazi port and also hit the cargo ship Angara and a Ka-27 helicopter. All crew rescued, local officials say; UN mission calls for an inquiry.",
+   "src": "Al Jazeera, BBC"
+  },
+  {
+   "region": "ASIA",
+   "field": "MARKETS",
+   "status": "CONFIRMED",
+   "scene": "chart",
+   "lat": 37.6,
+   "lon": 127.0,
+   "head": "Seoul stocks slump as chipmakers fall",
+   "sub": "KOSPI dives as much as 5.8% before closing 3.3% lower; Samsung -3.1%, SK Hynix -2.5%. Taiwan's Taiex ends 2.2% higher; Tokyo shut for a holiday.",
+   "src": "Al Jazeera"
+  },
+  {
+   "region": "EUROPE",
+   "field": "LABOUR",
+   "status": "CONFIRMED",
+   "scene": "plane",
+   "lat": 50.85,
+   "lon": 4.35,
+   "head": "National strike grounds all Belgian flights",
+   "sub": "Air traffic control halts 06:00-20:00 GMT as unions march in Brussels against EUR 10bn of budget cuts.",
+   "src": "Al Jazeera, DW"
+  }
+ ],
+ "cards": [
+  {
+   "region": "ASIA",
+   "field": "DISASTER",
+   "status": "REPORTED",
+   "icon": "fire",
+   "lat": -6.2,
+   "lon": 106.4,
+   "head": "Indonesian candy factory fire kills 24",
+   "sub": "About 30 still missing in Serang, Banten",
+   "src": "Al Jazeera"
+  },
+  {
+   "region": "EUROPE",
+   "field": "CONFLICT",
+   "status": "OFFICIAL",
+   "icon": "blast",
+   "lat": 50.8,
+   "lon": 30.3,
+   "head": "Russian strikes kill 15 in Kyiv region",
+   "sub": "Boy, 7, pulled alive after 14 hours in Dymer",
+   "src": "France 24, BBC"
+  },
+  {
+   "region": "EUROPE",
+   "field": "SECURITY",
+   "status": "OFFICIAL",
+   "icon": "shield",
+   "lat": 52.2,
+   "lon": 21.0,
+   "head": "NATO meets on Polish airspace breach",
+   "sub": "Allies weigh alleged Russian incursion",
+   "src": "DW, France 24"
+  },
+  {
+   "region": "EUROPE",
+   "field": "ENERGY",
+   "status": "REPORTED",
+   "icon": "flame",
+   "lat": 52.4,
+   "lon": 4.9,
+   "head": "European gas prices jump",
+   "sub": "Traders brace for a cold snap",
+   "src": "The Guardian"
+  },
+  {
+   "region": "AFRICA",
+   "field": "HEALTH",
+   "status": "OFFICIAL",
+   "icon": "virus",
+   "lat": 0.5,
+   "lon": 29.5,
+   "head": "WHO: fighting disrupts Ebola response",
+   "sub": "Clashes near a hospital in eastern DR Congo",
+   "src": "BBC"
+  },
+  {
+   "region": "AMERICAS",
+   "field": "TECH",
+   "status": "OFFICIAL",
+   "icon": "chip",
+   "lat": 38.9,
+   "lon": -77.0,
+   "head": "US curbs renting AI computing to China",
+   "sub": "Overseas cloud firms will need permission",
+   "src": "US media"
+  },
+  {
+   "region": "AFRICA",
+   "field": "DIPLOMACY",
+   "status": "OFFICIAL",
+   "icon": "handshake",
+   "lat": -1.3,
+   "lon": 36.8,
+   "head": "Kenya and DR Congo restore ties",
+   "sub": "Ruto and Tshisekedi end a diplomatic rift",
+   "src": "BBC"
+  },
+  {
+   "region": "ASIA",
+   "field": "CYBER",
+   "status": "OFFICIAL",
+   "icon": "lock",
+   "lat": 37.5,
+   "lon": 126.9,
+   "head": "Samsung Securities confirms data breach",
+   "sub": "More than 8,000 customers affected",
+   "src": "Korean media"
+  },
+  {
+   "region": "AFRICA",
+   "field": "LAW",
+   "status": "OFFICIAL",
+   "icon": "gavel",
+   "lat": 9.1,
+   "lon": 7.5,
+   "head": "Nigeria moves to decriminalise suicide attempts",
+   "sub": "Tinubu sends a bill to parliament",
+   "src": "BBC"
+  },
+  {
+   "region": "EUROPE",
+   "field": "CONFLICT",
+   "status": "CLAIM",
+   "icon": "drone",
+   "lat": 58.0,
+   "lon": 56.2,
+   "head": "Drones hit industrial sites in Perm",
+   "sub": "One dead, Russian officials say",
+   "src": "Al Jazeera"
+  },
+  {
+   "region": "MIDDLE EAST",
+   "field": "ENVIRONMENT",
+   "status": "REPORTED",
+   "icon": "drop",
+   "lat": 31.4,
+   "lon": 34.4,
+   "head": "Report calls Gaza a \"toxic wasteland\"",
+   "sub": "Soil and water contamination after the war",
+   "src": "The Guardian"
+  },
+  {
+   "region": "EUROPE",
+   "field": "POLITICS",
+   "status": "OFFICIAL",
+   "icon": "pillar",
+   "lat": 51.5,
+   "lon": -0.1,
+   "head": "Burnham sells EU deal to MPs",
+   "sub": "UK PM: next decade could be \"much better\"",
+   "src": "BBC, The Guardian"
+  }
+ ],
+ "briefs": [
+  {
+   "region": "EUROPE",
+   "text": "Poland says Russia twice plotted to kill a Ukrainian rapper"
+  },
+  {
+   "region": "EUROPE",
+   "text": "IG Metall metalworkers strike across Germany"
+  },
+  {
+   "region": "EUROPE",
+   "text": "Zelensky addresses NATO lawmakers in Berlin"
+  },
+  {
+   "region": "EUROPE",
+   "text": "Russia says it struck energy sites in Izmail, Ukraine"
+  },
+  {
+   "region": "AFRICA",
+   "text": "Eastern Libya files UN complaint over Benghazi attack"
+  },
+  {
+   "region": "MIDDLE EAST",
+   "text": "Israeli group PHRI: attacks on West Bank medics up 350%"
+  },
+  {
+   "region": "AMERICAS",
+   "text": "Trump: Iran strikes could resume after New Year"
+  },
+  {
+   "region": "AMERICAS",
+   "text": "Colombia files charges against Starlink's local unit"
+  },
+  {
+   "region": "AMERICAS",
+   "text": "Meta AI chief Alexandr Wang: superintelligence is 'arriving'"
+  },
+  {
+   "region": "AMERICAS",
+   "text": "Mets agree record $450M deal with Skubal, sources say"
+  },
+  {
+   "region": "ASIA",
+   "text": "Hang Seng ends flat; Japan closed for Labour Thanksgiving"
+  },
+  {
+   "region": "ASIA",
+   "text": "Cricket: India v New Zealand first Test ends in a draw"
+  },
+  {
+   "region": "EUROPE",
+   "text": "Fire at a Berlin hospital forces evacuations"
+  },
+  {
+   "region": "EUROPE",
+   "text": "Spain: last week of campaigning before 29 Nov election"
+  }
+ ],
+ "datecheck": {
+  "title": "DATE CHECK: LEFT OUT, FIRST REPORTED SUN 22 NOV OR EARLIER",
+  "items": [
+   "COP31 climate talks in Antalya end without a deal (Sun)",
+   "The Benghazi drone attack itself (Sun); Kyiv's confirmation is Monday news",
+   "Alcaraz wins the ATP Finals; Marquez's 8th MotoGP title (Sun)",
+   "Drone strikes on Khartoum; Istanbul opposition rally (Sun)",
+   "Democrats reach 258 House seats (called Sun night)"
+  ]
+ },
+ "footer": "OFFICIAL = on the record from a government or agency · CONFIRMED = 2+ outlets · REPORTED = one outlet · CLAIM = one side's account, unverified"
 }
