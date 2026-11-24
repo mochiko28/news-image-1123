@@ -317,7 +317,7 @@ const sceneLabels = {
     { value: 'NASDAQ +6.5%', x: 149, y: 53, w: 168, h: 26, size: 22, fill: '#fffefa' },
   ],
   plane: [
-    { value: 'MOST FLIGHTS CANCELLED', x: 0, y: 46, w: 320, h: 20.5, size: 18.5 },
+    { value: 'ALL FLIGHTS GROUNDED', x: 0, y: 46, w: 320, h: 20.5, size: 18.5 },
     { value: '06:00-20:00', x: 0, y: 66.5, w: 320, h: 15.5, size: 14 },
   ],
 };

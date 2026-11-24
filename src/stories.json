@@ -14,7 +14,7 @@
   "numbers": [
     {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
     {"v": "~$1tn", "l": "added to Nvidia's value, BBC says"},
-    {"v": "14 hrs", "l": "of mostly cancelled flights in Belgium"},
+    {"v": "14 hrs", "l": "with Belgian flights grounded"},
     {"v": "-70%", "l": "Capita shares as its UK boss quits"}
   ],
   "leads": [
@@ -31,8 +31,8 @@
     {"region": "EUROPE", "field": "LABOUR", "status": "CONFIRMED", "scene": "plane", "t": "03:15",
      "lat": 50.85, "lon": 4.35,
      "head": "National strike halts Belgian flights",
-     "sub": "Most flights cancelled 06:00-20:00 UTC. Rail disrupted. Unions march in Brussels against EUR 10bn in cuts.",
-     "src": "BBC, Al Jazeera, DW"}
+     "sub": "Flights grounded 06:00-20:00 UTC; rail hit. PM gives coalition a year-end deadline to agree cuts.",
+     "src": "BBC, Al Jazeera, DW, France 24"}
   ],
   "cards": [
     {"region": "UKRAINE", "field": "CONFLICT", "status": "OFFICIAL", "icon": "blast", "art": "rubble", "label": "15 KILLED", "t": "09:34", "lat": 50.8, "lon": 30.3,
