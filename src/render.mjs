@@ -660,13 +660,20 @@ function distanceToSegment([x, y], [ax, ay], [bx, by]) {
   return Math.hypot(x - ax - t * dx, y - ay - t * dy);
 }
 
+function leadersCross(a, b, c, d) {
+  const side = ([ax, ay], [bx, by], [px, py]) =>
+    (bx - ax) * (py - ay) - (by - ay) * (px - ax);
+  return side(a, b, c) * side(a, b, d) < 0 && side(c, d, a) * side(c, d, b) < 0;
+}
+
 function worldMap({ x, y, w, h }) {
   const sea = '#eef3f2';
   const legend = [...Object.keys(regions), 'OTHER'].filter(region => presentRegions.has(region))
     .map(region => ({ region, title: region.toLowerCase().replace(/\b[a-z]/g, letter => letter.toUpperCase()) }));
-  const legendColumns = 3;
+  const legendColumns = 2;
+  const legendRows = Math.ceil(legend.length / legendColumns);
   const legendRowHeight = 14;
-  const legendHeight = Math.ceil(legend.length / legendColumns) * legendRowHeight + 5;
+  const legendHeight = legendRows * legendRowHeight + 5;
   const mapLeft = x + 1;
   const mapRight = x + w - 1;
   const mapTop = y + 20;
@@ -714,7 +721,6 @@ function worldMap({ x, y, w, h }) {
   }));
   const labelRadius = 8.5;
   const distance = ([ax, ay], [bx, by]) => Math.hypot(ax - bx, ay - by);
-  const placed = [];
   // Try the nearest offsets first, keeping label circles clear of dots and leaders.
   const offsets = [14, 17, 20, 24, 29, 35, 42, 50, 60, 72].flatMap(radius =>
     Array.from({ length: 24 }, (_, step) => {
@@ -733,17 +739,28 @@ function worldMap({ x, y, w, h }) {
     );
     return { pin, centers };
   });
-  // Give pins with fewer available positions first choice in crowded areas.
-  candidates.sort((a, b) => a.centers.length - b.centers.length);
-  for (const { pin, centers } of candidates) {
-    pin.center = centers.find(center =>
-      placed.every(other => distance(center, other.center) >= 2 * labelRadius + 2 &&
-        distanceToSegment(center, other.point, other.center) >= labelRadius + 1 &&
-        distanceToSegment(other.center, pin.point, center) >= labelRadius + 1),
-    );
-    if (!pin.center) throw new Error('Could not place map pin ' + pin.index);
-    placed.push(pin);
+  // Place the most constrained pin first and try another position when it blocks a neighbor.
+  function placePins(remaining) {
+    if (!remaining.length) return true;
+    remaining.sort((a, b) => a.centers.length - b.centers.length);
+    const [{ pin, centers }, ...others] = remaining;
+    for (const center of centers) {
+      const next = others.map(({ pin: other, centers: available }) => ({
+        pin: other,
+        centers: available.filter(otherCenter =>
+          distance(center, otherCenter) >= 2 * labelRadius + 2 &&
+          distanceToSegment(center, other.point, otherCenter) >= labelRadius + 1 &&
+          distanceToSegment(otherCenter, pin.point, center) >= labelRadius + 1 &&
+          !leadersCross(pin.point, center, other.point, otherCenter)),
+      }));
+      if (placePins(next)) {
+        pin.center = center;
+        return true;
+      }
+    }
+    return false;
   }
+  if (!placePins(candidates)) throw new Error('Could not place all map pins');
 
   for (const { point: [px, py], center: [cx, cy], colors: [color] } of pins) {
     add(`<path d="M${n(px)} ${n(py)}L${n(cx)} ${n(cy)}" stroke="${color}" stroke-width=".75"/>`);
@@ -764,20 +781,20 @@ function worldMap({ x, y, w, h }) {
 
   rect(mapLeft, mapBottom, mapRight - mapLeft, legendHeight, '#f7f9f6');
   line(mapLeft, mapBottom, mapRight, mapBottom, '#d4dfdd');
-  const legendPadding = 6;
+  const legendPadding = 4;
   const labelOffset = 9;
   const columnWidths = Array(legendColumns).fill(0);
   for (const [index, { title }] of legend.entries()) {
-    const column = index % legendColumns;
+    const column = Math.floor(index / legendRows);
     const width = Math.ceil(fontFor(700).width(title, 11)) + labelOffset + 3;
     columnWidths[column] = Math.max(columnWidths[column], width);
   }
   const extraWidth = (w - 2 * legendPadding - columnWidths.reduce((sum, width) => sum + width, 0)) / legendColumns;
   for (const [index, { region, title }] of legend.entries()) {
-    const column = index % legendColumns;
+    const column = Math.floor(index / legendRows);
     const columnX = x + legendPadding + column * extraWidth +
       columnWidths.slice(0, column).reduce((sum, width) => sum + width, 0);
-    const rowY = mapBottom + 2 + Math.floor(index / legendColumns) * legendRowHeight;
+    const rowY = mapBottom + 2 + index % legendRows * legendRowHeight;
     const color = regionPalette(region)[0];
     rect(columnX, rowY + 3.75, 6.5, 6.5, color);
     label(title, box(columnX + labelOffset, rowY, columnWidths[column] - labelOffset, legendRowHeight), color);
@@ -786,11 +803,36 @@ function worldMap({ x, y, w, h }) {
 
 function briefs({ x, y, w, h }) {
   const headerHeight = 20;
-  const rows = Math.ceil(stories.briefs.length / 2);
-  const rowHeight = (h - headerHeight - 2) / rows;
-  const columnWidth = w / 2;
+  const columnCount = 3;
+  const baseRows = Math.floor(stories.briefs.length / columnCount);
+  const extraRows = stories.briefs.length % columnCount;
+  const rowHeight = (h - headerHeight - 2) / Math.ceil(stories.briefs.length / columnCount);
+  const size = 12.5;
+  const placeOffset = 19;
+  const rightInset = 3;
+  const sourceGap = 3;
+  const options = { size, min: size, vertical: 'middle', maxLines: 1, inset: 0 };
   const sourceOptions = { size: 11, fill: '#6b7280', align: 'end', vertical: 'middle', maxLines: 1, inset: 0 };
   const regularFont = fontFor(400);
+  const boldFont = fontFor(700);
+  const entries = stories.briefs.map((brief, index) => {
+    const place = brief.place + ':';
+    const body = brief.text.trim().replace(/\s+/g, ' ');
+    const source = brief.src?.trim();
+    const placeAdvance = boldFont.width(place + ' ', size);
+    const copyAdvance = placeAdvance + regularFont.width(body, size);
+    const sourceWidth = source ? Math.ceil(regularFont.width(source, sourceOptions.size)) : 0;
+    const fixedWidth = placeOffset + rightInset + sourceWidth + (source ? sourceGap : 0);
+    return { brief, index, place, body, source, placeAdvance, copyAdvance, sourceWidth, fixedWidth };
+  });
+  const columns = Array.from({ length: columnCount }, (_, column) => {
+    const start = column * baseRows + Math.min(column, extraRows);
+    return entries.slice(start, start + baseRows + (column < extraRows ? 1 : 0));
+  });
+  const preferredWidths = columns.map(column =>
+    Math.max(0, ...column.map(entry => entry.fixedWidth + entry.copyAdvance)),
+  );
+  const widthAdjustment = (w - preferredWidths.reduce((sum, width) => sum + width, 0)) / columnCount;
   const sourceNote = 'AJ = Al Jazeera · F24 = France 24';
   const noteWidth = Math.ceil(regularFont.width(sourceNote, sourceOptions.size));
   const noteX = x + w - 8 - noteWidth;
@@ -798,36 +840,33 @@ function briefs({ x, y, w, h }) {
   rect(x, y, w, headerHeight, '#e2e9e9');
   label('ALSO ON ' + stories.day, box(x + 8, y + 2, noteX - x - 14, 16));
   text(sourceNote, box(noteX, y + 2, noteWidth, 16), sourceOptions);
-  line(x + columnWidth, y + headerHeight, x + columnWidth, y + h - 1);
-
-  for (const [index, brief] of stories.briefs.entries()) {
-    const columnX = x + Math.floor(index / rows) * columnWidth;
-    const row = index % rows;
-    const rowY = y + headerHeight + row * rowHeight;
-    if (row % 2 === 0) rect(columnX + 1, rowY, columnWidth - 2, rowHeight, '#f3f5f3');
-    const size = 12.5;
-    const place = brief.place + ':';
-    const placeX = columnX + 26;
-    const placeWidth = fontFor(700).width(place + ' ', size);
-    const options = { size, min: size, vertical: 'middle', maxLines: 1, inset: 0 };
-    text(mappedStories.length + index + 1, box(columnX + 5, rowY, 16, rowHeight), {
-      ...options, weight: 700, align: 'middle', fill: muted,
-    });
-    text(place, box(placeX, rowY, placeWidth, rowHeight), {
-      ...options, weight: 700, fill: regionPalette(regionNames(brief)[0])[0],
-    });
-    const source = brief.src?.trim();
-    const right = columnX + columnWidth - 2;
-    const sourceWidth = source ? Math.ceil(regularFont.width(source, sourceOptions.size)) : 0;
-    const sourceX = right - sourceWidth;
-    const textX = placeX + placeWidth;
-    const textWidth = sourceX - textX - (source ? 7 : 0);
-    const body = brief.text.trim().replace(/\s+/g, ' ');
-    const excess = regularFont.width(body, size) - textWidth;
-    const gaps = Math.max(1, [...body].length - 1);
-    const letterSpacing = Math.min(0, Math.floor(-1000 * excess / gaps) / 1000);
-    text(body, box(textX, rowY, textWidth, rowHeight), { ...options, letterSpacing });
-    if (source) text(source, box(sourceX, rowY, sourceWidth, rowHeight), sourceOptions);
+  let columnX = x;
+  for (const [column, briefsInColumn] of columns.entries()) {
+    const columnWidth = preferredWidths[column] + widthAdjustment;
+    if (column) line(columnX, y + headerHeight, columnX, y + h - 1);
+    for (const [row, entry] of briefsInColumn.entries()) {
+      const { brief, index, place, body, source, placeAdvance, copyAdvance, sourceWidth, fixedWidth } = entry;
+      const rowY = y + headerHeight + row * rowHeight;
+      if (row % 2 === 0) rect(columnX + 1, rowY, columnWidth - 2, rowHeight, '#f3f5f3');
+      const scale = Math.min(1, Math.floor(1000 * (columnWidth - fixedWidth) / copyAdvance) / 1000);
+      const placeX = columnX + placeOffset;
+      const placeWidth = placeAdvance * scale;
+      const textX = placeX + placeWidth;
+      const textWidth = columnWidth - fixedWidth - placeWidth;
+      const copyOptions = { ...options, widthScales: [scale] };
+      text(mappedStories.length + index + 1, box(columnX + 2, rowY, 15, rowHeight), {
+        ...options, weight: 700, align: 'middle', fill: muted,
+      });
+      text(place, box(placeX, rowY, placeWidth, rowHeight), {
+        ...copyOptions, weight: 700, fill: regionPalette(regionNames(brief)[0])[0],
+      });
+      text(body, box(textX, rowY, textWidth, rowHeight), copyOptions);
+      if (source) {
+        const sourceX = columnX + columnWidth - rightInset - sourceWidth;
+        text(source, box(sourceX, rowY, sourceWidth, rowHeight), sourceOptions);
+      }
+    }
+    columnX += columnWidth;
   }
 }
 
@@ -870,8 +909,8 @@ stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
 const lowerY = 733;
 const lowerHeight = 190;
-const mapWidth = 269;
-const panelGap = 8;
+const mapWidth = 182;
+const panelGap = 6;
 worldMap(box(margin, lowerY, mapWidth, lowerHeight));
 briefs(box(margin + mapWidth + panelGap, lowerY, pageWidth - mapWidth - panelGap, lowerHeight));
 dateCheck(box(margin, lowerY + lowerHeight + 5, pageWidth, 44));
