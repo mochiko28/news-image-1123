@@ -210,37 +210,50 @@ const leadSceneHeight = 82;
 const scenes = {
   warship: `
     <rect width="320" height="${leadSceneHeight}" fill="#e0ebee"/>
-    <rect y="35" width="320" height="${leadSceneHeight - 35}" fill="#91bdc7"/>
-    <rect y="55" width="320" height="${leadSceneHeight - 55}" fill="#bed8de"/>
-    <path d="M187 47h13m106 8h10M13 23h24" fill="none" stroke="#d5e9ea" stroke-width="2"/>
-    <g transform="translate(-4 5) scale(1.22)">
-      <path d="M7 35Q22 25 43 22Q25 22 12 24M17 36Q29 28 44 24"
-            fill="none" stroke="#fffefa" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="m38 22 8-4 12 1-9 6-9 1Z" fill="#233e54"/>
+    <rect y="36" width="320" height="${leadSceneHeight - 36}" fill="#8cb7c2"/>
+    <path d="M1 49h24m137 3h16m2-10h12m103 13h23" fill="none"
+          stroke="#d9edf0" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- The corvette's hull, bridge and flag share the same tilt. -->
+    <path d="M64 36c-8-7-12-9-23-9-12 0-22-4-28-12 13 3 20-5 32 1
+             5 3 12 1 17 5 5 4 8 9 10 15Z" fill="#59616b"/>
+    <g transform="rotate(-8 92 42)">
+      <path d="M26 42v-9h30l9-9h14l4-6h30l15 15h10l4 9Z"
+            fill="#7b8a94" stroke="#2b3e4d" stroke-width="2"/>
+      <path d="M89 24h23l5 5H88Z" fill="#293d4c"/>
+      <path d="M97 18V8h27v13H97Z" fill="#fffefa" stroke="#293d4c" stroke-width="1.5"/>
+      <path d="M98 12h26v4H98Z" fill="#305d9d"/>
+      <path d="M98 16h26v5H98Z" fill="#b8333e"/>
+      <path d="M97 9v13" stroke="#293d4c" stroke-width="2"/>
+      <path d="M142 39l4-9h10l5 9m-6-7 12-5" fill="#7b8a94"
+            stroke="#2b3e4d" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M13 39h142l19-5-15 17-130 3Z" fill="#3e4e5a"/>
+      <path d="M18 43h144l-7 6-128 3Z" fill="#657683"/>
+      <path d="m58 41 5 6 5-6 6 6 4-6" fill="none" stroke="#28313a" stroke-width="3"/>
+      <path d="M54 39q-2-7 4-12 1 6 5 6l3-10q7 5 11 16Z" fill="#b84129"/>
+      <path d="M61 39q1-5 5-8l5 8Z" fill="#ffce68"/>
     </g>
-    <g transform="translate(-16 5) scale(1.22)">
-      <path d="M104 23Q94 14 80 16C67 17 53 12 48 5c12 2 14-3 27-1 7 1 10 6 18 5 11-1 18 6 19 13Z"
-            fill="#56636c"/>
-      <g transform="translate(0 -1) rotate(4 117 27)">
-        <path d="M59 26h110l17-6-10 14-18 2H77Z" fill="#25394c"/>
-        <path d="M69 31h108l-5 4-14 2H79Z" fill="#9e4244"/>
-        <path d="M78 26v-5h21l12-10h28l11 15zm77 0 3-7h10l5 7Z" fill="#536b7b"/>
-        <path d="M125 12V1m33 20 12-6" fill="none" stroke="#25394c" stroke-width="2"/>
-        <path d="M126 2h14v3h-14Z" fill="#fffefa"/>
-        <path d="M126 5h14v3h-14Z" fill="#345e9b"/>
-        <path d="M126 8h14v3h-14Z" fill="#ad2f39"/>
-        <path d="M112 16h24" fill="none" stroke="#e0ebee" stroke-width="2" stroke-dasharray="6 2"/>
-      </g>
-      <path d="M88 25q-4-7 3-12 0 5 6 7l5-11q9 7 9 16Z" fill="#d8441c"/>
-      <path d="M94 25q1-4 7-10 0 6 6 10Z" fill="#ffd165"/>
+
+    <!-- The freighter's level hull and stacked containers give it a separate silhouette. -->
+    <path d="M285 28c-4-6-10-6-18-6-9 0-16-4-21-10 9 2 16-4 24 0
+             6 3 12 0 17 5 3 3 4 6 4 11Z" fill="#59616b"/>
+    <path d="M276 44V25h7v-7h7v7h11v19Z" fill="#f3e3c7"
+          stroke="#34414b" stroke-width="2"/>
+    <path d="M281 29h16v4h-16Z" fill="#34414b"/>
+    <g stroke="#34414b" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M193 33h22v12h-22Zm41 0h21v12h-21Z" fill="#b75b37"/>
+      <path d="M215 33h19v12h-19Zm19-10h21v10h-21Z" fill="#e4ae59"/>
+      <path d="M255 33h20v12h-20Zm-50-10h29v10h-29Z" fill="#3a756d"/>
     </g>
-    <g transform="translate(-45 16) scale(1.2)">
-      <path d="M208 28h79l15-5-9 12h-74Z" fill="#334d60"/>
-      <path d="M214 21h13v7h-13zm25 0h14v7h-14zm33 0h12v7h-12z" fill="#a65c43"/>
-      <path d="M228 18h10v10h-10zm26 1h17v9h-17z" fill="#50766e"/>
-      <path d="M278 21v-9h14l5 9Z" fill="#536b7b"/>
-      <path d="M283 16h8" stroke="#fffefa" stroke-width="2"/>
-    </g>`,
+    <path d="M183 43h116l17-5-11 14H195Z" fill="#4b3036"/>
+    <path d="M190 47h120l-5 5H195Z" fill="#a3514b"/>
+
+    <!-- Drone silhouette with a central body and two rotor bars. -->
+    <path d="M171 10h11m10 0h11m-27 0v5h22v-5" fill="none" stroke="#293d4c"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M182 13h10l-1 6h-8Z" fill="#293d4c"/>
+    <rect x="3" y="57" width="177" height="23" rx="2" fill="#23394b"/>
+    <rect x="183" y="57" width="134" height="23" rx="2" fill="#4b3036"/>`,
   chart: `
     <g transform="scale(1 .8)">
     <rect width="320" height="70" fill="#f2e5e2"/>
@@ -296,8 +309,8 @@ const scenes = {
 
 const sceneLabels = {
   warship: [
-    { value: 'MERKURY: SUNK?', x: 4, y: 55, w: 178, h: 27, size: 18 },
-    { value: 'ANGARA: HIT?', x: 182, y: 55, w: 134, h: 27, size: 18 },
+    { value: 'MERKURY: SUNK?', x: 3, y: 57, w: 177, h: 23, size: 18.5, fill: '#fffefa' },
+    { value: 'ANGARA: HIT?', x: 183, y: 57, w: 134, h: 23, size: 18, fill: '#fffefa' },
   ],
   chartup: [
     { value: 'NVIDIA +30%', x: 4, y: 53, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
