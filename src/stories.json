@@ -14,10 +14,10 @@
   "leads": [
     {"region": "NORTH AMERICA","field": "TECH","status": "OFFICIAL","scene": "chartup","t": "14:06","lat": 37.4,"lon": -122.0,
      "head": "Huang back at Nvidia; Wall St surges","sub": "Trump says he \"convinced\" the board. Democrats vow a probe. Nvidia gains ~$1tn in value.","src": "Reuters, BBC, France 24, MarketWatch"},
-    {"region": "EUROPE","field": "LABOUR","status": "CONFIRMED","scene": "plane","t": "03:15","lat": 50.85,"lon": 4.35,
-     "head": "National strike halts Belgian flights","sub": "Flights grounded 06:00-20:00 UTC; rail hit. PM gives coalition a year-end deadline to agree cuts.","src": "BBC, Al Jazeera, France 24"},
     {"region": "NATO · EUROPE","field": "SECURITY","status": "CONFIRMED","scene": "nato","t": "16:50","lat": 60.17,"lon": 24.94,
-     "head": "NATO calls urgent talks over Russia","sub": "Finland summons Russian envoy over suspected airspace violation. NATO radar plane for Poland. Moscow says Estonia risks “open war”.","src": "WaPo, France 24, NBC, Guardian"}
+     "head": "NATO calls urgent talks over Russia","sub": "Finland summons Russian envoy over suspected airspace violation. NATO radar plane for Poland. Moscow says Estonia risks “open war”.","src": "WaPo, France 24, NBC, Guardian"},
+    {"region": "AFRICA","field": "HEALTH","status": "REPORTED","scene": "ebola","t": "06:00","lat": 0.5,"lon": 29.5,
+     "head": "DR Congo’s hidden Ebola deaths","sub": "Reuters finds graves that reveal a higher toll. WHO chief calls for peace amid heavy fighting.","src": "Reuters, Al Jazeera"}
   ],
   "cards": [
     {"region": "UK · USA","field": "SPORT","status": "OFFICIAL","icon": "ball","art": "trophy","label": "WORLD CUPS SET","t": "15:09","lat": 51.5,"lon": -0.1,
@@ -28,8 +28,8 @@
      "head": "India pledges $1.6bn to Nepal in a reset","sub": "Flood relief as new PM Balendra Shah meets Modi","src": "BBC, Al Jazeera"},
     {"region": "GAZA","field": "ENVIRONMENT","status": "CONFIRMED","icon": "drop","art": "toxic","label": "TOXIC RISK","t": "04:00","lat": 31.4,"lon": 34.4,
      "head": "Oxfam reports toxic pollution in Gaza","sub": "Oxfam: signs of possible contamination almost everywhere","src": "Guardian, BBC, Al Jazeera"},
-    {"region": "DR CONGO","field": "HEALTH","status": "REPORTED","icon": "virus","art": "virus","label": "EBOLA","t": "06:00","lat": 0.5,"lon": 29.5,
-     "head": "Reuters probe finds hidden Ebola deaths","sub": "Graves point to a higher toll. WHO urges peace","src": "Reuters, Al Jazeera"},
+    {"region": "BELGIUM","field": "LABOUR","status": "CONFIRMED","art": "plane","label": "FLIGHTS GROUNDED","t": "03:15","lat": 50.85,"lon": 4.35,
+     "head": "Belgian strike halts all flights","sub": "Airports shut 06:00–20:00 UTC. Rail hit. PM gives coalition until year-end to agree cuts.","src": "BBC, Al Jazeera, France 24"},
     {"region": "US","field": "BUSINESS","status": "CONFIRMED","art": "cyberdeal","label": "$44BN DEAL","t": "13:08","lat": 30.27,"lon": -97.74,
      "head": "CrowdStrike to buy Zscaler for $44bn","sub": "Cyber giants combine as AI supercharges attacks","src": "NYT, CNBC"},
     {"region": "UK","field": "BUSINESS","status": "REPORTED","art": "pensions","label": "SHARES -70%","t": "11:24","lat": 51.51,"lon": -0.09,

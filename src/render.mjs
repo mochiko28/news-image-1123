@@ -36,7 +36,7 @@ const regions = {
 };
 const placeRegions = {
   'NATO · EUROPE': 'EUROPE',
-  'DR CONGO': 'AFRICA',
+  BELGIUM: 'EUROPE',
   IRAN: 'MIDDLE EAST',
   GAZA: 'MIDDLE EAST',
   ASIA: 'EAST ASIA',
@@ -211,7 +211,7 @@ const scenes = {
     <rect x="4" y="35" width="312" height="24" rx="3" fill="#102a47"/>`,
   chartup: `
     <rect width="320" height="${leadSceneHeight}" fill="#e5efe5"/>
-    <g transform="translate(0 2) scale(1.78 1.35)">
+    <g transform="translate(0 16) scale(1.78 0.8)">
       <path d="M12 15h160M12 27h160M44 5v22M88 5v22M132 5v22"
             fill="none" stroke="#c2d6c5"/>
       <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8V27H13Z" fill="#c3e0c8"/>
@@ -221,36 +221,19 @@ const scenes = {
     </g>
     <rect x="4" y="41" width="141" height="26" rx="3" fill="#145a35"/>
     <rect x="149" y="41" width="168" height="26" rx="3" fill="#145a35"/>`,
-  plane: `
-    <rect width="320" height="${leadSceneHeight}" fill="#deeaee"/>
-    <g transform="scale(1 0.74)">
-      <path d="M163 4v43" stroke="#a8bdc5"/>
-      <path d="M10 44h143" stroke="#748c98" stroke-width="3"/>
-      <path d="M17 44h129" stroke="#fffefa" stroke-dasharray="10 6"/>
-      <g transform="translate(-4 0) scale(1.29)">
-        <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
-        <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
-        <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
-        <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
-        <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
-      </g>
-      <path d="M171 43h139m-139 4h139" stroke="#748c98" stroke-width="2"/>
-      <path d="M178 45h125" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
-      <g transform="translate(-49 1) scale(1.25)">
-        <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
-        <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
-        <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
-        <circle cx="192" cy="31" r="3" fill="#14243b"/>
-        <circle cx="218" cy="31" r="3" fill="#14243b"/>
-        <circle cx="239" cy="31" r="3" fill="#14243b"/>
-        <circle cx="263" cy="31" r="3" fill="#14243b"/>
-      </g>
-      <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
-        <circle cx="147" cy="17" r="13"/>
-        <circle cx="298" cy="17" r="13"/>
-      </g>
-      <path d="M140 17h14m137 0h14" stroke="#fffefa" stroke-width="4"/>
-    </g>`,
+  ebola: `
+    <rect width="320" height="${leadSceneHeight}" fill="#f3e5cf"/>
+    <path d="M0 35Q66 12 147 32T320 28V70H0Z" fill="#dac097"/>
+    <path d="M0 44Q77 30 153 42T320 36V70H0Z" fill="#bf9c70"/>
+    <path d="M30 37V25a7 7 0 0 1 14 0v12Zm43-7V18a6 6 0 0 1 12 0v12Zm42 7V24a7 7 0 0 1 14 0v13Zm42-5V20a6 6 0 0 1 12 0v12Zm40 6V24a7 7 0 0 1 14 0v14Z"
+          fill="#795b50" stroke="#f3e5cf" stroke-width="1.5"/>
+    <g transform="translate(222 0) scale(0.8)">
+      <path d="m31 8 3 8m14-7-4 10m14 3-10 4m9 11-10-3m3 14-8-9m-9 13 2-11m-16 6 7-10m-14 0 12-6m-11-9 12 2m-6-12 10 9"
+            stroke="#80374b" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="36" cy="29" r="15" fill="#80374b"/>
+      <path d="M31 23h.1m11 3h.1m-5 9h.1" stroke="#f0ad8d" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <rect x="4" y="41" width="312" height="26" rx="3" fill="#673c31"/>`,
 };
 
 const sceneLabels = {
@@ -259,13 +242,13 @@ const sceneLabels = {
     { value: 'FINLAND SUMMONS ENVOY', x: 4, y: 35, w: 312, h: 24, size: 18, fill: '#fffefa' },
   ],
   chartup: [
-    { value: 'NVIDIA SHARES, MONDAY', x: 8, y: 4, w: 190, h: 16, size: 14, fill: '#145a35' },
+    { value: 'NVIDIA SHARES', x: 8, y: 4, w: 115, h: 16, size: 14, fill: '#145a35' },
+    { value: 'MON 23 NOV', x: 213, y: 4, w: 104, h: 16, size: 14, fill: '#145a35' },
     { value: 'NVIDIA +30%', x: 4, y: 41, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
     { value: 'NASDAQ +6.5%', x: 149, y: 41, w: 168, h: 26, size: 22, fill: '#fffefa' },
   ],
-  plane: [
-    { value: 'ALL FLIGHTS GROUNDED', x: 0, y: 34, w: 320, h: 20.5, size: 18.5 },
-    { value: '06:00-20:00', x: 0, y: 54.5, w: 320, h: 15.5, size: 14 },
+  ebola: [
+    { value: 'HIDDEN EBOLA DEATHS', x: 4, y: 41, w: 312, h: 26, size: 22, fill: '#fffefa' },
   ],
 };
 
@@ -315,6 +298,37 @@ function leadPanel(story, index) {
 }
 
 const cardScenes = {
+  plane: `<g transform="scale(${190 / 320} 1)">
+    <rect width="320" height="${leadSceneHeight}" fill="#deeaee"/>
+    <g transform="scale(1 0.74)">
+      <path d="M163 4v43" stroke="#a8bdc5"/>
+      <path d="M10 44h143" stroke="#748c98" stroke-width="3"/>
+      <path d="M17 44h129" stroke="#fffefa" stroke-dasharray="10 6"/>
+      <g transform="translate(-4 0) scale(1.29)">
+        <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
+        <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
+        <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
+        <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
+        <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
+      </g>
+      <path d="M171 43h139m-139 4h139" stroke="#748c98" stroke-width="2"/>
+      <path d="M178 45h125" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
+      <g transform="translate(-49 1) scale(1.25)">
+        <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
+        <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
+        <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
+        <circle cx="192" cy="31" r="3" fill="#14243b"/>
+        <circle cx="218" cy="31" r="3" fill="#14243b"/>
+        <circle cx="239" cy="31" r="3" fill="#14243b"/>
+        <circle cx="263" cy="31" r="3" fill="#14243b"/>
+      </g>
+      <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
+        <circle cx="147" cy="17" r="13"/>
+        <circle cx="298" cy="17" r="13"/>
+      </g>
+      <path d="M140 17h14m137 0h14" stroke="#fffefa" stroke-width="4"/>
+    </g>
+  </g>`,
   cyberdeal: `
     <rect width="190" height="70" fill="#e6e0f2"/>
     <path d="M0 21h25l11 13h20m-56 6h31l14 13h28m117-36h-22l-11 15h-21m54 9h-28l-17 16h-26"
@@ -363,17 +377,6 @@ const cardScenes = {
     <path d="m116 18-10 16h20Zm42 0-10 16h20Z" stroke="#674b38" stroke-width="1.5" fill="none"/>
     <path d="M103 34h26q-3 8-13 8t-13-8Zm42 0h26q-3 8-13 8t-13-8Z" fill="#9b6547"/>
     <circle cx="137" cy="11" r="4" fill="#9b6547"/>`,
-  virus: `
-    <rect width="190" height="70" fill="#f2dfbc"/>
-    <path d="M0 58 49 50l53 6 49-10 39 9v15H0Z" fill="#d3b17e"/>
-    <path d="m31 8 3 8m14-7-4 10m14 3-10 4m9 11-10-3m3 14-8-9m-9 13 2-11m-16 6 7-10m-14 0 12-6m-11-9 12 2m-6-12 10 9"
-          stroke="#80374b" stroke-width="3.5" stroke-linecap="round"/>
-    <circle cx="36" cy="29" r="15" fill="#80374b"/>
-    <path d="M31 23h.1m11 3h.1m-5 9h.1" stroke="#f0ad8d" stroke-width="4" stroke-linecap="round"/>
-    <path d="m80 53 26-35h55l24 35Z" fill="#faf4df"/>
-    <path d="m106 18 21 35H80Z" fill="#a86e55"/>
-    <path d="m107 31 12 22H94Z" fill="#653f42"/>
-    <path d="M146 28h6v6h6v6h-6v6h-6v-6h-6v-6h6Z" fill="#a13d47"/>`,
   blockade: `
     <rect width="190" height="70" fill="#d9e8e8"/>
     <path d="M0 25h190v45H0Z" fill="#689eac"/>
@@ -550,7 +553,7 @@ function storyCard(story, index) {
   const subY = headY + headHeight + 0.3;
   const sourceY = y + cardHeight - 13;
   text(story.sub, box(x + 4, subY, w - 8, sourceY - subY), {
-    size: 12, min: 12, maxLines: 2, inset: 0, gap: 0.2,
+    size: 12, min: 12, maxLines: 3, inset: 0, gap: 0.2,
   });
 
   sourceLine(story, box(x + 4, sourceY, w - 8, 13));
@@ -562,7 +565,7 @@ function sourceLine(story, { x, y, w, h }, prefix = '') {
   const timeX = x + w - timeWidth;
   const sourceRight = reportTime ? timeX - 4 : timeX;
   text(prefix + story.src, box(x, y, sourceRight - x, h), {
-    fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96],
+    fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93],
   });
   if (reportTime) {
     text(reportTime, box(timeX, y, timeWidth, h), {
