@@ -38,13 +38,13 @@ const placeRegions = {
   GAZA: 'MIDDLE EAST',
   'SOUTH KOREA': 'EAST ASIA',
   USA: 'NORTH AMERICA',
+  'UK · USA': 'EUROPE · NORTH AMERICA',
 };
 const neutralRegion = ['#525b66', '#eceef0'];
 const regionPalette = region => Object.hasOwn(regions, region) ? regions[region] : neutralRegion;
 const canonicalRegion = region => Object.hasOwn(regions, region) ? region : 'OTHER';
-const regionNames = story => story.scene
-  ? story.region.split(' · ').map(canonicalRegion)
-  : [canonicalRegion(Object.hasOwn(placeRegions, story.region) ? placeRegions[story.region] : story.region)];
+const regionNames = ({ region }) => (Object.hasOwn(placeRegions, region) ? placeRegions[region] : region)
+  .split(' · ').map(canonicalRegion);
 const mappedStories = [...stories.leads, ...stories.cards];
 const allStories = [...mappedStories, ...stories.briefs];
 const presentRegions = new Set(allStories.flatMap(regionNames));
@@ -338,6 +338,20 @@ const cardScenes = {
     <path d="M99 55c-11-6-3-13 1-20 1 7 6 9 8 6 4 5 3 11-3 14Z" fill="#5fcae7"/>
     <path d="m124 44 17-17 12 5 19-19m-14 0 14-1v14" stroke="#266946"
           stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`,
+  trophy: `
+    <rect width="190" height="70" fill="#397650"/>
+    <path d="M30 0h32L40 70H0Zm65 0h31l12 70H93Zm64 0h31v70h-8Z" fill="#44845a"/>
+    <path d="M0 36h190M29 0 12 57h166l-17-57" stroke="#a4c49a" stroke-width="1.5" fill="none"/>
+    <ellipse cx="90" cy="42" rx="31" ry="3" fill="#2f6044"/>
+    <path d="M76 11H62c0 10 6 16 17 16m25-16h14c0 10-6 16-17 16"
+          stroke="#efbd57" stroke-width="4" stroke-linejoin="round" fill="none"/>
+    <path d="M72 5h36v7c0 10-6 17-14 19v5l9 3v4H77v-4l9-3v-5c-8-2-14-9-14-19Z"
+          fill="#f5ca61"/>
+    <path d="M90 32c9-4 12-12 12-27h6v7c0 10-6 17-14 19v5l9 3v4H90Z" fill="#dca248"/>
+    <path d="M74 7h32" stroke="#fff0a0" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="147" cy="27" r="13" fill="#fff9e8" stroke="#213c37" stroke-width="2"/>
+    <path d="m147 21 6 4-2 7h-8l-2-7Zm-9-3 4 1-3 6-4-1Zm18 0 3 6-4 1-3-6Zm-17 15 5 2 1 4-6-2Zm16 0v4l-6 2 1-4Z"
+          fill="#213c37"/>`,
   chartdown: `
     <rect width="190" height="70" fill="#f4e0dd"/>
     <path d="M9 13h171M9 25h171M9 37h171M9 49h171M9 61h171
