@@ -6,8 +6,8 @@
   "timeline": [
     {"t": "00:18", "text": "Asia opens in an AI sell-off"},
     {"t": "03:15", "text": "Belgian strike grounds flights"},
-    {"t": "06:10", "text": "Kyiv: ships hit off Libya"},
-    {"t": "09:34", "text": "Strikes kill 15 near Kyiv"},
+    {"t": "06:10", "text": "Kyiv claims Libya ship strikes"},
+    {"t": "09:34", "text": "Kyiv-region toll rises to 15"},
     {"t": "14:06", "text": "Nvidia reinstates Huang"},
     {"t": "21:23", "text": "Nasdaq ends 6.5% higher"}
   ],
@@ -18,10 +18,10 @@
     {"v": "+6.5%", "l": "Nasdaq on Monday as tech rallies"}
   ],
   "leads": [
-    {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "OFFICIAL", "scene": "warship", "t": "06:10",
+    {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "CLAIM", "scene": "warship", "t": "06:10",
      "lat": 32.1, "lon": 20.1,
-     "head": "Zelensky: Ukraine sank a Russian warship off Libya",
-     "sub": "Kyiv says sea drones sank the corvette Merkury at Benghazi and hit the cargo ship Angara. The Kremlin warns of \"escalation\"; Albania denies the drones came from its soil.",
+     "head": "Zelensky: Ukraine sank a Russian warship in Libya",
+     "sub": "Kyiv says Sunday's sea-drone raid on Benghazi sank the corvette Merkury and hit the cargo ship Angara. The Kremlin warns of \"escalation\"; Albania denies the drones came from its soil.",
      "src": "BBC, Al Jazeera, Guardian, France 24"},
     {"region": "NORTH AMERICA", "field": "TECH", "status": "OFFICIAL", "scene": "chartup", "t": "14:06",
      "lat": 37.4, "lon": -122.0,
@@ -36,8 +36,8 @@
   ],
   "cards": [
     {"region": "UKRAINE", "field": "CONFLICT", "status": "OFFICIAL", "icon": "blast", "art": "rubble", "label": "15 KILLED", "t": "09:34", "lat": 50.8, "lon": 30.3,
-     "head": "Russian strikes hit Kyiv region",
-     "sub": "Boy, 7, pulled alive from rubble in Dymer", "src": "Al Jazeera, France 24"},
+     "head": "Kyiv-region strike toll rises to 15",
+     "sub": "Monday: boy, 7, pulled alive from rubble in Dymer", "src": "Al Jazeera, France 24"},
     {"region": "NATO · FINLAND", "field": "SECURITY", "status": "CONFIRMED", "icon": "shield", "art": "nato", "label": "URGENT TALKS", "t": "16:50", "lat": 60.2, "lon": 24.9,
      "head": "NATO calls urgent meeting on Russia",
      "sub": "Finland summons Russian envoy over airspace", "src": "WaPo, France 24"},
@@ -47,9 +47,9 @@
     {"region": "DR CONGO", "field": "HEALTH", "status": "OFFICIAL", "icon": "virus", "art": "virus", "label": "EBOLA", "t": "00:39", "lat": 0.5, "lon": 29.5,
      "head": "WHO: fighting disrupts Ebola response",
      "sub": "Tedros calls for peace in the east", "src": "Al Jazeera, BBC"},
-    {"region": "IRAN", "field": "SECURITY", "status": "REPORTED", "icon": "shield", "art": "blockade", "label": "GULF ATTACKS", "t": "20:26", "lat": 27.0, "lon": 51.5,
-     "head": "Iran steps up attacks on US Gulf bases",
-     "sub": "Tehran hits back as the US naval blockade bites", "src": "Al Jazeera, France 24"},
+    {"region": "IRAN", "field": "SECURITY", "status": "OFFICIAL", "icon": "shield", "art": "blockade", "label": "US BLOCKADE", "t": "12:25", "lat": 35.7, "lon": 51.4,
+     "head": "Iran vows to counter the US blockade",
+     "sub": "Foreign ministry warns it will answer any new attack", "src": "France 24"},
     {"region": "EUROPE", "field": "ENERGY", "status": "CONFIRMED", "icon": "flame", "art": "gas", "label": "GAS PRICES UP", "t": "08:45", "lat": 52.4, "lon": 4.9,
      "head": "European gas prices surge",
      "sub": "Traders fear shortages in a cold snap", "src": "Guardian, DW"},
