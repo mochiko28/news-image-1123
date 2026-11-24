@@ -287,7 +287,7 @@ const sceneLabels = {
   ],
   chartup: [
     { value: 'NVIDIA +30%', x: 179, y: 4, w: 136, h: 24, size: 20, fill: '#fffefa' },
-    { value: 'NASDAQ +6.5% AT CLOSE', x: 5, y: 29, w: 310, h: 26, size: 23, fill: '#fffefa' },
+    { value: 'NASDAQ +6.5%', x: 5, y: 29, w: 190, h: 26, size: 23, fill: '#fffefa' },
   ],
   plane: [
     { value: 'MOST FLIGHTS CANCELLED 06:00-20:00', x: 0, y: 38.4, w: 320, h: 17.6, size: 16 },
