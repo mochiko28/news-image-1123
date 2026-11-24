@@ -40,7 +40,7 @@
      "sub": "Monday: boy, 7, pulled alive from rubble in Dymer", "src": "Al Jazeera, France 24"},
     {"region": "NATO · FINLAND", "field": "SECURITY", "status": "CONFIRMED", "icon": "shield", "art": "nato", "label": "URGENT TALKS", "t": "16:50", "lat": 60.2, "lon": 24.9,
      "head": "NATO calls urgent meeting on Russia",
-     "sub": "Finland summons Russian envoy over airspace", "src": "WaPo, France 24"},
+     "sub": "Finland summons Russian envoy; Poland to get NATO radar planes", "src": "WaPo, France 24, NBC"},
     {"region": "BRAZIL", "field": "WEATHER", "status": "REPORTED", "icon": "drop", "art": "storm", "label": "THOUSANDS DISPLACED", "t": "09:45", "lat": -29.1, "lon": -53.8,
      "head": "Brazil storm town still in ruins",
      "sub": "Days after a supercell hit Tupancireta", "src": "Al Jazeera"},
