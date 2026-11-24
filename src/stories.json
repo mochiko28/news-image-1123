@@ -4,9 +4,9 @@
   "kicker": "THE WORLD ON ONE PAGE",
   "note": "Every story began or was first reported on Monday 23 November 2026. Times are first reports in UTC. Date Check gives event dates.",
   "timeline": [
-    {"t": "00:18","text": "Asia AI sell-off"},
     {"t": "03:15","text": "Belgian strike shuts airports"},
     {"t": "11:24","text": "Capita drops 70% as boss quits"},
+    {"t": "12:00","text": "Two states sue SpaceX over Grok"},
     {"t": "13:08","text": "CrowdStrike agrees $44bn Zscaler deal"},
     {"t": "14:06","text": "Nvidia reinstates Huang"},
     {"t": "16:50","text": "Finland summons Russian envoy"}
@@ -20,8 +20,8 @@
      "head": "India pledges $1.6bn to Nepal in a reset","sub": "Flood relief as new PM Balendra Shah meets Modi in Delhi.","src": "BBC, Al Jazeera"}
   ],
   "cards": [
-    {"region": "UK · USA","field": "SPORT","status": "OFFICIAL","icon": "ball","art": "trophy","label": "WORLD CUPS SET","t": "15:09","lat": 51.5,"lon": -0.1,
-     "head": "FIFA picks Women's World Cup hosts","sub": "Women's: US, Mexico, Costa Rica, Jamaica in 2031; UK in 2035","src": "BBC Sport, DW"},
+    {"region": "US · CHINA","field": "TECH","status": "CONFIRMED","art": "chip","label": "CHIP BLACKLIST","t": "22:08","lat": 38.9,"lon": -77.04,
+     "head": "US puts Megaspeed on trade blacklist","sub": "The firm is accused of funnelling AI chips to China.","src": "Semafor, DW, BBC"},
     {"region": "AUSTRALIA","field": "CULTURE","status": "CONFIRMED","icon": "chart","art": "vinyl","label": "MOLLY MELDRUM, 83","t": "01:03","lat": -37.8,"lon": 144.96,
      "head": "Australian music legend Molly Meldrum dies","sub": "Countdown host saluted by Kylie Minogue, Jimmy Barnes","src": "BBC, Reuters"},
     {"region": "NORTH AMERICA","field": "TECH","status": "OFFICIAL","art": "chartup","label": "NVIDIA +30%","t": "14:06","lat": 37.4,"lon": -122.0,
@@ -34,10 +34,10 @@
      "head": "CrowdStrike to buy Zscaler for $44bn","sub": "Cyber giants combine as AI supercharges attacks","src": "NYT, CNBC"},
     {"region": "BANGLADESH","field": "LABOUR","status": "REPORTED","art": "sewing","label": "PAY OFFER REJECTED","t": "20:03","lat": 23.7,"lon": 90.4,
      "head": "Bangladesh garment workers reject pay offer","sub": "Protests go on. Current minimum wage: about $100 a month.","src": "Al Jazeera"},
-    {"region": "US","field": "ENVIRONMENT","status": "CONFIRMED","art": "iowa","label": "BLAST PAUSED","t": "19:25","lat": 40.83,"lon": -91.23,
-     "head": "Trump pauses Army’s Iowa explosives blast","sub": "No toxic lead azide detonation without court approval","src": "PBS, Al Jazeera"},
-    {"region": "ASIA","field": "MARKETS","status": "REPORTED","art": "markets","label": "AI SELL-OFF","t": "00:18","lat": 37.53,"lon": 126.92,
-     "head": "Asian markets tumble on AI bubble fears","sub": "KOSPI closes 3.3% lower","src": "Al Jazeera"},
+    {"region": "GERMANY · NATO","field": "SPACE/SECURITY","status": "CONFIRMED","art": "satellite","label": "SPACE NUKE FEARS","t": "14:18","lat": 52.52,"lon": 13.4,
+     "head": "Germany weighs report of Russian nuclear satellite","sub": "NATO says it will defend against threats in space.","src": "Guardian, France 24"},
+    {"region": "US","field": "LAW/TECH","status": "CONFIRMED","art": "grok","label": "GROK SUED","t": "12:00","lat": 44.94,"lon": -123.04,
+     "head": "Two US states sue SpaceX over Grok deepfakes","sub": "Virginia and Oregon filed separate lawsuits.","src": "Politico, Al Jazeera"},
     {"region": "IRAN","field": "LAW","status": "REPORTED","art": "courts","label": "$290BN ORDER","t": "15:50","lat": 35.69,"lon": 51.39,
      "head": "Iran courts order US to pay $290bn","sub": "Tehran also vows to counter the US blockade","src": "France 24, Al Jazeera"}
   ],
@@ -55,12 +55,13 @@
     {"region": "CENTRAL ASIA","field": "LAW","place": "Tajikistan","text": "moves to leave ICC","src": "AJ"},
     {"region": "SOUTH ASIA","field": "SPORT","place": "India","text": "Gukesh to face Sindarov for title","src": "DW"},
     {"region": "EAST ASIA","field": "DIPLOMACY","place": "N Korea","text": "Kim welcomes 'friendly' new envoys","src": "WSJ"},
+    {"region": "EAST ASIA","field": "MARKETS","place": "Asia","text": "AI sell-off drags KOSPI 3.3% lower","src": "AJ"},
     {"region": "SOUTH-EAST ASIA","field": "LAW","place": "Myanmar","text": "14 states note ICJ genocide ruling","src": "F24"},
     {"region": "OCEANIA","field": "LAW","place": "Australia","text": "1.1m can join Jetstar refund suit","src": "Guardian"},
-    {"region": "NORTH AMERICA","field": "TECH","place": "US","text": "blacklists Megaspeed","src": "DW"},
+    {"region": "NORTH AMERICA","field": "SPORT","place": "FIFA","text": "US-led bid wins 2031 Women's World Cup","src": "DW"},
     {"region": "NORTH AMERICA","field": "SANCTIONS","place": "US","text": "sanctions Iran \"shadow banks\"","src": "AJ"},
     {"region": "NORTH AMERICA","field": "POLITICS","place": "US","text": "Rep. Jimmy Gomez to resign","src": "NPR"},
-    {"region": "NORTH AMERICA","field": "LAW","place": "US","text": "2 states sue SpaceX over Grok images","src": "AJ"},
+    {"region": "NORTH AMERICA","field": "ENVIRONMENT","place": "US","text": "Army's Iowa explosives blast paused","src": "PBS"},
     {"region": "LATIN AMERICA","field": "TECH","place": "Barbados","text": "UN chief seeks AI safety pact","src": "F24"}
   ],
   "datecheck": {
