@@ -206,34 +206,41 @@ function strips() {
   }
 }
 
+const leadSceneHeight = 82;
 const scenes = {
   warship: `
-    <rect width="320" height="56" fill="#e0ebee"/>
-    <path d="M0 28H320V56H0Z" fill="#91bdc7"/>
-    <path d="M0 40H320V56H0Z" fill="#bed8de"/>
-    <path d="M186 33h19m97 0h13M13 16h22" fill="none" stroke="#d5e9ea" stroke-width="2"/>
-    <path d="M7 35Q22 25 43 22Q25 22 12 24M17 36Q29 28 44 24"
-          fill="none" stroke="#fffefa" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="m38 22 8-4 12 1-9 6-9 1Z" fill="#233e54"/>
-    <path d="M104 23Q94 14 80 16C67 17 53 12 48 5c12 2 14-3 27-1 7 1 10 6 18 5 11-1 18 6 19 13Z"
-          fill="#56636c"/>
-    <g transform="translate(0 -1) rotate(4 117 27)">
-      <path d="M59 26h110l17-6-10 14-18 2H77Z" fill="#25394c"/>
-      <path d="M69 31h108l-5 4-14 2H79Z" fill="#9e4244"/>
-      <path d="M78 26v-5h21l12-10h28l11 15zm77 0 3-7h10l5 7Z" fill="#536b7b"/>
-      <path d="M125 12V1m33 20 12-6" fill="none" stroke="#25394c" stroke-width="2"/>
-      <path d="M126 2h14v3h-14Z" fill="#fffefa"/>
-      <path d="M126 5h14v3h-14Z" fill="#345e9b"/>
-      <path d="M126 8h14v3h-14Z" fill="#ad2f39"/>
-      <path d="M112 16h24" fill="none" stroke="#e0ebee" stroke-width="2" stroke-dasharray="6 2"/>
+    <rect width="320" height="${leadSceneHeight}" fill="#e0ebee"/>
+    <rect y="35" width="320" height="${leadSceneHeight - 35}" fill="#91bdc7"/>
+    <rect y="55" width="320" height="${leadSceneHeight - 55}" fill="#bed8de"/>
+    <path d="M187 47h13m106 8h10M13 23h24" fill="none" stroke="#d5e9ea" stroke-width="2"/>
+    <g transform="translate(-4 5) scale(1.22)">
+      <path d="M7 35Q22 25 43 22Q25 22 12 24M17 36Q29 28 44 24"
+            fill="none" stroke="#fffefa" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="m38 22 8-4 12 1-9 6-9 1Z" fill="#233e54"/>
     </g>
-    <path d="M88 25q-4-7 3-12 0 5 6 7l5-11q9 7 9 16Z" fill="#d8441c"/>
-    <path d="M94 25q1-4 7-10 0 6 6 10Z" fill="#ffd165"/>
-    <path d="M208 28h79l15-5-9 12h-74Z" fill="#334d60"/>
-    <path d="M214 21h13v7h-13zm25 0h14v7h-14zm33 0h12v7h-12z" fill="#a65c43"/>
-    <path d="M228 18h10v10h-10zm26 1h17v9h-17z" fill="#50766e"/>
-    <path d="M278 21v-9h14l5 9Z" fill="#536b7b"/>
-    <path d="M283 16h8" stroke="#fffefa" stroke-width="2"/>`,
+    <g transform="translate(-16 5) scale(1.22)">
+      <path d="M104 23Q94 14 80 16C67 17 53 12 48 5c12 2 14-3 27-1 7 1 10 6 18 5 11-1 18 6 19 13Z"
+            fill="#56636c"/>
+      <g transform="translate(0 -1) rotate(4 117 27)">
+        <path d="M59 26h110l17-6-10 14-18 2H77Z" fill="#25394c"/>
+        <path d="M69 31h108l-5 4-14 2H79Z" fill="#9e4244"/>
+        <path d="M78 26v-5h21l12-10h28l11 15zm77 0 3-7h10l5 7Z" fill="#536b7b"/>
+        <path d="M125 12V1m33 20 12-6" fill="none" stroke="#25394c" stroke-width="2"/>
+        <path d="M126 2h14v3h-14Z" fill="#fffefa"/>
+        <path d="M126 5h14v3h-14Z" fill="#345e9b"/>
+        <path d="M126 8h14v3h-14Z" fill="#ad2f39"/>
+        <path d="M112 16h24" fill="none" stroke="#e0ebee" stroke-width="2" stroke-dasharray="6 2"/>
+      </g>
+      <path d="M88 25q-4-7 3-12 0 5 6 7l5-11q9 7 9 16Z" fill="#d8441c"/>
+      <path d="M94 25q1-4 7-10 0 6 6 10Z" fill="#ffd165"/>
+    </g>
+    <g transform="translate(-45 16) scale(1.2)">
+      <path d="M208 28h79l15-5-9 12h-74Z" fill="#334d60"/>
+      <path d="M214 21h13v7h-13zm25 0h14v7h-14zm33 0h12v7h-12z" fill="#a65c43"/>
+      <path d="M228 18h10v10h-10zm26 1h17v9h-17z" fill="#50766e"/>
+      <path d="M278 21v-9h14l5 9Z" fill="#536b7b"/>
+      <path d="M283 16h8" stroke="#fffefa" stroke-width="2"/>
+    </g>`,
   chart: `
     <g transform="scale(1 .8)">
     <rect width="320" height="70" fill="#f2e5e2"/>
@@ -246,52 +253,59 @@ const scenes = {
     <circle cx="289" cy="58" r="4" fill="#af313b"/>
     </g>`,
   chartup: `
-    <rect width="320" height="56" fill="#e5efe5"/>
-    <path d="M12 15h160M12 27h160M44 5v22M88 5v22M132 5v22"
-          fill="none" stroke="#c2d6c5"/>
-    <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8V27H13Z" fill="#c3e0c8"/>
-    <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8"
-          fill="none" stroke="#1c7038" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="171" cy="8" r="4" fill="#1c7038"/>
-    <rect x="179" y="4" width="136" height="24" rx="3" fill="#145a35"/>
-    <rect x="5" y="29" width="310" height="26" rx="3" fill="#145a35"/>`,
-  plane: `
-    <rect width="320" height="56" fill="#deeaee"/>
-    <path d="M160 4v32" stroke="#a8bdc5"/>
-    <path d="M10 34h136" stroke="#748c98" stroke-width="3"/>
-    <path d="M17 34h122" stroke="#fffefa" stroke-dasharray="10 6"/>
-    <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
-    <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
-    <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
-    <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
-    <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
-    <path d="M175 33h134m-134 4h134" stroke="#748c98" stroke-width="2"/>
-    <path d="M182 35h120" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
-    <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
-    <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
-    <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
-    <circle cx="192" cy="31" r="3" fill="#14243b"/>
-    <circle cx="218" cy="31" r="3" fill="#14243b"/>
-    <circle cx="239" cy="31" r="3" fill="#14243b"/>
-    <circle cx="263" cy="31" r="3" fill="#14243b"/>
-    <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
-      <circle cx="135" cy="16" r="12"/>
-      <circle cx="297" cy="16" r="12"/>
+    <rect width="320" height="${leadSceneHeight}" fill="#e5efe5"/>
+    <g transform="translate(0 2) scale(1.78)">
+      <path d="M12 15h160M12 27h160M44 5v22M88 5v22M132 5v22"
+            fill="none" stroke="#c2d6c5"/>
+      <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8V27H13Z" fill="#c3e0c8"/>
+      <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8"
+            fill="none" stroke="#1c7038" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="171" cy="8" r="4" fill="#1c7038"/>
     </g>
-    <path d="M129 16h12m150 0h12" stroke="#fffefa" stroke-width="4"/>`,
+    <rect x="4" y="53" width="141" height="26" rx="3" fill="#145a35"/>
+    <rect x="149" y="53" width="168" height="26" rx="3" fill="#145a35"/>`,
+  plane: `
+    <rect width="320" height="${leadSceneHeight}" fill="#deeaee"/>
+    <path d="M163 4v43" stroke="#a8bdc5"/>
+    <path d="M10 44h143" stroke="#748c98" stroke-width="3"/>
+    <path d="M17 44h129" stroke="#fffefa" stroke-dasharray="10 6"/>
+    <g transform="translate(-4 0) scale(1.29)">
+      <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
+      <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
+      <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
+      <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
+      <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
+    </g>
+    <path d="M171 43h139m-139 4h139" stroke="#748c98" stroke-width="2"/>
+    <path d="M178 45h125" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
+    <g transform="translate(-49 1) scale(1.25)">
+      <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
+      <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
+      <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
+      <circle cx="192" cy="31" r="3" fill="#14243b"/>
+      <circle cx="218" cy="31" r="3" fill="#14243b"/>
+      <circle cx="239" cy="31" r="3" fill="#14243b"/>
+      <circle cx="263" cy="31" r="3" fill="#14243b"/>
+    </g>
+    <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
+      <circle cx="147" cy="17" r="13"/>
+      <circle cx="298" cy="17" r="13"/>
+    </g>
+    <path d="M140 17h14m137 0h14" stroke="#fffefa" stroke-width="4"/>`,
 };
 
 const sceneLabels = {
   warship: [
-    { value: 'MERKURY: SUNK?', x: 25, y: 37, w: 165, h: 19, size: 17 },
-    { value: 'ANGARA: HIT?', x: 190, y: 37, w: 130, h: 19, size: 17 },
+    { value: 'MERKURY: SUNK?', x: 4, y: 55, w: 178, h: 27, size: 18 },
+    { value: 'ANGARA: HIT?', x: 182, y: 55, w: 134, h: 27, size: 18 },
   ],
   chartup: [
-    { value: 'NVIDIA +30%', x: 179, y: 4, w: 136, h: 24, size: 20, fill: '#fffefa' },
-    { value: 'NASDAQ +6.5%', x: 5, y: 29, w: 190, h: 26, size: 23, fill: '#fffefa' },
+    { value: 'NVIDIA +30%', x: 4, y: 53, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
+    { value: 'NASDAQ +6.5%', x: 149, y: 53, w: 168, h: 26, size: 22, fill: '#fffefa' },
   ],
   plane: [
-    { value: 'MOST FLIGHTS CANCELLED 06:00-20:00', x: 0, y: 38.4, w: 320, h: 17.6, size: 16 },
+    { value: 'MOST FLIGHTS CANCELLED', x: 0, y: 46, w: 320, h: 20.5, size: 18.5 },
+    { value: '06:00-20:00', x: 0, y: 66.5, w: 320, h: 15.5, size: 14 },
   ],
 };
 
@@ -299,20 +313,20 @@ function leadPanel(story, index) {
   const x = 24 + index * 328;
   const y = 177;
   const w = index === 2 ? 320 : 318;
+  const height = 199;
   const sceneScale = w / 320;
-  const sceneHeight = 56;
   const contentX = x + 11;
   const contentWidth = w - 22;
   const names = regionNames(story);
-  const tagY = y + sceneHeight + 3;
+  const tagY = y + leadSceneHeight + 3;
   const statusX = x + w - 91;
   const headlineY = tagY + 17;
   const headlineHeight = 51;
   const bodyY = headlineY + headlineHeight;
-  const sourceY = tagY + 126;
+  const sourceY = y + height - 14;
   const sourceGap = 4;
 
-  rect(x, y, w, sourceY + 14 - y, white, `stroke="${rule}"`);
+  rect(x, y, w, height, white, `stroke="${rule}"`);
   add(`<g transform="translate(${x} ${y}) scale(${sceneScale} 1)">${scenes[story.scene]}</g>`);
   for (const { value, x: offsetX, y: offsetY, w: width, h, size, fill } of sceneLabels[story.scene] ?? []) {
     text(value, box(x + offsetX * sceneScale, y + offsetY, width * sceneScale, h), {
@@ -335,7 +349,7 @@ function leadPanel(story, index) {
     size: 23, min: 20, weight: 700, maxLines: 2, gap: 0.3,
   });
   text(story.sub, box(contentX, bodyY, contentWidth, sourceY - sourceGap - bodyY), {
-    size: 12, min: 12, maxLines: 4, gap: 0.2,
+    size: 12, min: 12, maxLines: 2, gap: 0.2,
   });
   sourceLine(story, box(contentX, sourceY, contentWidth, 13), 'Source: ');
 }
