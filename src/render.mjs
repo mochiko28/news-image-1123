@@ -5,6 +5,9 @@ const stories = JSON.parse(readFileSync(new URL('./stories.json', import.meta.ur
 const pageSize = 1024;
 const margin = 24;
 const pageWidth = pageSize - 2 * margin;
+const cardTop = 381;
+const cardHeight = 176;
+const panelGap = 6;
 const ink = '#14243b';
 const muted = '#46566a';
 const paper = '#f7f5ef';
@@ -286,7 +289,7 @@ const sceneLabels = {
     { value: 'NVDA +30%', x: 195, y: 5, w: 120, h: 26, size: 20, fill: '#fffefa' },
   ],
   plane: [
-    { value: 'NO FLIGHTS 06:00-20:00', x: 0, y: 37, w: 320, h: 19, size: 17 },
+    { value: 'MOST FLIGHTS CANCELLED 06:00-20:00', x: 0, y: 38.4, w: 320, h: 17.6, size: 16 },
   ],
 };
 
@@ -471,14 +474,12 @@ const cardScenes = {
 };
 
 function storyCard(story, index) {
-  const gap = 6;
-  const w = (pageWidth - 4 * gap) / 5;
-  const x = margin + index % 5 * (w + gap);
-  const y = 381 + Math.floor(index / 5) * 176;
-  const h = 170;
-  const sceneHeight = 68;
+  const w = (pageWidth - 4 * panelGap) / 5;
+  const x = margin + index % 5 * (w + panelGap);
+  const y = cardTop + Math.floor(index / 5) * (cardHeight + panelGap);
+  const sceneHeight = 72;
   const [color] = regionPalette(regionNames(story)[0]);
-  rect(x, y, w, h, white, `stroke="${rule}"`);
+  rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
 
   if (story.art === 'aidmap') {
@@ -487,20 +488,23 @@ function storyCard(story, index) {
     });
   }
 
-  const captionFont = fontFor(700);
-  const captionSpace = w - 8;
-  const captionSize = Math.max(15, Math.min(21, Math.floor(captionSpace / captionFont.width(story.label, 1) / 0.85)));
-  const captionAdvance = captionFont.width(story.label, captionSize);
-  const captionScale = Math.max(0.85, Math.min(1, Math.floor(1000 * captionSpace / captionAdvance) / 1000));
-  const captionWidth = Math.min(w, Math.ceil(captionAdvance * captionScale) + 10);
-  const captionY = y + sceneHeight - 24;
-  rect(x, captionY, captionWidth, 24, ink);
-  text(story.label, box(x, captionY, captionWidth, 24), {
+  const boldFont = fontFor(700);
+  const captionSpace = w - 6;
+  const minCaptionScale = 0.81;
+  const captionSize = Math.max(15, Math.min(22,
+    Math.floor(captionSpace / boldFont.width(story.label, 1) / minCaptionScale)));
+  const captionAdvance = boldFont.width(story.label, captionSize);
+  const captionScale = Math.max(minCaptionScale, Math.min(1, Math.floor(1000 * captionSpace / captionAdvance) / 1000));
+  const captionWidth = Math.min(w, Math.ceil(captionAdvance * captionScale) + 8);
+  const captionHeight = 26;
+  const captionY = y + sceneHeight - captionHeight;
+  rect(x, captionY, captionWidth, captionHeight, ink);
+  text(story.label, box(x, captionY, captionWidth, captionHeight), {
     size: captionSize, min: 15, weight: 700, fill: '#ffffff',
-    align: 'middle', vertical: 'middle', maxLines: 1, inset: 4, widthScales: [captionScale],
+    align: 'middle', vertical: 'middle', maxLines: 1, inset: 3, widthScales: [captionScale],
   });
 
-  const tagY = y + sceneHeight + 2;
+  const tagY = y + sceneHeight + 1;
   const statusWidth = Math.ceil(fontFor(700).width(story.status, 11)) + 5;
   const statusX = x + w - 3 - statusWidth;
   badge(index + stories.leads.length + 1, x + 3, tagY, 18, 16);
@@ -510,12 +514,16 @@ function storyCard(story, index) {
   pill(story.status, statusX, tagY, statuses[story.status], statusWidth);
 
   const headY = tagY + 18;
-  const headHeight = text(story.head, box(x + 4, headY, w - 8, 41), {
-    size: 18, min: 16, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
-    widthScales: [1, 0.89],
+  const headWidth = w - 8;
+  const widthScales = [1, 0.98, 0.96, 0.94, 0.92, 0.90];
+  const largeHeadLines = wrap(story.head, headWidth, value => boldFont.width(value, 20) * widthScales.at(-1));
+  const headSize = largeHeadLines && largeHeadLines.length <= 2 ? 20 : 19;
+  const headHeight = text(story.head, box(x + 4, headY, headWidth, 45), {
+    size: headSize, min: headSize, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
+    widthScales,
   });
   const subY = headY + headHeight + 0.3;
-  const sourceY = y + 156;
+  const sourceY = y + cardHeight - 13;
   text(story.sub, box(x + 4, subY, w - 8, sourceY - subY), {
     size: 12, min: 12, maxLines: 2, inset: 0, gap: 0.2,
   });
@@ -817,7 +825,7 @@ function worldMap({ x, y, w, h }) {
 }
 
 function briefs({ x, y, w, h }) {
-  const headerHeight = 20;
+  const headerHeight = 16;
   const columnCount = 3;
   const baseRows = Math.floor(stories.briefs.length / columnCount);
   const extraRows = stories.briefs.length % columnCount;
@@ -853,8 +861,8 @@ function briefs({ x, y, w, h }) {
   const noteX = x + w - 8 - noteWidth;
   rect(x, y, w, h, white, `stroke="${rule}"`);
   rect(x, y, w, headerHeight, '#e2e9e9');
-  label('ALSO ON ' + stories.day, box(x + 8, y + 2, noteX - x - 14, 16));
-  text(sourceNote, box(noteX, y + 2, noteWidth, 16), sourceOptions);
+  label('ALSO ON ' + stories.day, box(x + 8, y, noteX - x - 14, headerHeight));
+  text(sourceNote, box(noteX, y, noteWidth, headerHeight), sourceOptions);
   let columnX = x;
   for (const [column, briefsInColumn] of columns.entries()) {
     const columnWidth = preferredWidths[column] + widthAdjustment;
@@ -886,30 +894,32 @@ function briefs({ x, y, w, h }) {
 }
 
 function dateCheck({ x, y, w, h }) {
+  const headerHeight = 16;
   rect(x, y, w, h, '#fff8f5', `stroke="${red}" stroke-width="1.5"`);
-  rect(x + 1, y + 1, w - 2, 17, '#f3dedd');
+  rect(x + 1, y + 1, w - 2, headerHeight, '#f3dedd');
 
   const separator = stories.datecheck.title.indexOf(':');
   const title = stories.datecheck.title.slice(0, separator + 1);
   const subtitle = stories.datecheck.title.slice(separator + 1).trim();
   const titleWidth = Math.ceil(fontFor(700).width(title, 14)) + 4;
-  text(title, box(x + 6, y + 1, titleWidth, 17), {
+  text(title, box(x + 6, y + 1, titleWidth, headerHeight), {
     size: 14, min: 14, weight: 700, fill: red, vertical: 'middle', maxLines: 1,
   });
-  label(subtitle, box(x + 12 + titleWidth, y + 1, w - 18 - titleWidth, 17), red);
+  label(subtitle, box(x + 12 + titleWidth, y + 1, w - 18 - titleWidth, headerHeight), red);
 
   const itemWidth = w / stories.datecheck.items.length;
+  const itemY = y + 1 + headerHeight;
   for (const [index, item] of stories.datecheck.items.entries()) {
     const itemX = x + index * itemWidth;
-    if (index) line(itemX, y + 20, itemX, y + h - 3, '#dcb2b1');
-    text(item, box(itemX + 6, y + 18, itemWidth - 9, h - 19), {
+    if (index) line(itemX, itemY + 1, itemX, y + h - 2, '#dcb2b1');
+    text(item, box(itemX + 6, itemY, itemWidth - 9, y + h - itemY), {
       vertical: 'middle', maxLines: 2, inset: 0,
     });
   }
 }
 
 function footer() {
-  text('Editor’s note: ' + stories.note, box(24, 974, pageWidth, 16), { maxLines: 1 });
+  text('Editor’s note: ' + stories.note, box(24, 976, pageWidth, 16), { maxLines: 1 });
   rect(24, 994, pageWidth, 20, ink);
   text(stories.footer, box(30, 995, pageWidth - 12, 18), {
     align: 'middle', vertical: 'middle', fill: '#ffffff', maxLines: 1,
@@ -922,13 +932,12 @@ masthead();
 strips();
 stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
-const lowerY = 733;
-const lowerHeight = 190;
+const lowerY = cardTop + Math.ceil(stories.cards.length / 5) * (cardHeight + panelGap);
+const lowerHeight = 183;
 const mapWidth = 182;
-const panelGap = 6;
 worldMap(box(margin, lowerY, mapWidth, lowerHeight));
 briefs(box(margin + mapWidth + panelGap, lowerY, pageWidth - mapWidth - panelGap, lowerHeight));
-dateCheck(box(margin, lowerY + lowerHeight + 5, pageWidth, 44));
+dateCheck(box(margin, lowerY + lowerHeight + 4, pageWidth, 42));
 footer();
 add('</svg>');
 

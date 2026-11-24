@@ -14,7 +14,7 @@
   "numbers": [
     {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
     {"v": "~$1tn", "l": "added to Nvidia's value, BBC says"},
-    {"v": "14 hrs", "l": "of cancelled flights in Belgium's strike"},
+    {"v": "14 hrs", "l": "of mostly cancelled flights in Belgium"},
     {"v": "-70%", "l": "Capita shares as its UK boss quits"}
   ],
   "leads": [
@@ -42,8 +42,8 @@
      "head": "NATO calls urgent meeting on Russia",
      "sub": "Finland summons Russian envoy; NATO radar plane for Poland", "src": "WaPo, France 24, NBC"},
     {"region": "BRAZIL", "field": "WEATHER", "status": "REPORTED", "icon": "drop", "art": "storm", "label": "THOUSANDS DISPLACED", "t": "09:45", "lat": -29.1, "lon": -53.8,
-     "head": "Brazil storm town still in ruins",
-     "sub": "Days after a supercell hit Tupancireta", "src": "Al Jazeera"},
+     "head": "Thousands displaced in Brazil storm town",
+     "sub": "Monday count after weekend supercell hit Tupancireta", "src": "Al Jazeera"},
     {"region": "DR CONGO", "field": "HEALTH", "status": "REPORTED", "icon": "virus", "art": "virus", "label": "EBOLA", "t": "06:00", "lat": 0.5, "lon": 29.5,
      "head": "Graves hint Ebola toll far above count",
      "sub": "Reuters probe; WHO says fighting slows response", "src": "Reuters, Al Jazeera"},
