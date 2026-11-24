@@ -43,7 +43,7 @@
      "sub": "Finland summons Russian envoy; NATO radar plane for Poland", "src": "WaPo, France 24, NBC"},
     {"region": "BRAZIL", "field": "WEATHER", "status": "REPORTED", "icon": "drop", "art": "storm", "label": "THOUSANDS DISPLACED", "t": "09:45", "lat": -29.1, "lon": -53.8,
      "head": "Thousands displaced in Brazil storm town",
-     "sub": "Monday count after weekend supercell hit Tupancireta", "src": "Al Jazeera"},
+     "sub": "Monday count after last week's supercell hit Tupancireta", "src": "Al Jazeera"},
     {"region": "DR CONGO", "field": "HEALTH", "status": "REPORTED", "icon": "virus", "art": "virus", "label": "EBOLA", "t": "06:00", "lat": 0.5, "lon": 29.5,
      "head": "Reuters: graves point to higher Ebola toll",
      "sub": "Reuters probe; WHO urges peace amid fighting", "src": "Reuters, Al Jazeera"},
@@ -96,7 +96,7 @@
     {"region": "NORTH AMERICA", "field": "WEATHER", "place": "US", "text": "storms threaten Thanksgiving trips", "src": "NBC"},
     {"region": "NORTH AMERICA", "field": "LAW", "place": "US", "text": "court revives Trump hush-money bid", "src": "PBS"},
     {"region": "NORTH AMERICA", "field": "BUSINESS", "place": "US", "text": "CrowdStrike to buy Zscaler for $44bn", "src": "CNBC"},
-    {"region": "NORTH AMERICA", "field": "MIGRATION", "place": "US", "text": "admits deporting a citizen to Mexico", "src": "Guardian"},
+    {"region": "NORTH AMERICA", "field": "CULTURE", "place": "US", "text": "writers propose PEN splinter group", "src": "AP"},
     {"region": "NORTH AMERICA", "field": "POLITICS", "place": "US", "text": "DNC plans 12 primary debates", "src": "Politico"},
     {"region": "LATIN AMERICA", "field": "TECH", "place": "Barbados", "text": "UN chief seeks AI safety pact", "src": "F24"},
     {"region": "LATIN AMERICA", "field": "CRIME", "place": "Colombia", "text": "gangs attack security forces", "src": "WSJ"},
@@ -106,8 +106,8 @@
     "title": "DATE CHECK: LEFT OUT, FIRST REPORTED SUN 22 NOV OR EARLIER",
     "items": [
       "COP31 ends without a deal; first Benghazi blast reports (22 Nov)",
-      "Alcaraz ATP Finals; Khartoum strikes; BepiColombo at Mercury (22 Nov)",
-      "Democrats' House majority; Brazil storm hits (21-22 Nov)",
+      "Alcaraz title, Khartoum (22 Nov); BepiColombo at Mercury (21 Nov)",
+      "Democrats' House majority (22 Nov); Brazil storm hits (20 Nov)",
       "Indonesia fire breaks out (21 Nov); UK-EU deal (20 Nov)",
       "US AI-compute rental curbs (16 Nov); Nigeria suicide bill (17-19 Nov)"
     ]
