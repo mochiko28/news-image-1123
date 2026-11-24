@@ -37,6 +37,7 @@ const placeRegions = {
   IRAN: 'MIDDLE EAST',
   GAZA: 'MIDDLE EAST',
   'SOUTH KOREA': 'EAST ASIA',
+  INDONESIA: 'SOUTH-EAST ASIA',
   'NEPAL · INDIA': 'SOUTH ASIA',
   USA: 'NORTH AMERICA',
   'UK · USA': 'EUROPE · NORTH AMERICA',
@@ -145,7 +146,7 @@ function masthead() {
   const { day, date, kicker } = stories;
   const fieldCount = new Set(allStories.map(story => story.field).filter(Boolean)).size;
   const [dayOfMonth, month, year] = date.split(' ');
-  const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · ALL NEW ON ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
+  const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · FIRST REPORTED OR UPDATED ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
 
   rect(24, 6, pageWidth, 90, ink);
   rect(24, 6, 5, 90, '#d75450');
@@ -206,13 +207,13 @@ const scenes = {
     <rect width="320" height="56" fill="#e0ebee"/>
     <path d="M0 28H320V56H0Z" fill="#91bdc7"/>
     <path d="M0 40H320V56H0Z" fill="#bed8de"/>
-    <path d="M186 33h19m90 4h20M13 31h22M171 47h27" fill="none" stroke="#d5e9ea" stroke-width="2"/>
-    <path d="M7 51Q22 41 43 38Q25 38 12 40M17 52Q29 44 44 40"
+    <path d="M186 33h19m97 0h13M13 16h22" fill="none" stroke="#d5e9ea" stroke-width="2"/>
+    <path d="M7 35Q22 25 43 22Q25 22 12 24M17 36Q29 28 44 24"
           fill="none" stroke="#fffefa" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="m38 38 8-4 12 1-9 6-9 1Z" fill="#233e54"/>
+    <path d="m38 22 8-4 12 1-9 6-9 1Z" fill="#233e54"/>
     <path d="M104 23Q94 14 80 16C67 17 53 12 48 5c12 2 14-3 27-1 7 1 10 6 18 5 11-1 18 6 19 13Z"
           fill="#56636c"/>
-    <g transform="rotate(8 117 27)">
+    <g transform="translate(0 -1) rotate(4 117 27)">
       <path d="M59 26h110l17-6-10 14-18 2H77Z" fill="#25394c"/>
       <path d="M69 31h108l-5 4-14 2H79Z" fill="#9e4244"/>
       <path d="M78 26v-5h21l12-10h28l11 15zm77 0 3-7h10l5 7Z" fill="#536b7b"/>
@@ -278,8 +279,8 @@ const scenes = {
 
 const sceneLabels = {
   warship: [
-    { value: 'MERKURY', x: 60, y: 37, w: 113, h: 19, size: 17 },
-    { value: 'ANGARA', x: 204, y: 37, w: 106, h: 19, size: 17 },
+    { value: 'MERKURY: SUNK?', x: 25, y: 37, w: 165, h: 19, size: 17 },
+    { value: 'ANGARA: HIT?', x: 190, y: 37, w: 130, h: 19, size: 17 },
   ],
   chartup: [
     { value: 'NVDA +30%', x: 195, y: 5, w: 120, h: 26, size: 20, fill: '#fffefa' },
@@ -438,6 +439,20 @@ const cardScenes = {
       <path d="M132 26v4m0 2v1" stroke="#37494a" stroke-width="2"/>
     </g>
     <path d="M159 36c1 4 5 7 5 10a5 5 0 0 1-10 0c0-3 4-6 5-10Z" fill="#b4c766"/>`,
+  factoryfire: `
+    <rect width="190" height="70" fill="#e5ccc0"/>
+    <path d="M0 51h190v19H0Z" fill="#ba9381"/>
+    <path d="M99 32c-8-3-10-11-4-16 4-4 10-5 16-3 0-8 10-13 19-10 8-5 22-3 25 4
+             10-3 24 3 24 11 7 5 3 13-5 14Z" fill="#76666a"/>
+    <path d="M116 28c-5-7 2-14 10-12 5-7 17-8 22-2 11-3 21 3 20 10l-8 10Z" fill="#958082"/>
+    <path d="M27 57V35l23-12v12l24-12v12l24-12v12h68v22Z" fill="#473945"/>
+    <path d="M35 34V15h10v14m33-1V11h10v15" fill="#473945"/>
+    <path d="M38 41h11m7 0h11m8 0h11m8 0h11m43 0h10" stroke="#d3a48e" stroke-width="5"/>
+    <path d="M92 54h17v-7H92Zm51 0h17v-7h-17Z" fill="#715259"/>
+    <path d="M123 53c-12-3-16-14-11-23 2 5 5 7 8 7-1-10 8-16 9-25 7 7 8 15 5 21
+             5-1 8-5 8-9 10 14 4 24-7 29Z" fill="#d74b29"/>
+    <path d="M125 52c-6-3-7-9-4-14 2 4 4 5 6 5 0-7 5-10 7-14 5 8 7 18-1 23Z" fill="#ffcd69"/>
+    <path d="M13 57h164" stroke="#795d60" stroke-width="2"/>`,
   satellite: `
     <rect width="190" height="70" fill="#222d4c"/>
     <path d="M6 66Q90 13 190 71Z" fill="#354763"/>

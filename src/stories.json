@@ -15,7 +15,7 @@
     {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
     {"v": "~$1tn", "l": "added to Nvidia's value, BBC says"},
     {"v": "14 hrs", "l": "of cancelled flights in Belgium's strike"},
-    {"v": "24", "l": "bodies taken from Indonesia's factory fire"}
+    {"v": "-70%", "l": "Capita shares as its UK boss quits"}
   ],
   "leads": [
     {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "CLAIM", "scene": "warship", "t": "06:10",
@@ -62,9 +62,9 @@
     {"region": "GAZA", "field": "ENVIRONMENT", "status": "CONFIRMED", "icon": "drop", "art": "toxic", "label": "TOXIC RISK", "t": "04:00", "lat": 31.4, "lon": 34.4,
      "head": "Report: war left Gaza a \"toxic wasteland\"",
      "sub": "Oxfam: signs of contamination almost everywhere", "src": "Guardian, BBC, Al Jazeera"},
-    {"region": "GERMANY · SPACE", "field": "SPACE", "status": "OFFICIAL", "icon": "satellite", "art": "satellite", "label": "SPACE THREAT", "t": "14:18", "lat": 52.5, "lon": 13.4,
-     "head": "NATO vows to defend space after nuke report",
-     "sub": "German media: Russia may launch an armed satellite", "src": "Guardian, France 24"}
+    {"region": "INDONESIA", "field": "DISASTER", "status": "CONFIRMED", "icon": "blast", "art": "factoryfire", "label": "24 DEAD", "t": "02:35", "lat": -6.211, "lon": 106.358,
+     "head": "Indonesia factory fire toll rises to 24",
+     "sub": "Monday update: about 30 still missing", "src": "BBC, Al Jazeera"}
   ],
   "briefs": [
     {"region": "EUROPE", "field": "SECURITY", "place": "Estonia", "text": "Moscow warns of \"open war\"", "src": "Guardian"},
@@ -72,6 +72,7 @@
     {"region": "EUROPE", "field": "DIPLOMACY", "place": "EU", "text": "eyes Russia sports ban in sanctions", "src": "AJ"},
     {"region": "EUROPE", "field": "MIGRATION", "place": "Denmark", "text": "court backs \"ghetto law\"", "src": "DW"},
     {"region": "EUROPE", "field": "LABOUR", "place": "Germany", "text": "metalworkers strike over pay", "src": "DW"},
+    {"region": "EUROPE", "field": "SPACE", "place": "Germany", "text": "media: Russia eyes armed satellite", "src": "Guardian"},
     {"region": "EUROPE", "field": "BUSINESS", "place": "UK", "text": "Capita shares crash 70%", "src": "BBC"},
     {"region": "EUROPE", "field": "CYBER", "place": "UK", "text": "Next says data hit in cyber breach", "src": "BBC"},
     {"region": "EUROPE", "field": "SPORT", "place": "UK", "text": "Tyson Fury reveals schizophrenia", "src": "BBC"},
@@ -84,7 +85,6 @@
     {"region": "MIDDLE EAST", "field": "CONFLICT", "place": "Gaza", "text": "Israeli strike kills UNRWA worker", "src": "AJ"},
     {"region": "SOUTH ASIA", "field": "LABOUR", "place": "Bangladesh", "text": "garment workers reject pay offer", "src": "AJ"},
     {"region": "EAST ASIA", "field": "DIPLOMACY", "place": "Japan", "text": "China ties strained after APEC", "src": "DW"},
-    {"region": "SOUTH-EAST ASIA", "field": "DISASTER", "place": "Indonesia", "text": "fire: 24 dead, ~30 missing", "src": "AJ"},
     {"region": "SOUTH-EAST ASIA", "field": "LAW", "place": "Myanmar", "text": "14 states back ICJ ruling", "src": "F24"},
     {"region": "OCEANIA", "field": "CULTURE", "place": "Australia", "text": "music icon Molly Meldrum dies, 83", "src": "BBC"},
     {"region": "OCEANIA", "field": "CLIMATE", "place": "Pacific", "text": "islands decry COP31 failure", "src": "F24"},
