@@ -24,6 +24,7 @@ const regions = {
   EUROPE: ['#245794', '#e5edf8'],
   AFRICA: ['#9d3e23', '#f5e6df'],
   'MIDDLE EAST': ['#765600', '#f8ecd5'],
+  'CENTRAL ASIA': ['#575c26', '#eaeddb'],
   'SOUTH ASIA': ['#9a5a12', '#f6ecdd'],
   'EAST ASIA': ['#006b73', '#dff0f0'],
   'SOUTH-EAST ASIA': ['#366123', '#e8f0df'],
@@ -32,19 +33,15 @@ const regions = {
   'LATIN AMERICA': ['#414959', '#e8ebf0'],
 };
 const placeRegions = {
-  UKRAINE: 'EUROPE',
-  'NATO · FINLAND': 'EUROPE',
-  'GERMANY · SPACE': 'EUROPE',
-  BRAZIL: 'LATIN AMERICA',
+  'NATO · EUROPE': 'EUROPE',
   'DR CONGO': 'AFRICA',
   IRAN: 'MIDDLE EAST',
   GAZA: 'MIDDLE EAST',
-  'SOUTH KOREA': 'EAST ASIA',
-  INDONESIA: 'SOUTH-EAST ASIA',
+  ASIA: 'EAST ASIA',
   'NEPAL · INDIA': 'SOUTH ASIA',
-  PACIFIC: 'OCEANIA',
   AUSTRALIA: 'OCEANIA',
-  USA: 'NORTH AMERICA',
+  US: 'NORTH AMERICA',
+  UK: 'EUROPE',
   'UK · USA': 'EUROPE · NORTH AMERICA',
 };
 const neutralRegion = ['#525b66', '#eceef0'];
@@ -151,7 +148,7 @@ function masthead() {
   const { day, date, kicker } = stories;
   const fieldCount = new Set(allStories.map(story => story.field).filter(Boolean)).size;
   const [dayOfMonth, month] = date.split(' ');
-  const stats = `${kicker} · ${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · FIRST REPORTED OR UPDATED ${day.slice(0, 3)} ${dayOfMonth} ${month.slice(0, 3)}`;
+  const stats = `${kicker} · ${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · FIRST REPORTED ${day.slice(0, 3)} ${dayOfMonth} ${month.slice(0, 3)}`;
 
   rect(24, 6, pageWidth, 90, ink);
   rect(24, 6, 5, 90, '#d75450');
@@ -209,64 +206,24 @@ function strips() {
 }
 
 const leadSceneHeight = 82;
+const natoSceneHeight = 72;
 const scenes = {
-  warship: `
-    <rect width="320" height="${leadSceneHeight}" fill="#e0ebee"/>
-    <rect y="36" width="320" height="${leadSceneHeight - 36}" fill="#8cb7c2"/>
-    <path d="M1 49h24m137 3h16m2-10h12m103 13h23" fill="none"
-          stroke="#d9edf0" stroke-width="2" stroke-linecap="round"/>
-
-    <!-- The corvette's hull, bridge and flag share the same tilt. -->
-    <path d="M64 36c-8-7-12-9-23-9-12 0-22-4-28-12 13 3 20-5 32 1
-             5 3 12 1 17 5 5 4 8 9 10 15Z" fill="#59616b"/>
-    <g transform="rotate(-8 92 42)">
-      <path d="M26 42v-9h30l9-9h14l4-6h30l15 15h10l4 9Z"
-            fill="#7b8a94" stroke="#2b3e4d" stroke-width="2"/>
-      <path d="M89 24h23l5 5H88Z" fill="#293d4c"/>
-      <path d="M97 18V8h27v13H97Z" fill="#fffefa" stroke="#293d4c" stroke-width="1.5"/>
-      <path d="M98 12h26v4H98Z" fill="#305d9d"/>
-      <path d="M98 16h26v5H98Z" fill="#b8333e"/>
-      <path d="M97 9v13" stroke="#293d4c" stroke-width="2"/>
-      <path d="M142 39l4-9h10l5 9m-6-7 12-5" fill="#7b8a94"
-            stroke="#2b3e4d" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M13 39h142l19-5-15 17-130 3Z" fill="#3e4e5a"/>
-      <path d="M18 43h144l-7 6-128 3Z" fill="#657683"/>
-      <path d="m58 41 5 6 5-6 6 6 4-6" fill="none" stroke="#28313a" stroke-width="3"/>
-      <path d="M54 39q-2-7 4-12 1 6 5 6l3-10q7 5 11 16Z" fill="#b84129"/>
-      <path d="M61 39q1-5 5-8l5 8Z" fill="#ffce68"/>
-    </g>
-
-    <!-- The freighter's level hull and stacked containers give it a separate silhouette. -->
-    <path d="M285 28c-4-6-10-6-18-6-9 0-16-4-21-10 9 2 16-4 24 0
-             6 3 12 0 17 5 3 3 4 6 4 11Z" fill="#59616b"/>
-    <path d="M276 44V25h7v-7h7v7h11v19Z" fill="#f3e3c7"
-          stroke="#34414b" stroke-width="2"/>
-    <path d="M281 29h16v4h-16Z" fill="#34414b"/>
-    <g stroke="#34414b" stroke-width="1.5" stroke-linejoin="round">
-      <path d="M193 33h22v12h-22Zm41 0h21v12h-21Z" fill="#b75b37"/>
-      <path d="M215 33h19v12h-19Zm19-10h21v10h-21Z" fill="#e4ae59"/>
-      <path d="M255 33h20v12h-20Zm-50-10h29v10h-29Z" fill="#3a756d"/>
-    </g>
-    <path d="M183 43h116l17-5-11 14H195Z" fill="#4b3036"/>
-    <path d="M190 47h120l-5 5H195Z" fill="#a3514b"/>
-
-    <!-- Drone silhouette with a central body and two rotor bars. -->
-    <path d="M171 10h11m10 0h11m-27 0v5h22v-5" fill="none" stroke="#293d4c"
-          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M182 13h10l-1 6h-8Z" fill="#293d4c"/>
-    <rect x="3" y="57" width="177" height="23" rx="2" fill="#23394b"/>
-    <rect x="183" y="57" width="134" height="23" rx="2" fill="#4b3036"/>`,
-  chart: `
-    <g transform="scale(1 .8)">
-    <rect width="320" height="70" fill="#f2e5e2"/>
-    <path d="M24 14h274M24 26h274M24 38h274M24 50h274M24 62h274
-             M55 8v54M96 8v54M137 8v54M178 8v54M219 8v54M260 8v54"
-          fill="none" stroke="#d8c2bd"/>
-    <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10v4H26Z" fill="#edcdca"/>
-    <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10"
-          fill="none" stroke="#af313b" stroke-width="3.5" stroke-linejoin="round"/>
-    <circle cx="289" cy="58" r="4" fill="#af313b"/>
-    </g>`,
+  nato: `
+    <rect width="320" height="${natoSceneHeight}" fill="#15365c"/>
+    <path d="M0 11h320M0 25h320M0 39h320M49 0v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49"
+          stroke="#83b4d1" opacity=".25"/>
+    <path d="m182 32 10-11 16-3 10 2 8-6 3-8 10-4 8 6-6 8 6 7 12-3 12 4 19-4 10 6-13 12-28-3
+             -9 6-14-4-8 5-10-9-13 2-9-5-9 5Z" fill="#387199" stroke="#588cb0" stroke-width="1.5"/>
+    <circle cx="176" cy="25" r="16" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
+    <path d="m176 4 4 17 17 4-17 4-4 17-4-17-17-4 17-4Z" fill="#fffefa"/>
+    <path d="m176 9 2 14-2 2Zm16 16-14 2-2-2Zm-16 16-2-14 2-2Zm-16-16 14-2 2 2Z" fill="#5284a6"/>
+    <path d="M198 23h7l10 8h24l-10-10h8l16 10h29q9 0 15 4-4 4-12 4h-62l-17-4Z" fill="#fffefa"/>
+    <path d="M242 37h18l-10 7h-9Z" fill="#a4c9df"/>
+    <path d="M252 31v-8m-14 0h28" stroke="#fffefa" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="M276 34h9" stroke="#5686a9" stroke-width="2" stroke-dasharray="2 2"/>
+    <path d="M227 16a15 15 0 0 1 12-10m30 0a15 15 0 0 1 12 10" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
+    <rect x="4" y="12" width="151" height="25" rx="3" fill="#265787"/>
+    <rect x="4" y="47" width="312" height="24" rx="3" fill="#102a47"/>`,
   chartup: `
     <rect width="320" height="${leadSceneHeight}" fill="#e5efe5"/>
     <g transform="translate(0 2) scale(1.78)">
@@ -310,9 +267,9 @@ const scenes = {
 };
 
 const sceneLabels = {
-  warship: [
-    { value: 'MERKURY: SUNK?', x: 3, y: 57, w: 177, h: 23, size: 18.5, fill: '#fffefa' },
-    { value: 'ANGARA: HIT?', x: 183, y: 57, w: 134, h: 23, size: 18, fill: '#fffefa' },
+  nato: [
+    { value: 'URGENT TALKS', x: 4, y: 12, w: 151, h: 25, size: 18.5, fill: '#fffefa' },
+    { value: 'FINLAND SUMMONS ENVOY', x: 4, y: 47, w: 312, h: 24, size: 18, fill: '#fffefa' },
   ],
   chartup: [
     { value: 'NVIDIA SHARES, MONDAY', x: 8, y: 4, w: 190, h: 16, size: 14, fill: '#145a35' },
@@ -334,13 +291,14 @@ function leadPanel(story, index) {
   const contentX = x + 11;
   const contentWidth = w - 22;
   const names = regionNames(story);
-  const tagY = y + leadSceneHeight + 3;
+  const isNato = story.scene === 'nato';
+  const tagY = y + (isNato ? natoSceneHeight : leadSceneHeight) + 3;
   const statusX = x + w - 91;
   const headlineY = tagY + 17;
   const headlineHeight = 51;
   const bodyY = headlineY + headlineHeight;
   const sourceY = y + height - 14;
-  const sourceGap = 4;
+  const sourceGap = isNato ? 1 : 4;
 
   rect(x, y, w, height, white, `stroke="${rule}"`);
   add(`<g transform="translate(${x} ${y}) scale(${sceneScale} 1)">${scenes[story.scene]}</g>`);
@@ -357,7 +315,7 @@ function leadPanel(story, index) {
   badge(index + 1, contentX, tagY, 19, 16);
   let tagX = contentX + 24;
   for (const region of names) {
-    tagX += pill(region, tagX, tagY, regionPalette(region)) + 4;
+    tagX += pill(names.length === 1 ? story.region : region, tagX, tagY, regionPalette(region)) + 4;
   }
   label(story.field, box(tagX + 2, tagY, statusX - tagX - 6, 16), muted);
   pill(story.status, statusX, tagY, statuses[story.status], 80);
@@ -365,38 +323,60 @@ function leadPanel(story, index) {
     size: 23, min: 20, weight: 700, maxLines: 2, gap: 0.3,
   });
   text(story.sub, box(contentX, bodyY, contentWidth, sourceY - sourceGap - bodyY), {
-    size: 12, min: 12, maxLines: 2, gap: 0.2,
+    size: 12, min: 12, maxLines: isNato ? 3 : 2, gap: 0.2,
   });
   sourceLine(story, box(contentX, sourceY, contentWidth, 13), 'Source: ');
 }
 
 const cardScenes = {
-  rubble: `
-    <rect width="190" height="70" fill="#e1d1c5"/>
-    <path d="M0 44h190v26H0Z" fill="#b49b8c"/>
-    <path d="M92 49c-9-6-3-15 5-16-10-10 2-19 10-16-3-12 14-17 22-8
-             7-7 20 0 18 7 15-1 20 14 6 19 3 9-9 14-20 11Z" fill="#847a79"/>
-    <path d="M14 59V19h37v8l-8 7 17 5-7 9 13 11ZM119 59V32l13 5 8-13 11 8 10-6v33Z" fill="#473947"/>
-    <path d="M21 25h8v8h-8zm13 0h7v8h-7zM21 38h8v8h-8zm15 2h7v7h-7zm92 4h7v7h-7zm17-7h8v8h-8z" fill="#dfb79d"/>
-    <path d="m53 57 22-15 12 9 10-15 17 17 12 5 17-6 25 4 9-8 13 8v14H49Z" fill="#775b55"/>
-    <path d="m127 63 12-5 11 4m16 3 10-5 10 3m-98 4 10-8 13 4" stroke="#daa790" stroke-width="2" fill="none"/>`,
-  nato: `
-    <rect width="190" height="70" fill="#15365c"/>
-    <path d="m84 31 11-16 24-7 16 2 8-8 22-2 11 6-6 13 8 8-5 10-18-3-15 9
-             -14 4-7-8-18 11-9-9-12 3-8-8Zm74 18 9-10 14 5-1 10-10 8-16-5Z" fill="#39668a"/>
-    <path d="M22 24h151M22 48h151M95 6v57m25-57v57m25-57v57m25-57v57" stroke="#85b6d1" opacity=".34"/>
-    <circle cx="145" cy="32" r="19" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
-    <path d="m145 5 5 22 22 5-22 5-5 22-5-22-22-5 22-5Z" fill="#f8faf5"/>
-    <path d="m145 12 3 17-3 3Zm20 20-17 3-3-3Zm-20 20-3-17 3-3Zm-20-20 17-3 3 3Z" fill="#5284a6"/>`,
-  storm: `
-    <rect width="190" height="70" fill="#9bbdc7"/>
-    <path d="M0 43 30 34l23 8 31-10 38 8 28-10 40 10v30H0Z" fill="#527e87"/>
-    <path d="M25 27c-2-6 4-11 12-10 1-8 13-12 23-8 8-9 28-8 32 0 12-4 26 0 27 8
-             15-3 28 3 27 11Z" fill="#314456"/>
-    <path d="m35 31-7 9m21-9-8 12m23-12-8 12m23-12-5 7m22-7-9 12m24-12-8 12m22-12-5 7"
-          stroke="#e1edf0" stroke-width="2.3" stroke-linecap="round"/>
-    <path d="M15 47v-8l11-8 11 8v8m93 0V36l12-9 13 9v11m5 0v-9l12-9 12 9v9" fill="#ecb987"/>
-    <path d="m12 40 14-11 14 11m87-3 15-11 16 11m-1 2 15-11 15 11" stroke="#553e48" stroke-width="2.5" fill="none"/>`,
+  cyberdeal: `
+    <rect width="190" height="70" fill="#e6e0f2"/>
+    <path d="M0 21h25l11 13h20m-56 6h31l14 13h28m117-36h-22l-11 15h-21m54 9h-28l-17 16h-26"
+          stroke="#9c86b4" stroke-width="2" fill="none"/>
+    <path d="M39 6c15 0 25 0 40 8v14q0 16-20 26-20-10-20-26Z" fill="#544079"/>
+    <path d="M111 14c15-8 25-8 40-8v22q0 16-20 26-20-10-20-26Z" fill="#325674"/>
+    <path d="M51 26l7 7 11-13m54 6 7 7 11-13" fill="none" stroke="#fffefa" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M83 29h24m-6-6 6 6-6 6" fill="none" stroke="#544079" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="20" r="3" fill="#544079"/>
+    <circle cx="180" cy="17" r="3" fill="#325674"/>`,
+  pensions: `
+    <rect width="190" height="70" fill="#f3e2dd"/>
+    <path d="M7 11h176M7 24h176M7 37h176M7 50h176M7 63h176M27 5v59m27-59v59m27-59v59m27-59v59m27-59v59m27-59v59"
+          stroke="#dec4bf" fill="none"/>
+    <path d="M18 23h46v34H18Z" fill="#a19b9d"/>
+    <path d="M24 15h47v36H24Z" fill="#fffefa" stroke="#9c7f80" stroke-width="1.5"/>
+    <path d="M32 23h30m-30 7h25m-25 7h22" stroke="#957377" stroke-width="2" stroke-linecap="round"/>
+    <path d="m79 10 23 4 11-4 16 17 13-6 12 13 22 9m-5-11 5 11-12 3"
+          stroke="#a52e37" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  iowa: `
+    <rect width="190" height="70" fill="#ede7cc"/>
+    <path d="M0 37 39 26l30 7 36-13 28 10 30-8 27 5v43H0Z" fill="#b9b47c"/>
+    <path d="M0 43q44-10 85 3t105-2v26H0Z" fill="#8b9867"/>
+    <path d="M9 43h103m-95-9v18m19-18v18m19-18v18m19-18v18m19-18v18"
+          fill="none" stroke="#666345" stroke-width="2"/>
+    <path d="m54 26 21-12 21 12v13H54Z" fill="#5c6257"/>
+    <path d="M62 29h26v10H62Z" fill="#c9c7a1"/>
+    <circle cx="147" cy="26" r="20" fill="#a52e37" stroke="#fffefa" stroke-width="2"/>
+    <path d="M141 17v18m12-18v18" stroke="#fffefa" stroke-width="5" stroke-linecap="round"/>`,
+  markets: `
+    <rect width="190" height="70" fill="#d5e7e6"/>
+    <path d="M4 13h181M4 26h181M4 39h181M4 52h181M21 5v54m24-54v54m24-54v54m24-54v54m24-54v54m24-54v54m24-54v54"
+          fill="none" stroke="#a6c6c8"/>
+    <path d="M10 46V32h15V19h10v13h10v14h13V26h17v20h16V32h14v14h14V27h16v19h9V34h14v12h25v24H10Z"
+          fill="#82afb3"/>
+    <path d="m13 10 23 8 21-5 23 13 20-5 23 13 22-3 30 12m-7-10 7 10-12 3"
+          stroke="#a52e37" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  courts: `
+    <rect width="190" height="70" fill="#ede2c8"/>
+    <path d="M0 42h190v28H0Z" fill="#c5af82"/>
+    <path d="m13 23 38-15 38 15ZM19 26h63v4H19Zm-3 17h70v5H16Z" fill="#765f3c"/>
+    <path d="M26 31v11m12-11v11m13-11v11m13-11v11m12-11v11" stroke="#a58b5f" stroke-width="4"/>
+    <path d="M137 10v34m-20 0h40m-46-26h52" stroke="#674b38" stroke-width="3" stroke-linecap="round"/>
+    <path d="m116 18-10 16h20Zm42 0-10 16h20Z" stroke="#674b38" stroke-width="1.5" fill="none"/>
+    <path d="M103 34h26q-3 8-13 8t-13-8Zm42 0h26q-3 8-13 8t-13-8Z" fill="#9b6547"/>
+    <circle cx="137" cy="11" r="4" fill="#9b6547"/>`,
   virus: `
     <rect width="190" height="70" fill="#f2dfbc"/>
     <path d="M0 58 49 50l53 6 49-10 39 9v15H0Z" fill="#d3b17e"/>
@@ -485,25 +465,6 @@ const cardScenes = {
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10v5H13Z" fill="#e9b8b6"/>
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10m-12 3 12-3-4-12"
           fill="none" stroke="#982c42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
-  islands: `
-    <rect width="190" height="70" fill="#d9e8e8"/>
-    <path d="M0 25h190v45H0Z" fill="#699fac"/>
-    <path d="M0 47q25-6 49 0t48 0 48 0 45 0v23H0Z" fill="#396e85"/>
-    <path d="M15 38q18-10 36-10 18 0 32 10-17 5-34 5-21 0-34-5Z
-             M91 30q13-8 28-8t28 8q-13 4-28 4t-28-4Z" fill="#efd39c"/>
-    <path d="M45 34q2-11-4-18m15 18q-1-7 5-13m55 7q2-9 8-15"
-          fill="none" stroke="#69483a" stroke-width="3" stroke-linecap="round"/>
-    <path d="M41 16q-10-6-18 4 10-4 18-2-8 2-9 10 5-6 10-9 6 1 11 6-1-9-10-9
-             6-3 13-2-7-6-15 1-4-7-11-7 7 3 11 8Z
-             M61 21q-8-5-14 1 7-2 13 0-5 2-6 8 4-5 7-6 6 0 9 5-1-7-8-7
-             6-3 12-1-5-6-13 0 1-5 5-7-6 1-5 7Z
-             M124 13q-6-8-17-3 10-1 16 5-9-2-14 5 8-4 14-3 4 2 6 7 2-7-4-10
-             8-3 14 1-4-8-14-2 2-6 7-8-7 0-8 8Z" fill="#205b4c"/>
-    <path d="M4 34q6-3 12 0m0 10q9 3 19 1m45-1q8-4 16 0t16 0
-             m6-6q8 3 16 0t16 0m3 7q8-4 16 0t16 0m-17 11q8-4 16 0"
-          fill="none" stroke="#d0e8e6" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M168 8v19m-7-7 7 7 7-7" fill="none" stroke="#a52e37"
-          stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
   aidmap: `
     <rect width="190" height="70" fill="#15365c"/>
     <path d="M0 13h190M0 28h190M0 43h190M0 58h190M20 0v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70"
@@ -529,20 +490,6 @@ const cardScenes = {
       <path d="M132 26v4m0 2v1" stroke="#37494a" stroke-width="2"/>
     </g>
     <path d="M159 36c1 4 5 7 5 10a5 5 0 0 1-10 0c0-3 4-6 5-10Z" fill="#b4c766"/>`,
-  factoryfire: `
-    <rect width="190" height="70" fill="#e5ccc0"/>
-    <path d="M0 51h190v19H0Z" fill="#ba9381"/>
-    <path d="M99 32c-8-3-10-11-4-16 4-4 10-5 16-3 0-8 10-13 19-10 8-5 22-3 25 4
-             10-3 24 3 24 11 7 5 3 13-5 14Z" fill="#76666a"/>
-    <path d="M116 28c-5-7 2-14 10-12 5-7 17-8 22-2 11-3 21 3 20 10l-8 10Z" fill="#958082"/>
-    <path d="M27 57V35l23-12v12l24-12v12l24-12v12h68v22Z" fill="#473945"/>
-    <path d="M35 34V15h10v14m33-1V11h10v15" fill="#473945"/>
-    <path d="M38 41h11m7 0h11m8 0h11m8 0h11m43 0h10" stroke="#d3a48e" stroke-width="5"/>
-    <path d="M92 54h17v-7H92Zm51 0h17v-7h-17Z" fill="#715259"/>
-    <path d="M123 53c-12-3-16-14-11-23 2 5 5 7 8 7-1-10 8-16 9-25 7 7 8 15 5 21
-             5-1 8-5 8-9 10 14 4 24-7 29Z" fill="#d74b29"/>
-    <path d="M125 52c-6-3-7-9-4-14 2 4 4 5 6 5 0-7 5-10 7-14 5 8 7 18-1 23Z" fill="#ffcd69"/>
-    <path d="M13 57h164" stroke="#795d60" stroke-width="2"/>`,
   satellite: `
     <rect width="190" height="70" fill="#222d4c"/>
     <path d="M6 66Q90 13 190 71Z" fill="#354763"/>
@@ -1009,14 +956,21 @@ function dateCheck({ x, y, w, h }) {
   });
   label(subtitle, box(x + 12 + titleWidth, y + 1, w - 18 - titleWidth, headerHeight), red);
 
-  const itemWidth = w / stories.datecheck.items.length;
+  const items = stories.datecheck.items;
+  const itemWidths = items.map(item => Math.max(...item.map(event => fontFor(400).width(event, 11))) + 9);
+  const extraWidth = (w - itemWidths.reduce((sum, width) => sum + width, 0)) / items.length;
   const itemY = y + 1 + headerHeight;
-  for (const [index, item] of stories.datecheck.items.entries()) {
-    const itemX = x + index * itemWidth;
+  let itemX = x;
+  for (const [index, item] of items.entries()) {
+    const itemWidth = itemWidths[index] + extraWidth;
     if (index) line(itemX, itemY + 1, itemX, y + h - 2, '#dcb2b1');
-    text(item, box(itemX + 6, itemY, itemWidth - 9, y + h - itemY), {
-      vertical: 'middle', maxLines: 2, inset: 0,
-    });
+    const rowHeight = (y + h - itemY) / item.length;
+    for (const [row, event] of item.entries()) {
+      text(event, box(itemX + 6, itemY + row * rowHeight, itemWidth - 9, rowHeight), {
+        vertical: 'middle', maxLines: 1, inset: 0,
+      });
+    }
+    itemX += itemWidth;
   }
 }
 
