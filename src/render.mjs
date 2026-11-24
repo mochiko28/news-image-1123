@@ -246,14 +246,14 @@ const scenes = {
     </g>`,
   chartup: `
     <rect width="320" height="56" fill="#e5efe5"/>
-    <path d="M12 15h296M12 27h296M12 39h296M12 51h296
-             M44 5v46M88 5v46M132 5v46M176 5v46M220 5v46M264 5v46"
+    <path d="M12 15h160M12 27h160M44 5v22M88 5v22M132 5v22"
           fill="none" stroke="#c2d6c5"/>
-    <path d="M13 47 45 42 73 45 108 34 134 37 153 26 174 27 192 13V51H13Z" fill="#c3e0c8"/>
-    <path d="M13 47 45 42 73 45 108 34 134 37 153 26 174 27 192 13"
+    <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8V27H13Z" fill="#c3e0c8"/>
+    <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8"
           fill="none" stroke="#1c7038" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="192" cy="13" r="5" fill="#1c7038"/>
-    <rect x="195" y="5" width="120" height="26" rx="3" fill="#145a35"/>`,
+    <circle cx="171" cy="8" r="4" fill="#1c7038"/>
+    <rect x="179" y="4" width="136" height="24" rx="3" fill="#145a35"/>
+    <rect x="5" y="29" width="310" height="26" rx="3" fill="#145a35"/>`,
   plane: `
     <rect width="320" height="56" fill="#deeaee"/>
     <path d="M160 4v32" stroke="#a8bdc5"/>
@@ -286,7 +286,8 @@ const sceneLabels = {
     { value: 'ANGARA: HIT?', x: 190, y: 37, w: 130, h: 19, size: 17 },
   ],
   chartup: [
-    { value: 'NVDA +30%', x: 195, y: 5, w: 120, h: 26, size: 20, fill: '#fffefa' },
+    { value: 'NVIDIA +30%', x: 179, y: 4, w: 136, h: 24, size: 20, fill: '#fffefa' },
+    { value: 'NASDAQ +6.5% AT CLOSE', x: 5, y: 29, w: 310, h: 26, size: 23, fill: '#fffefa' },
   ],
   plane: [
     { value: 'MOST FLIGHTS CANCELLED 06:00-20:00', x: 0, y: 38.4, w: 320, h: 17.6, size: 16 },

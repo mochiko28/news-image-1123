@@ -2,7 +2,7 @@
   "day": "MONDAY",
   "date": "23 NOVEMBER 2026",
   "kicker": "THE WORLD ON ONE PAGE",
-  "note": "Every item below was first reported on Monday 23 November 2026; times are first reports in UTC. Older stories sit in the Date Check box and are not counted.",
+  "note": "Every item below is new or a new development reported on Monday 23 November 2026; times are first reports in UTC. Older stories sit in the Date Check box and are not counted.",
   "timeline": [
     {"t": "00:18", "text": "Asia opens in an AI sell-off"},
     {"t": "03:15", "text": "Belgian strike halts flights"},
@@ -45,7 +45,7 @@
      "head": "Thousands displaced in Brazil storm town",
      "sub": "Monday count after weekend supercell hit Tupancireta", "src": "Al Jazeera"},
     {"region": "DR CONGO", "field": "HEALTH", "status": "REPORTED", "icon": "virus", "art": "virus", "label": "EBOLA", "t": "06:00", "lat": 0.5, "lon": 29.5,
-     "head": "Graves hint Ebola toll far above count",
+     "head": "Reuters: graves point to higher Ebola toll",
      "sub": "Reuters probe; WHO says fighting slows response", "src": "Reuters, Al Jazeera"},
     {"region": "IRAN", "field": "SECURITY", "status": "OFFICIAL", "icon": "shield", "art": "blockade", "label": "US BLOCKADE", "t": "12:25", "lat": 35.7, "lon": 51.4,
      "head": "Iran vows to counter the US blockade",
