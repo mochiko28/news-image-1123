@@ -147,13 +147,13 @@ function masthead() {
   const [dayOfMonth, month, year] = date.split(' ');
   const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · ALL NEW ON ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
 
-  rect(24, 14, pageWidth, 101, ink);
-  rect(24, 14, 5, 101, '#d75450');
-  label(kicker, box(41, 17, 942, 15), '#d8e5ed');
-  text(day + ' ' + date, box(39, 31, 945, 68), {
-    size: 64, min: 60, weight: 700, fill: '#ffffff', vertical: 'middle', maxLines: 1,
+  rect(24, 6, pageWidth, 90, ink);
+  rect(24, 6, 5, 90, '#d75450');
+  label(kicker, box(41, 7, 942, 13), '#d8e5ed');
+  text(day + ' ' + date, box(39, 20, 945, 62), {
+    size: 56, min: 56, weight: 700, fill: '#ffffff', vertical: 'middle', maxLines: 1,
   });
-  label(stats, box(41, 99, 942, 13), '#d8e5ed');
+  label(stats, box(41, 82, 942, 13), '#d8e5ed');
 }
 
 function strips() {
@@ -166,33 +166,36 @@ function strips() {
   const extraWidth = (pageWidth - timelineWidths.reduce((sum, width) => sum + width, 0)) /
     timelineWidths.length;
   const padding = Math.min(4, Math.max(0, extraWidth / 2));
-  label('THE DAY IN UTC', box(24, 117, 230, 14));
-  line(24, 133, 1000, 133, ink);
+  label('THE DAY IN UTC', box(24, 97, 230, 14));
+  line(24, 111, 1000, 111, ink);
+  const timelineY = 112;
   let timelineX = margin;
   for (const [index, { t, text: event }] of stories.timeline.entries()) {
     const width = timelineWidths[index] + extraWidth;
-    if (index) line(timelineX, 136, timelineX, 158);
-    text(t, box(timelineX + padding, 134, width - 2 * padding, timelineLineHeight), {
+    if (index) line(timelineX, timelineY + 2, timelineX, timelineY + 24);
+    text(t, box(timelineX + padding, timelineY, width - 2 * padding, timelineLineHeight), {
       ...timelineOptions, weight: 700, fill: '#174985', vertical: 'middle',
     });
-    text(event, box(timelineX + padding, 134 + timelineLineHeight, width - 2 * padding, timelineLineHeight),
+    text(event, box(timelineX + padding, timelineY + timelineLineHeight, width - 2 * padding, timelineLineHeight),
       timelineOptions);
     timelineX += width;
   }
 
-  rect(24, 163, pageWidth, 36, '#e5ebed');
-  text('THE DAY IN NUMBERS', box(32, 163, 94, 36), {
+  const numbersY = 141;
+  const numbersHeight = 34;
+  rect(24, numbersY, pageWidth, numbersHeight, '#e5ebed');
+  text('THE DAY IN NUMBERS', box(32, numbersY, 94, numbersHeight), {
     size: 13, min: 13, weight: 700, vertical: 'middle',
   });
   const numberWidth = (pageWidth - 106) / stories.numbers.length;
   for (const [index, { v, l }] of stories.numbers.entries()) {
     const x = 130 + index * numberWidth;
-    line(x, 167, x, 195, '#aab8bf');
+    line(x, numbersY + 3, x, numbersY + numbersHeight - 3, '#aab8bf');
     const valueWidth = Math.ceil(fontFor(700).width(v, 30)) + 6;
-    text(v, box(x + 9, 163, valueWidth, 36), {
+    text(v, box(x + 9, numbersY, valueWidth, numbersHeight), {
       size: 30, min: 30, weight: 700, vertical: 'middle', maxLines: 1,
     });
-    text(l, box(x + 13 + valueWidth, 163, numberWidth - 16 - valueWidth, 36), {
+    text(l, box(x + 13 + valueWidth, numbersY, numberWidth - 16 - valueWidth, numbersHeight), {
       size: 12.5, min: 12.5, vertical: 'middle', maxLines: 2,
     });
   }
@@ -200,17 +203,34 @@ function strips() {
 
 const scenes = {
   warship: `
-    <rect width="320" height="70" fill="#dce8e9"/>
-    <path d="M0 34H320V70H0Z" fill="#83b2be"/>
-    <path d="M0 50H320V70H0Z" fill="#568693"/>
-    <path d="M11 42h42m-14 15h49m151-15h67m-32 17h35M7 64h115m100-1h42"
-          fill="none" stroke="#b6d4d8" stroke-width="2"/>
-    <path d="M66 40h164l26-8-13 19-14 6H94L79 51Z" fill="#182f45"/>
-    <path d="M90 52h151l-12 5H94Z" fill="#ad4b4a"/>
-    <path d="M96 40v-7h23l12-10h56l13 17zm58-17v-7h19v7zm61 17v-6h11v6z" fill="#466273"/>
-    <path d="M163 21V7m-10 6h19m51 22 11-7" fill="none" stroke="#182f45" stroke-width="2"/>
-    <path d="M134 30h11m5 0h11m5 0h11" fill="none" stroke="#dce8e9" stroke-width="2"/>`,
+    <rect width="320" height="56" fill="#e0ebee"/>
+    <path d="M0 28H320V56H0Z" fill="#91bdc7"/>
+    <path d="M0 40H320V56H0Z" fill="#bed8de"/>
+    <path d="M186 33h19m90 4h20M13 31h22M171 47h27" fill="none" stroke="#d5e9ea" stroke-width="2"/>
+    <path d="M7 51Q22 41 43 38Q25 38 12 40M17 52Q29 44 44 40"
+          fill="none" stroke="#fffefa" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="m38 38 8-4 12 1-9 6-9 1Z" fill="#233e54"/>
+    <path d="M104 23Q94 14 80 16C67 17 53 12 48 5c12 2 14-3 27-1 7 1 10 6 18 5 11-1 18 6 19 13Z"
+          fill="#56636c"/>
+    <g transform="rotate(8 117 27)">
+      <path d="M59 26h110l17-6-10 14-18 2H77Z" fill="#25394c"/>
+      <path d="M69 31h108l-5 4-14 2H79Z" fill="#9e4244"/>
+      <path d="M78 26v-5h21l12-10h28l11 15zm77 0 3-7h10l5 7Z" fill="#536b7b"/>
+      <path d="M125 12V1m33 20 12-6" fill="none" stroke="#25394c" stroke-width="2"/>
+      <path d="M126 2h14v3h-14Z" fill="#fffefa"/>
+      <path d="M126 5h14v3h-14Z" fill="#345e9b"/>
+      <path d="M126 8h14v3h-14Z" fill="#ad2f39"/>
+      <path d="M112 16h24" fill="none" stroke="#e0ebee" stroke-width="2" stroke-dasharray="6 2"/>
+    </g>
+    <path d="M88 25q-4-7 3-12 0 5 6 7l5-11q9 7 9 16Z" fill="#d8441c"/>
+    <path d="M94 25q1-4 7-10 0 6 6 10Z" fill="#ffd165"/>
+    <path d="M208 28h79l15-5-9 12h-74Z" fill="#334d60"/>
+    <path d="M214 21h13v7h-13zm25 0h14v7h-14zm33 0h12v7h-12z" fill="#a65c43"/>
+    <path d="M228 18h10v10h-10zm26 1h17v9h-17z" fill="#50766e"/>
+    <path d="M278 21v-9h14l5 9Z" fill="#536b7b"/>
+    <path d="M283 16h8" stroke="#fffefa" stroke-width="2"/>`,
   chart: `
+    <g transform="scale(1 .8)">
     <rect width="320" height="70" fill="#f2e5e2"/>
     <path d="M24 14h274M24 26h274M24 38h274M24 50h274M24 62h274
              M55 8v54M96 8v54M137 8v54M178 8v54M219 8v54M260 8v54"
@@ -218,49 +238,81 @@ const scenes = {
     <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10v4H26Z" fill="#edcdca"/>
     <path d="m26 17 36-4 34 12 33-5 33 21 25-7 39 17 24-3 39 10"
           fill="none" stroke="#af313b" stroke-width="3.5" stroke-linejoin="round"/>
-    <circle cx="289" cy="58" r="4" fill="#af313b"/>`,
+    <circle cx="289" cy="58" r="4" fill="#af313b"/>
+    </g>`,
   chartup: `
-    <rect width="320" height="70" fill="#e5efe5"/>
-    <path d="M24 14h274M24 26h274M24 38h274M24 50h274M24 62h274
-             M55 8v54M96 8v54M137 8v54M178 8v54M219 8v54M260 8v54"
+    <rect width="320" height="56" fill="#e5efe5"/>
+    <path d="M12 15h296M12 27h296M12 39h296M12 51h296
+             M44 5v46M88 5v46M132 5v46M176 5v46M220 5v46M264 5v46"
           fill="none" stroke="#c2d6c5"/>
-    <path d="M26 58 62 54 96 57 129 49 162 51 187 43 226 45 252 37 278 36 289 10V62H26Z"
-          fill="#cce4ce"/>
-    <path d="M26 58 62 54 96 57 129 49 162 51 187 43 226 45 252 37 278 36 289 10
-             M282 16l7-6 6 8"
-          fill="none" stroke="#1f7a3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+    <path d="M13 47 45 42 73 45 108 34 134 37 153 26 174 27 192 13V51H13Z" fill="#c3e0c8"/>
+    <path d="M13 47 45 42 73 45 108 34 134 37 153 26 174 27 192 13"
+          fill="none" stroke="#1c7038" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="192" cy="13" r="5" fill="#1c7038"/>
+    <rect x="195" y="5" width="120" height="26" rx="3" fill="#145a35"/>`,
   plane: `
-    <rect width="320" height="70" fill="#deeaee"/>
-    <path d="M0 52H320V70H0Z" fill="#8e9fa8"/>
-    <path d="M0 52h320" stroke="#556a78" stroke-width="2"/>
-    <path d="M8 62h35m18 0h35m18 0h35m18 0h35m18 0h35m18 0h35" stroke="#edf1e9" stroke-width="2"/>
-    <path d="M30 29h10l15 9h48L89 19h13l29 19h46q15 0 23 7-2 5-16 5H63L42 43Z" fill="#233d55"/>
-    <path d="M119 44h25l-24 14h-13Z" fill="#577585"/>
-    <path d="M99 48v5m69-5v5" stroke="#14243b" stroke-width="2"/>
-    <circle cx="99" cy="53" r="2.5" fill="#14243b"/><circle cx="168" cy="53" r="2.5" fill="#14243b"/>
-    <path d="M151 42h27m5 0h6" stroke="#d9e8ea" stroke-width="2" stroke-dasharray="3 3"/>
-    <circle cx="260" cy="32" r="22" fill="#ad2f39" stroke="#fffefa" stroke-width="2"/>
-    <rect x="246" y="28" width="28" height="8" rx="1" fill="#fffefa"/>`,
+    <rect width="320" height="56" fill="#deeaee"/>
+    <path d="M160 4v32" stroke="#a8bdc5"/>
+    <path d="M10 34h136" stroke="#748c98" stroke-width="3"/>
+    <path d="M17 34h122" stroke="#fffefa" stroke-dasharray="10 6"/>
+    <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
+    <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
+    <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
+    <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
+    <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
+    <path d="M175 33h134m-134 4h134" stroke="#748c98" stroke-width="2"/>
+    <path d="M182 35h120" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
+    <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
+    <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
+    <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
+    <circle cx="192" cy="31" r="3" fill="#14243b"/>
+    <circle cx="218" cy="31" r="3" fill="#14243b"/>
+    <circle cx="239" cy="31" r="3" fill="#14243b"/>
+    <circle cx="263" cy="31" r="3" fill="#14243b"/>
+    <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
+      <circle cx="135" cy="16" r="12"/>
+      <circle cx="297" cy="16" r="12"/>
+    </g>
+    <path d="M129 16h12m150 0h12" stroke="#fffefa" stroke-width="4"/>`,
+};
+
+const sceneLabels = {
+  warship: [
+    { value: 'MERKURY', x: 60, y: 37, w: 113, h: 19, size: 17 },
+    { value: 'ANGARA', x: 204, y: 37, w: 106, h: 19, size: 17 },
+  ],
+  chartup: [
+    { value: 'NVDA +30%', x: 195, y: 5, w: 120, h: 26, size: 20, fill: '#fffefa' },
+  ],
+  plane: [
+    { value: 'NO FLIGHTS 06:00-20:00', x: 0, y: 37, w: 320, h: 19, size: 17 },
+  ],
 };
 
 function leadPanel(story, index) {
   const x = 24 + index * 328;
-  const y = 205;
+  const y = 177;
   const w = index === 2 ? 320 : 318;
+  const sceneScale = w / 320;
+  const sceneHeight = 56;
   const contentX = x + 11;
   const contentWidth = w - 22;
   const names = regionNames(story);
-  const tagY = y + 31;
-  const sceneHeight = tagY - y - 3;
+  const tagY = y + sceneHeight + 3;
   const statusX = x + w - 91;
   const headlineY = tagY + 17;
   const headlineHeight = 51;
   const bodyY = headlineY + headlineHeight;
-  const sourceY = y + 157;
+  const sourceY = tagY + 126;
   const sourceGap = 4;
 
-  rect(x, y, w, 171, white, `stroke="${rule}"`);
-  add(`<g transform="translate(${x} ${y}) scale(${w / 320} ${sceneHeight / 70})">${scenes[story.scene]}</g>`);
+  rect(x, y, w, sourceY + 14 - y, white, `stroke="${rule}"`);
+  add(`<g transform="translate(${x} ${y}) scale(${sceneScale} 1)">${scenes[story.scene]}</g>`);
+  for (const { value, x: offsetX, y: offsetY, w: width, h, size, fill } of sceneLabels[story.scene] ?? []) {
+    text(value, box(x + offsetX * sceneScale, y + offsetY, width * sceneScale, h), {
+      size, min: size, fill, weight: 700, align: 'middle', vertical: 'middle', maxLines: 1,
+    });
+  }
   const bandWidth = w / names.length;
   for (const [i, region] of names.entries()) {
     rect(x + i * bandWidth, y, bandWidth, 3, regionPalette(region)[0]);
