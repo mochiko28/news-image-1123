@@ -43,6 +43,7 @@ const placeRegions = {
   INDONESIA: 'SOUTH-EAST ASIA',
   'NEPAL · INDIA': 'SOUTH ASIA',
   PACIFIC: 'OCEANIA',
+  AUSTRALIA: 'OCEANIA',
   USA: 'NORTH AMERICA',
   'UK · USA': 'EUROPE · NORTH AMERICA',
 };
@@ -415,6 +416,27 @@ const cardScenes = {
     <path d="M21 35v-6h11l5-5h12v11Zm56 8v-7h12l6-6h15l5 13Zm66 7v-8h11l4-6h15l4 14Z" fill="#3b566a"/>
     <path d="M42 27V14m-6 5h12m56 13V17m-7 4h14m57 17V21m-7 6h14"
           stroke="#1c334b" stroke-width="2" fill="none"/>`,
+  vinyl: `
+    <rect width="190" height="70" fill="${regions.OCEANIA[1]}"/>
+    <path d="M55 0h37l23 50H23ZM146 0h22l22 50h-72Z" fill="#ecd1e1"/>
+    <path d="M0 46h190v24H0Z" fill="#dba8c6"/>
+    <circle cx="78" cy="25" r="23" fill="${ink}"/>
+    <path d="M61 22a17 17 0 0 1 14-14m6 34a17 17 0 0 0 14-14
+             M65 22a13 13 0 0 1 10-10m6 26a13 13 0 0 0 10-10"
+          fill="none" stroke="#a87c9f" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="78" cy="25" r="9" fill="${regions.OCEANIA[0]}"/>
+    <circle cx="78" cy="25" r="2.6" fill="${white}"/>
+    <g fill="${regions.OCEANIA[0]}">
+      <path d="M23 15 43 9v17h-3V16l-14 4v12h-3Z"/>
+      <ellipse cx="21" cy="32" rx="5" ry="3.5" transform="rotate(-20 21 32)"/>
+      <ellipse cx="38" cy="26" rx="5" ry="3.5" transform="rotate(-20 38 26)"/>
+      <path d="M121 18q4 1 9 6v5q-4-4-7-4v10h-3V18Z"/>
+      <ellipse cx="118" cy="35" rx="5" ry="3.5" transform="rotate(-20 118 35)"/>
+    </g>
+    <path d="M143 20v3a12 12 0 0 0 24 0v-3m-12 15v8m-10 0h20"
+          fill="none" stroke="${ink}" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="147" y="5" width="16" height="26" rx="8" fill="${ink}"/>
+    <path d="M151 13h8m-8 5h8m-8 5h8" stroke="${white}" stroke-width="2" stroke-linecap="round"/>`,
   gas: `
     <rect width="190" height="70" fill="#cde4e5"/>
     <path d="M0 55h190v15H0Z" fill="#99c2c8"/>
