@@ -45,8 +45,7 @@ const placeRegions = {
   AUSTRALIA: 'OCEANIA',
   US: 'NORTH AMERICA',
   UK: 'EUROPE',
-  'GERMANY · NATO': 'EUROPE',
-  'US · CHINA': 'NORTH AMERICA · EAST ASIA',
+  'UK · USA': 'EUROPE · NORTH AMERICA',
 };
 const neutralRegion = ['#525b66', '#eceef0'];
 const regionPalette = region => Object.hasOwn(regions, region) ? regions[region] : neutralRegion;
@@ -165,7 +164,7 @@ function masthead() {
 }
 
 function timeline() {
-  const timelineSize = 11.25;
+  const timelineSize = 12.5;
   const timelineLineHeight = 14;
   const timelineOptions = { size: timelineSize, min: timelineSize, maxLines: 1, inset: 0 };
   const timelineWidths = stories.timeline.map(({ t, text: event }) =>
@@ -362,19 +361,24 @@ const cardScenes = {
     <rect x="109" y="4" width="14" height="5" rx="2" fill="#be6468"/>
     <circle cx="128" cy="21" r="5" fill="#f0cb86"/>
     <rect x="56" y="36" width="88" height="5" rx="2" fill="#235451"/>`,
-  grok: `
-    <rect width="190" height="70" fill="#eee5f3"/>
-    <path d="M0 44h190v26H0Z" fill="#d3c3e1"/>
-    <path d="M16 14h16m-21 7h17m143 5h13m-18 7h12" stroke="#c3b1d4" stroke-width="2"/>
-    <path d="M104 6h55a7 7 0 0 1 7 7v13a7 7 0 0 1-7 7h-36l-13 8v-8h-6a7 7 0 0 1-7-7V13a7 7 0 0 1 7-7Z"
-          fill="#544079"/>
-    <path d="M116 19h.1m15 0h.1m15 0h.1" stroke="#fffefa" stroke-width="4" stroke-linecap="round"/>
-    <g transform="rotate(36 57 23)">
-      <rect x="34" y="19" width="49" height="7" rx="3.5" fill="#765239"/>
-      <rect x="44" y="8" width="19" height="29" rx="3" fill="#765239"/>
-      <path d="M44 14h19m-19 17h19" stroke="#dfb779" stroke-width="3"/>
-    </g>
-    <rect x="20" y="35" width="36" height="7" rx="2" fill="#765239"/>`,
+  iowa: `
+    <rect width="190" height="70" fill="#ede7cc"/>
+    <path d="M0 37 39 26l30 7 36-13 28 10 30-8 27 5v43H0Z" fill="#b9b47c"/>
+    <path d="M0 43q44-10 85 3t105-2v26H0Z" fill="#8b9867"/>
+    <path d="M9 43h103m-95-9v18m19-18v18m19-18v18m19-18v18m19-18v18"
+          fill="none" stroke="#666345" stroke-width="2"/>
+    <path d="m54 26 21-12 21 12v13H54Z" fill="#5c6257"/>
+    <path d="M62 29h26v10H62Z" fill="#c9c7a1"/>
+    <circle cx="147" cy="26" r="20" fill="#a52e37" stroke="#fffefa" stroke-width="2"/>
+    <path d="M141 17v18m12-18v18" stroke="#fffefa" stroke-width="5" stroke-linecap="round"/>`,
+  markets: `
+    <rect width="190" height="70" fill="#d5e7e6"/>
+    <path d="M4 13h181M4 26h181M4 39h181M4 52h181M21 5v54m24-54v54m24-54v54m24-54v54m24-54v54m24-54v54m24-54v54"
+          fill="none" stroke="#a6c6c8"/>
+    <path d="M10 46V32h15V19h10v13h10v14h13V26h17v20h16V32h14v14h14V27h16v19h9V34h14v12h25v24H10Z"
+          fill="#82afb3"/>
+    <path d="m13 10 23 8 21-5 23 13 20-5 23 13 22-3 30 12m-7-10 7 10-12 3"
+          stroke="#a52e37" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
   courts: `
     <rect width="190" height="70" fill="#ede2c8"/>
     <path d="M0 42h190v28H0Z" fill="#c5af82"/>
@@ -424,19 +428,37 @@ const cardScenes = {
     <path d="M99 55c-11-6-3-13 1-20 1 7 6 9 8 6 4 5 3 11-3 14Z" fill="#5fcae7"/>
     <path d="m124 44 17-17 12 5 19-19m-14 0 14-1v14" stroke="#266946"
           stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`,
-  chip: `
-    <rect width="190" height="70" fill="#dceae7"/>
-    <path d="M0 8h18l12 9h32M0 22h50m-50 14h21l11-9h23m45-10h19l14-9h57m-90 19h32l11 9h47"
-          fill="none" stroke="#9bbeb6" stroke-width="2"/>
-    <path d="M60 5v5m9-5v5m9-5v5m9-5v5m9-5v5m-36 25v5m9-5v5m9-5v5m9-5v5m9-5v5
-             M49 13h6m-6 9h6m-6 9h6m47-18h6m-6 9h6m-6 9h6"
-          stroke="#36595c" stroke-width="2.5" stroke-linecap="round"/>
-    <rect x="54" y="9" width="49" height="27" rx="3" fill="#24464d"/>
-    <rect x="66" y="15" width="25" height="15" rx="1.5" fill="#85bcaa"/>
-    <path d="M72 20h13m-13 5h13" stroke="#24464d" stroke-width="1.5"/>
-    <path d="M123 19v20m45-20v20" stroke="#24464d" stroke-width="5" stroke-linecap="round"/>
-    <rect x="115" y="13" width="62" height="15" rx="3" fill="#a52e37" stroke="#fffefa" stroke-width="1.5"/>
-    <path d="m117 26 10-11h6l-10 11Zm17 0 10-11h6l-10 11Zm17 0 10-11h6l-10 11Z" fill="#fffefa"/>`,
+  trophy: `
+    <rect width="190" height="70" fill="#397650"/>
+    <path d="M30 0h32L40 70H7Zm50 0h30l5 70H75Zm48 0h32l23 70h-33Z" fill="#44845a"/>
+    <path d="M0 35h190" stroke="#a4c49a" opacity=".5"/>
+    <rect x="5" y="13" width="70" height="26" rx="2" fill="#14243b"/>
+    <rect x="115" y="13" width="70" height="26" rx="2" fill="#14243b"/>
+    <g transform="translate(19 2) scale(1 0.55)">
+      <rect width="42" height="18" fill="#fffefa"/>
+      <path d="M0 0h42v2H0zm0 4h42v2H0zm0 4h42v2H0zm0 4h42v2H0zm0 4h42v2H0z" fill="#b63743"/>
+      <rect width="18" height="10" fill="#253d67"/>
+      <path d="M3 3h.1m5.9 0h.1m5.9 0h.1M6 7h.1m5.9 0h.1" stroke="#fffefa"
+            stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(129 2) scale(1 0.55)">
+      <rect width="42" height="18" fill="#253d67"/>
+      <path d="M0 0h5l37 16v2h-5L0 2Zm42 0h-5L0 16v2h5L42 2Z" fill="#fffefa"/>
+      <path d="m0 0 21 9h-4L0 2Zm42 0L21 9V7L38 0Zm0 18L21 9h4l17 7ZM0 18l21-9v2L4 18Z" fill="#b63743"/>
+      <path d="M0 6h17V0h8v6h17v6H25v6h-8v-6H0Z" fill="#fffefa"/>
+      <path d="M0 7.5h19V0h4v7.5h19v3H23V18h-4v-7.5H0Z" fill="#b63743"/>
+    </g>
+    <g transform="scale(1 0.85)">
+      <ellipse cx="95" cy="43" rx="16" ry="2" fill="#2f6044"/>
+      <path d="M86 38h18l4 5H82Z" fill="#775133"/>
+      <path d="M87 36h16v4H87Z" fill="#efbd57"/>
+      <path d="M91 36c0-6 1-14 4-21h4c-2 8-1 15 1 21Z" fill="#dca248"/>
+      <path d="M90 16c-8 5-3 9 7 10 11 1 4 6-7 9" stroke="#f5ca61" stroke-width="4"
+            stroke-linecap="round" fill="none"/>
+      <path d="M90 15c-7 5-3 8 7 9" stroke="#fff0a0" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <circle cx="95" cy="10" r="7" fill="#f5ca61" stroke="#a66f35" stroke-width="1.5"/>
+      <path d="m95 6 4 3-2 4h-4l-2-4Z" fill="#a66f35"/>
+    </g>`,
   chartdown: `
     <rect width="190" height="70" fill="#f4e0dd"/>
     <path d="M9 13h171M9 25h171M9 37h171M9 49h171M9 61h171
@@ -492,6 +514,15 @@ function storyCard(story, index) {
   rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
 
+  if (story.art === 'trophy') {
+    const tagOptions = {
+      weight: 700, fill: white, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
+    };
+    text('2031', box(x + 5, y + 9, 70, 25), { ...tagOptions, size: 22 });
+    text('2035', box(x + 115, y + 9, 50, 25), { ...tagOptions, size: 22 });
+    text('UK', box(x + 168, y + 9, 18, 25), { ...tagOptions, size: 12 });
+  }
+
   const boldFont = fontFor(700);
   const captionSpace = w - 6;
   const minCaptionScale = 0.81;
@@ -513,7 +544,7 @@ function storyCard(story, index) {
   const statusX = x + w - 3 - statusWidth;
   badge(index + stories.leads.length + 1, x + 3, tagY, 18, 16);
   text(story.region, box(x + 24, tagY, statusX - x - 26, 16), {
-    weight: 700, fill: color, vertical: 'middle', maxLines: 1, inset: 0, widthScales: [1, 0.92, 0.88],
+    weight: 700, fill: color, vertical: 'middle', maxLines: 1, inset: 0, widthScales: [1, 0.92],
   });
   pill(story.status, statusX, tagY, statuses[story.status], statusWidth);
 
@@ -842,7 +873,7 @@ function briefs({ x, y, w, h }) {
   const rows = Math.ceil(stories.briefs.length / columnCount);
   const columnWidth = w / columnCount;
   const rowHeight = (h - headerHeight - 2) / rows;
-  const size = 12.4;
+  const size = 13.5;
   const placeOffset = 25;
   const rightInset = 6;
   const sourceGap = 5;
