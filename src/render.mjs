@@ -36,6 +36,8 @@ const regions = {
 };
 const placeRegions = {
   'NATO · EUROPE': 'EUROPE',
+  'AFRICA · DR CONGO': 'AFRICA',
+  BANGLADESH: 'SOUTH ASIA',
   BELGIUM: 'EUROPE',
   IRAN: 'MIDDLE EAST',
   GAZA: 'MIDDLE EAST',
@@ -344,15 +346,15 @@ const cardScenes = {
           stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="24" cy="20" r="3" fill="#544079"/>
     <circle cx="180" cy="17" r="3" fill="#325674"/>`,
-  pensions: `
-    <rect width="190" height="70" fill="#f3e2dd"/>
-    <path d="M7 11h176M7 24h176M7 37h176M7 50h176M7 63h176M27 5v59m27-59v59m27-59v59m27-59v59m27-59v59m27-59v59"
-          stroke="#dec4bf" fill="none"/>
-    <path d="M18 23h46v34H18Z" fill="#a19b9d"/>
-    <path d="M24 15h47v36H24Z" fill="#fffefa" stroke="#9c7f80" stroke-width="1.5"/>
-    <path d="M32 23h30m-30 7h25m-25 7h22" stroke="#957377" stroke-width="2" stroke-linecap="round"/>
-    <path d="m79 10 23 4 11-4 16 17 13-6 12 13 22 9m-5-11 5 11-12 3"
-          stroke="#a52e37" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  sewing: `
+    <rect width="190" height="70" fill="${regions['SOUTH ASIA'][1]}"/>
+    <path d="M50 35h46l10-4h15v9H50Z" fill="#be6468"/>
+    <path d="M56 37h39" stroke="#fffefa" stroke-dasharray="3 2"/>
+    <path d="M66 18q0-8 8-8h51q11 0 11 11v18h-21V23H83v5H66Z" fill="#235451"/>
+    <path d="M75 28v7m41-25V5" stroke="#235451" stroke-width="2.5"/>
+    <rect x="109" y="4" width="14" height="5" rx="2" fill="#be6468"/>
+    <circle cx="128" cy="21" r="5" fill="#f0cb86"/>
+    <rect x="56" y="36" width="88" height="5" rx="2" fill="#235451"/>`,
   iowa: `
     <rect width="190" height="70" fill="#ede7cc"/>
     <path d="M0 37 39 26l30 7 36-13 28 10 30-8 27 5v43H0Z" fill="#b9b47c"/>
@@ -501,8 +503,7 @@ function storyCard(story, index) {
   const w = (pageWidth - 4 * panelGap) / 5;
   const x = margin + index % 5 * (w + panelGap);
   const y = cardTop + Math.floor(index / 5) * (cardHeight + panelGap);
-  const isNvidia = story.art === 'chartup';
-  const sceneHeight = isNvidia ? 53 : 64;
+  const sceneHeight = 64;
   const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
@@ -526,7 +527,7 @@ function storyCard(story, index) {
   const captionWidth = Math.min(w, Math.ceil(captionAdvance * captionScale) + 8);
   const captionHeight = 26;
   const captionY = y + sceneHeight - captionHeight;
-  rect(x, captionY, captionWidth, captionHeight, isNvidia ? '#145a35' : ink);
+  rect(x, captionY, captionWidth, captionHeight, story.art === 'chartup' ? '#145a35' : ink);
   text(story.label, box(x, captionY, captionWidth, captionHeight), {
     size: captionSize, min: 15, weight: 700, fill: '#ffffff',
     align: 'middle', vertical: 'middle', maxLines: 1, inset: 3, widthScales: [captionScale],
@@ -543,9 +544,9 @@ function storyCard(story, index) {
 
   const headY = tagY + 17;
   const headWidth = w - 8;
-  const sourceHeight = isNvidia ? 26 : 13;
+  const sourceHeight = 13;
   const sourceY = y + cardHeight - sourceHeight;
-  const subOptions = { size: 12, min: 12, maxLines: isNvidia ? 4 : 3, inset: 0, gap: 0.2 };
+  const subOptions = { size: 12, min: 12, maxLines: 3, inset: 0, gap: 0.2 };
   const subFont = fontFor(400);
   const subLines = wrap(story.sub, headWidth, content => subFont.width(content, subOptions.size));
   const subHeight = subLines.length * (subFont.ascent + subFont.descent) * subOptions.size +
@@ -553,7 +554,6 @@ function storyCard(story, index) {
   const subGap = 0.3;
   const headHeight = text(story.head, box(x + 4, headY, headWidth, sourceY - headY - subHeight - subGap), {
     size: 24, min: 21, weight: 700, maxLines: 3, inset: 0, gap: 0.5,
-    widthScales: isNvidia ? [1, 0.82] : [1],
   });
   const subY = headY + headHeight + subGap;
   text(story.sub, box(x + 4, subY, headWidth, sourceY - subY), subOptions);
@@ -566,18 +566,8 @@ function sourceLine(story, { x, y, w, h }, prefix = '') {
   const timeWidth = Math.ceil(fontFor(400).width(reportTime, 11));
   const timeX = x + w - timeWidth;
   const sourceRight = reportTime ? timeX - 4 : timeX;
-  const options = { fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93] };
-  let source = prefix + story.src;
-  const rowHeight = 13;
-  if (h > rowHeight) {
-    const font = fontFor(400);
-    const [firstLine, ...remaining] = wrap(source, w, content => font.width(content, 11));
-    text(firstLine, box(x, y, w, rowHeight), options);
-    source = remaining.join(' ');
-    y += rowHeight;
-    h -= rowHeight;
-  }
-  text(source, box(x, y, sourceRight - x, h), options);
+  const options = { fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93, 0.92] };
+  text(prefix + story.src, box(x, y, sourceRight - x, h), options);
   if (reportTime) {
     text(reportTime, box(timeX, y, timeWidth, h), {
       fill: muted, align: 'end', maxLines: 1, inset: 0,
