@@ -398,18 +398,33 @@ const cardScenes = {
           stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`,
   trophy: `
     <rect width="190" height="70" fill="#397650"/>
-    <path d="M30 0h32L40 70H0Zm65 0h31l12 70H93Zm64 0h31v70h-8Z" fill="#44845a"/>
-    <path d="M0 36h190M29 0 12 57h166l-17-57" stroke="#a4c49a" stroke-width="1.5" fill="none"/>
-    <ellipse cx="90" cy="42" rx="31" ry="3" fill="#2f6044"/>
-    <path d="M76 11H62c0 10 6 16 17 16m25-16h14c0 10-6 16-17 16"
-          stroke="#efbd57" stroke-width="4" stroke-linejoin="round" fill="none"/>
-    <path d="M72 5h36v7c0 10-6 17-14 19v5l9 3v4H77v-4l9-3v-5c-8-2-14-9-14-19Z"
-          fill="#f5ca61"/>
-    <path d="M90 32c9-4 12-12 12-27h6v7c0 10-6 17-14 19v5l9 3v4H90Z" fill="#dca248"/>
-    <path d="M74 7h32" stroke="#fff0a0" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="147" cy="27" r="13" fill="#fff9e8" stroke="#213c37" stroke-width="2"/>
-    <path d="m147 21 6 4-2 7h-8l-2-7Zm-9-3 4 1-3 6-4-1Zm18 0 3 6-4 1-3-6Zm-17 15 5 2 1 4-6-2Zm16 0v4l-6 2 1-4Z"
-          fill="#213c37"/>`,
+    <path d="M30 0h32L40 70H7Zm50 0h30l5 70H75Zm48 0h32l23 70h-33Z" fill="#44845a"/>
+    <path d="M0 35h190" stroke="#a4c49a" opacity=".5"/>
+    <rect x="5" y="22" width="70" height="22" rx="2" fill="#14243b"/>
+    <rect x="115" y="22" width="70" height="22" rx="2" fill="#14243b"/>
+    <g transform="translate(19 3)">
+      <rect width="42" height="18" fill="#fffefa"/>
+      <path d="M0 0h42v2H0zm0 4h42v2H0zm0 4h42v2H0zm0 4h42v2H0zm0 4h42v2H0z" fill="#b63743"/>
+      <rect width="18" height="10" fill="#253d67"/>
+      <path d="M3 3h.1m5.9 0h.1m5.9 0h.1M6 7h.1m5.9 0h.1" stroke="#fffefa"
+            stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(129 3)">
+      <rect width="42" height="18" fill="#253d67"/>
+      <path d="M0 0h5l37 16v2h-5L0 2Zm42 0h-5L0 16v2h5L42 2Z" fill="#fffefa"/>
+      <path d="m0 0 21 9h-4L0 2Zm42 0L21 9V7L38 0Zm0 18L21 9h4l17 7ZM0 18l21-9v2L4 18Z" fill="#b63743"/>
+      <path d="M0 6h17V0h8v6h17v6H25v6h-8v-6H0Z" fill="#fffefa"/>
+      <path d="M0 7.5h19V0h4v7.5h19v3H23V18h-4v-7.5H0Z" fill="#b63743"/>
+    </g>
+    <ellipse cx="95" cy="43" rx="16" ry="2" fill="#2f6044"/>
+    <path d="M86 38h18l4 5H82Z" fill="#775133"/>
+    <path d="M87 36h16v4H87Z" fill="#efbd57"/>
+    <path d="M91 36c0-6 1-14 4-21h4c-2 8-1 15 1 21Z" fill="#dca248"/>
+    <path d="M90 16c-8 5-3 9 7 10 11 1 4 6-7 9" stroke="#f5ca61" stroke-width="4"
+          stroke-linecap="round" fill="none"/>
+    <path d="M90 15c-7 5-3 8 7 9" stroke="#fff0a0" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <circle cx="95" cy="10" r="7" fill="#f5ca61" stroke="#a66f35" stroke-width="1.5"/>
+    <path d="m95 6 4 3-2 4h-4l-2-4Z" fill="#a66f35"/>`,
   chartdown: `
     <rect width="190" height="70" fill="#f4e0dd"/>
     <path d="M9 13h171M9 25h171M9 37h171M9 49h171M9 61h171
@@ -487,6 +502,13 @@ function storyCard(story, index) {
     text('$1.6bn', box(x + 105, y + 4, w - 111, 36), {
       size: 25, weight: 700, fill: '#fff0b2', align: 'middle', vertical: 'middle', maxLines: 1,
     });
+  } else if (story.art === 'trophy') {
+    const tagOptions = {
+      weight: 700, fill: white, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
+    };
+    text('2031', box(x + 5, y + 21, 70, 25), { ...tagOptions, size: 22 });
+    text('2035', box(x + 115, y + 21, 50, 25), { ...tagOptions, size: 22 });
+    text('UK', box(x + 168, y + 21, 18, 25), { ...tagOptions, size: 12 });
   }
 
   const boldFont = fontFor(700);
