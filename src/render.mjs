@@ -42,6 +42,7 @@ const placeRegions = {
   'SOUTH KOREA': 'EAST ASIA',
   INDONESIA: 'SOUTH-EAST ASIA',
   'NEPAL · INDIA': 'SOUTH ASIA',
+  PACIFIC: 'OCEANIA',
   USA: 'NORTH AMERICA',
   'UK · USA': 'EUROPE · NORTH AMERICA',
 };
@@ -433,6 +434,25 @@ const cardScenes = {
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10v5H13Z" fill="#e9b8b6"/>
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10m-12 3 12-3-4-12"
           fill="none" stroke="#982c42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  islands: `
+    <rect width="190" height="70" fill="#d9e8e8"/>
+    <path d="M0 25h190v45H0Z" fill="#699fac"/>
+    <path d="M0 47q25-6 49 0t48 0 48 0 45 0v23H0Z" fill="#396e85"/>
+    <path d="M15 38q18-10 36-10 18 0 32 10-17 5-34 5-21 0-34-5Z
+             M91 30q13-8 28-8t28 8q-13 4-28 4t-28-4Z" fill="#efd39c"/>
+    <path d="M45 34q2-11-4-18m15 18q-1-7 5-13m55 7q2-9 8-15"
+          fill="none" stroke="#69483a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M41 16q-10-6-18 4 10-4 18-2-8 2-9 10 5-6 10-9 6 1 11 6-1-9-10-9
+             6-3 13-2-7-6-15 1-4-7-11-7 7 3 11 8Z
+             M61 21q-8-5-14 1 7-2 13 0-5 2-6 8 4-5 7-6 6 0 9 5-1-7-8-7
+             6-3 12-1-5-6-13 0 1-5 5-7-6 1-5 7Z
+             M124 13q-6-8-17-3 10-1 16 5-9-2-14 5 8-4 14-3 4 2 6 7 2-7-4-10
+             8-3 14 1-4-8-14-2 2-6 7-8-7 0-8 8Z" fill="#205b4c"/>
+    <path d="M4 34q6-3 12 0m0 10q9 3 19 1m45-1q8-4 16 0t16 0
+             m6-6q8 3 16 0t16 0m3 7q8-4 16 0t16 0m-17 11q8-4 16 0"
+          fill="none" stroke="#d0e8e6" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M168 8v19m-7-7 7 7 7-7" fill="none" stroke="#a52e37"
+          stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
   aidmap: `
     <rect width="190" height="70" fill="#15365c"/>
     <path d="M0 13h190M0 28h190M0 43h190M0 58h190M20 0v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70"
@@ -542,7 +562,7 @@ function storyCard(story, index) {
   const largeHeadLines = wrap(story.head, headWidth, value => boldFont.width(value, 20) * widthScales.at(-1));
   const headSize = largeHeadLines && largeHeadLines.length <= 2 ? 20 : 19;
   const headHeight = text(story.head, box(x + 4, headY, headWidth, 45), {
-    size: headSize, min: headSize, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
+    size: headSize, min: 17, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
     widthScales,
   });
   const subY = headY + headHeight + 0.3;
