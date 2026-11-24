@@ -9,13 +9,13 @@
     {"t": "06:10", "text": "Kyiv: ships hit off Libya"},
     {"t": "09:34", "text": "Strikes kill 15 near Kyiv"},
     {"t": "14:06", "text": "Nvidia reinstates Huang"},
-    {"t": "20:23", "text": "Wall St's best day since 2025"}
+    {"t": "21:23", "text": "Nasdaq ends 6.5% higher"}
   ],
   "numbers": [
     {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
     {"v": "-5.8%", "l": "KOSPI at Monday's low"},
     {"v": "+30%", "l": "Nvidia shares as Huang returns"},
-    {"v": "~$1tn", "l": "added to Nvidia's market value"}
+    {"v": "+6.5%", "l": "Nasdaq on Monday as tech rallies"}
   ],
   "leads": [
     {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "OFFICIAL", "scene": "warship", "t": "06:10",
@@ -26,7 +26,7 @@
     {"region": "NORTH AMERICA", "field": "TECH", "status": "OFFICIAL", "scene": "chartup", "t": "14:06",
      "lat": 37.4, "lon": -122.0,
      "head": "Nvidia brings back Huang; Wall St surges",
-     "sub": "Trump says he \"convinced\" the board, 11 days after Huang quit over an alleged Chinese spy affair; Democrats vow a probe. Nvidia jumps ~30% as stocks head for their best day since April 2025.",
+     "sub": "Trump says he \"convinced\" the board, 11 days after Huang quit over an alleged Chinese spy affair; Democrats vow a probe. Nvidia adds almost $1tn in value and the Nasdaq jumps 6.5%.",
      "src": "Reuters, BBC, France 24, MarketWatch"},
     {"region": "EUROPE", "field": "LABOUR", "status": "CONFIRMED", "scene": "plane", "t": "03:15",
      "lat": 50.85, "lon": 4.35,
