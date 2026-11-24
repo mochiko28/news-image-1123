@@ -28,10 +28,27 @@ const regions = {
   'NORTH AMERICA': ['#583987', '#eee5f3'],
   'LATIN AMERICA': ['#414959', '#e8ebf0'],
 };
-const regionNames = story => story.region.split(' · ');
+const placeRegions = {
+  UKRAINE: 'EUROPE',
+  'NATO · FINLAND': 'EUROPE',
+  'GERMANY · SPACE': 'EUROPE',
+  BRAZIL: 'LATIN AMERICA',
+  'DR CONGO': 'AFRICA',
+  IRAN: 'MIDDLE EAST',
+  GAZA: 'MIDDLE EAST',
+  'SOUTH KOREA': 'EAST ASIA',
+  USA: 'NORTH AMERICA',
+};
+const neutralRegion = ['#525b66', '#eceef0'];
+const regionPalette = region => Object.hasOwn(regions, region) ? regions[region] : neutralRegion;
+const canonicalRegion = region => Object.hasOwn(regions, region) ? region : 'OTHER';
+const regionNames = story => story.scene
+  ? story.region.split(' · ').map(canonicalRegion)
+  : [canonicalRegion(Object.hasOwn(placeRegions, story.region) ? placeRegions[story.region] : story.region)];
 const mappedStories = [...stories.leads, ...stories.cards];
 const allStories = [...mappedStories, ...stories.briefs];
 const presentRegions = new Set(allStories.flatMap(regionNames));
+const pinRegions = new Set(mappedStories.flatMap(regionNames));
 
 // Each text line includes the intended layout box for the separate SVG audit.
 const svg = [];
@@ -75,23 +92,27 @@ function text(value, bounds, options = {}) {
   const {
     size = 11, min = 11, weight = 400, fill = ink, align = 'start',
     vertical = 'top', maxLines = Infinity, inset = 1.2, gap = 0.7,
+    widthScales = [1],
   } = options;
   const font = fontFor(weight);
 
-  for (let fontSize = size; fontSize >= min; fontSize--) {
-    const lines = wrap(String(value), w - 2 * inset, line => font.width(line, fontSize));
-    if (!lines || lines.length > maxLines) continue;
-    const lineHeight = (font.ascent + font.descent) * fontSize;
-    const height = lines.length * lineHeight + (lines.length - 1) * gap;
-    if (height > h + 0.001) continue;
+  for (const scale of widthScales) {
+    for (let fontSize = size; fontSize >= min; fontSize = fontSize === min ? -1 : Math.max(min, fontSize - 1)) {
+      const lines = wrap(String(value), w - 2 * inset, line => scale * font.width(line, fontSize));
+      if (!lines || lines.length > maxLines) continue;
+      const lineHeight = (font.ascent + font.descent) * fontSize;
+      const height = lines.length * lineHeight + (lines.length - 1) * gap;
+      if (height > h + 0.001) continue;
 
-    const start = y + (vertical === 'middle' ? (h - height) / 2 : 0);
-    const anchorX = { start: x + inset, middle: x + w / 2, end: x + w - inset }[align];
-    const baseline = start + font.ascent * fontSize;
-    for (const [index, content] of lines.entries()) {
-      add(`<text x="${n(anchorX)}" y="${n(baseline + index * (lineHeight + gap))}" font-size="${fontSize}" font-weight="${weight}" text-anchor="${align}" fill="${fill}" data-box="${[x, y, w, h].map(n).join(' ')}">${xml(content)}</text>`);
+      const start = y + (vertical === 'middle' ? (h - height) / 2 : 0);
+      const anchorX = { start: x + inset, middle: x + w / 2, end: x + w - inset }[align];
+      const baseline = start + font.ascent * fontSize;
+      const transform = scale === 1 ? '' : ` transform="scale(${scale} 1)"`;
+      for (const [index, content] of lines.entries()) {
+        add(`<text x="${n(anchorX / scale)}" y="${n(baseline + index * (lineHeight + gap))}" font-size="${fontSize}" font-weight="${weight}" text-anchor="${align}" fill="${fill}" data-box="${[x, y, w, h].map(n).join(' ')}"${transform}>${xml(content)}</text>`);
+      }
+      return height;
     }
-    return height;
   }
   throw new Error(`Text cannot fit ${w}×${h} at ${x},${y}: ${value}`);
 }
@@ -123,13 +144,13 @@ function masthead() {
   const [dayOfMonth, month, year] = date.split(' ');
   const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · ALL FROM ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
 
-  rect(24, 14, pageWidth, 113, ink);
-  rect(24, 14, 5, 113, '#d75450');
-  label(kicker, box(41, 21, 942, 17), '#d8e5ed');
-  text(day + ' ' + date, box(39, 36, 945, 72), {
+  rect(24, 14, pageWidth, 101, ink);
+  rect(24, 14, 5, 101, '#d75450');
+  label(kicker, box(41, 17, 942, 15), '#d8e5ed');
+  text(day + ' ' + date, box(39, 31, 945, 68), {
     size: 64, min: 60, weight: 700, fill: '#ffffff', vertical: 'middle', maxLines: 1,
   });
-  label(stats, box(41, 107, 942, 15), '#d8e5ed');
+  label(stats, box(41, 99, 942, 13), '#d8e5ed');
 }
 
 function strips() {
@@ -139,32 +160,32 @@ function strips() {
   const extraWidth = (pageWidth - timelineWidths.reduce((sum, width) => sum + width, 0)) /
     timelineWidths.length;
   const padding = Math.min(4, Math.max(0, extraWidth / 2));
-  label('THE DAY IN UTC', box(24, 132, 230, 16));
-  line(24, 150, 1000, 150, ink);
+  label('THE DAY IN UTC', box(24, 117, 230, 14));
+  line(24, 133, 1000, 133, ink);
   let timelineX = margin;
   for (const [index, { t, text: event }] of stories.timeline.entries()) {
     const width = timelineWidths[index] + extraWidth;
-    if (index) line(timelineX, 154, timelineX, 177);
-    text(t, box(timelineX + padding, 152, width - 2 * padding, 13), {
+    if (index) line(timelineX, 136, timelineX, 158);
+    text(t, box(timelineX + padding, 134, width - 2 * padding, 13), {
       weight: 700, fill: '#174985', vertical: 'middle', maxLines: 1, inset: 0,
     });
-    text(event, box(timelineX + padding, 165, width - 2 * padding, 13), { maxLines: 1, inset: 0 });
+    text(event, box(timelineX + padding, 147, width - 2 * padding, 13), { maxLines: 1, inset: 0 });
     timelineX += width;
   }
 
-  rect(24, 183, pageWidth, 40, '#e5ebed');
-  text('THE DAY IN NUMBERS', box(32, 184, 94, 38), {
+  rect(24, 163, pageWidth, 36, '#e5ebed');
+  text('THE DAY IN NUMBERS', box(32, 163, 94, 36), {
     size: 13, min: 13, weight: 700, vertical: 'middle',
   });
   const numberWidth = (pageWidth - 106) / stories.numbers.length;
   for (const [index, { v, l }] of stories.numbers.entries()) {
     const x = 130 + index * numberWidth;
-    line(x, 188, x, 218, '#aab8bf');
+    line(x, 167, x, 195, '#aab8bf');
     const valueWidth = Math.ceil(fontFor(700).width(v, 30)) + 6;
-    text(v, box(x + 9, 184, valueWidth, 38), {
+    text(v, box(x + 9, 163, valueWidth, 36), {
       size: 30, min: 30, weight: 700, vertical: 'middle', maxLines: 1,
     });
-    text(l, box(x + 17 + valueWidth, 184, numberWidth - 24 - valueWidth, 38), {
+    text(l, box(x + 17 + valueWidth, 163, numberWidth - 24 - valueWidth, 36), {
       size: 12, vertical: 'middle', maxLines: 3,
     });
   }
@@ -217,98 +238,201 @@ const scenes = {
 
 function leadPanel(story, index) {
   const x = 24 + index * 328;
-  const y = 230;
+  const y = 205;
   const w = index === 2 ? 320 : 318;
   const contentX = x + 11;
   const contentWidth = w - 22;
   const names = regionNames(story);
-  const tagY = y + (story.t ? 47 : 61);
-  const sceneHeight = tagY - y - 6;
+  const tagY = y + 40;
+  const sceneHeight = tagY - y - 3;
   const statusX = x + w - 91;
 
-  rect(x, y, w, 207, white, `stroke="${rule}"`);
+  rect(x, y, w, 171, white, `stroke="${rule}"`);
   add(`<g transform="translate(${x} ${y}) scale(${w / 320} ${sceneHeight / 70})">${scenes[story.scene]}</g>`);
   const bandWidth = w / names.length;
   for (const [i, region] of names.entries()) {
-    rect(x + i * bandWidth, y, bandWidth, 3, regions[region][0]);
+    rect(x + i * bandWidth, y, bandWidth, 3, regionPalette(region)[0]);
   }
 
   badge(index + 1, contentX, tagY, 19, 16);
   let tagX = contentX + 24;
   for (const region of names) {
-    tagX += pill(region, tagX, tagY, regions[region]) + 4;
+    tagX += pill(region, tagX, tagY, regionPalette(region)) + 4;
   }
   label(story.field, box(tagX + 2, tagY, statusX - tagX - 6, 16), muted);
   pill(story.status, statusX, tagY, statuses[story.status], 80);
-  if (story.t) {
-    label(`FIRST REPORT ${story.t} UTC`, box(contentX, y + 64, contentWidth, 14), muted);
-  }
-  text(story.head, box(contentX, y + 82, contentWidth, 51), {
-    size: 23, min: 20, weight: 700, maxLines: 2,
+  text(story.head, box(contentX, y + 57, contentWidth, 51), {
+    size: 23, min: 20, weight: 700, maxLines: 2, gap: 0.3,
   });
-  text(story.sub, box(contentX, y + 135, contentWidth, 53), {
-    size: 12, maxLines: 4,
+  text(story.sub, box(contentX, y + 108, contentWidth, 49), {
+    size: 11, maxLines: 4, gap: 0.2,
   });
-  text('Source: ' + story.src, box(contentX, y + 190, contentWidth, 14), {
-    fill: muted, maxLines: 1,
-  });
+  sourceLine(story, box(contentX, y + 157, contentWidth, 13), 'Source: ');
 }
 
-const icons = {
-  fire: '<path d="M10 2c2 4-1 6 2 7l2-3c4 4 6 12-3 12-6 0-8-5-5-9 0 3 2 3 2 3-1-4 2-6 2-10Z"/><path d="M9 16c0-2 2-3 3-4 1 2 2 3 0 5"/>',
-  blast: '<path d="m10 2 2 5 5-2-2 5 3 2-5 1 1 5-4-3-4 3 1-5-5-1 4-2-2-5 5 2Z"/>',
-  shield: '<path d="m10 2 7 3v5c0 4-4 7-7 8-3-1-7-4-7-8V5Z"/><path d="m7 10 2 2 4-4"/>',
-  flame: '<path d="M10 2c1 5 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 3-7 0 3 1 4 2 4 1-2 2-5 1-8Z"/>',
-  virus: '<circle cx="10" cy="10" r="5"/><path d="M10 2v3m0 10v3M2 10h3m10 0h3M4 4l2 2m8 8 2 2m0-12-2 2m-8 8-2 2m4-7h.1m3 2h.1"/>',
-  chip: '<rect x="5" y="5" width="10" height="10" rx="1"/><rect x="8" y="8" width="4" height="4"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/>',
-  handshake: '<path d="m2 8 4-5 4 2 4-2 4 5-4 5-3 3-5-2-4-3Zm8-3-3 4 2 1 2-2 4 4m-8 0 3 3"/>',
-  lock: '<rect x="4" y="8" width="12" height="9" rx="1"/><path d="M7 8V5a3 3 0 0 1 6 0v3m-3 4v2"/>',
-  gavel: '<path d="m6 4 4-2 5 6-4 3Zm7 6 5 5M2 17h10m-8-2h6"/>',
-  drone: '<path d="m6 6 8 8m0-8-8 8"/><circle cx="4" cy="4" r="2"/><circle cx="16" cy="4" r="2"/><circle cx="4" cy="16" r="2"/><circle cx="16" cy="16" r="2"/><rect x="8" y="8" width="4" height="4" rx="1"/>',
-  drop: '<path d="M10 2c2 4 6 7 6 10a6 6 0 0 1-12 0c0-3 4-6 6-10Zm-3 10c0 2 1 3 2 3"/>',
-  pillar: '<path d="M2 7h16l-8-5Zm2 9h12m-14 2h16M6 8v7m4-7v7m4-7v7"/>',
-  chart: '<path d="M2 3v15h16M5 5l4 5 3-2 5 6m-4 0h4v-4"/>',
+const cardScenes = {
+  rubble: `
+    <rect width="190" height="70" fill="#e1d1c5"/>
+    <path d="M0 44h190v26H0Z" fill="#b49b8c"/>
+    <path d="M92 49c-9-6-3-15 5-16-10-10 2-19 10-16-3-12 14-17 22-8
+             7-7 20 0 18 7 15-1 20 14 6 19 3 9-9 14-20 11Z" fill="#847a79"/>
+    <path d="M14 59V19h37v8l-8 7 17 5-7 9 13 11ZM119 59V32l13 5 8-13 11 8 10-6v33Z" fill="#473947"/>
+    <path d="M21 25h8v8h-8zm13 0h7v8h-7zM21 38h8v8h-8zm15 2h7v7h-7zm92 4h7v7h-7zm17-7h8v8h-8z" fill="#dfb79d"/>
+    <path d="m53 57 22-15 12 9 10-15 17 17 12 5 17-6 25 4 9-8 13 8v14H49Z" fill="#775b55"/>
+    <path d="m127 63 12-5 11 4m16 3 10-5 10 3m-98 4 10-8 13 4" stroke="#daa790" stroke-width="2" fill="none"/>`,
+  nato: `
+    <rect width="190" height="70" fill="#15365c"/>
+    <path d="m84 31 11-16 24-7 16 2 8-8 22-2 11 6-6 13 8 8-5 10-18-3-15 9
+             -14 4-7-8-18 11-9-9-12 3-8-8Zm74 18 9-10 14 5-1 10-10 8-16-5Z" fill="#39668a"/>
+    <path d="M22 24h151M22 48h151M95 6v57m25-57v57m25-57v57m25-57v57" stroke="#85b6d1" opacity=".34"/>
+    <circle cx="145" cy="32" r="19" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
+    <path d="m145 5 5 22 22 5-22 5-5 22-5-22-22-5 22-5Z" fill="#f8faf5"/>
+    <path d="m145 12 3 17-3 3Zm20 20-17 3-3-3Zm-20 20-3-17 3-3Zm-20-20 17-3 3 3Z" fill="#5284a6"/>`,
+  storm: `
+    <rect width="190" height="70" fill="#9bbdc7"/>
+    <path d="M0 43 30 34l23 8 31-10 38 8 28-10 40 10v30H0Z" fill="#527e87"/>
+    <path d="M25 27c-2-6 4-11 12-10 1-8 13-12 23-8 8-9 28-8 32 0 12-4 26 0 27 8
+             15-3 28 3 27 11Z" fill="#314456"/>
+    <path d="m35 31-7 9m21-9-8 12m23-12-8 12m23-12-5 7m22-7-9 12m24-12-8 12m22-12-5 7"
+          stroke="#e1edf0" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M15 47v-8l11-8 11 8v8m93 0V36l12-9 13 9v11m5 0v-9l12-9 12 9v9" fill="#ecb987"/>
+    <path d="m12 40 14-11 14 11m87-3 15-11 16 11m-1 2 15-11 15 11" stroke="#553e48" stroke-width="2.5" fill="none"/>`,
+  virus: `
+    <rect width="190" height="70" fill="#f2dfbc"/>
+    <path d="M0 58 49 50l53 6 49-10 39 9v15H0Z" fill="#d3b17e"/>
+    <path d="m31 8 3 8m14-7-4 10m14 3-10 4m9 11-10-3m3 14-8-9m-9 13 2-11m-16 6 7-10m-14 0 12-6m-11-9 12 2m-6-12 10 9"
+          stroke="#80374b" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="36" cy="29" r="15" fill="#80374b"/>
+    <path d="M31 23h.1m11 3h.1m-5 9h.1" stroke="#f0ad8d" stroke-width="4" stroke-linecap="round"/>
+    <path d="m80 53 26-35h55l24 35Z" fill="#faf4df"/>
+    <path d="m106 18 21 35H80Z" fill="#a86e55"/>
+    <path d="m107 31 12 22H94Z" fill="#653f42"/>
+    <path d="M146 28h6v6h6v6h-6v6h-6v-6h-6v-6h6Z" fill="#a13d47"/>`,
+  blockade: `
+    <rect width="190" height="70" fill="#d9e8e8"/>
+    <path d="M0 25h190v45H0Z" fill="#689eac"/>
+    <path d="M0 46h190v24H0Z" fill="#396e85"/>
+    <path d="M4 36h31m21 5h26m55-7h39m-65 20h56m-30 8h51m-170-9h42"
+          stroke="#b7d9dc" stroke-width="2" fill="none"/>
+    <path d="M12 35h43l8-4-6 9H20Zm54 8h55l8-5-6 11H75Zm64 7h51l9-6-6 12h-42Z" fill="#1c334b"/>
+    <path d="M21 35v-6h11l5-5h12v11Zm56 8v-7h12l6-6h15l5 13Zm66 7v-8h11l4-6h15l4 14Z" fill="#3b566a"/>
+    <path d="M42 27V14m-6 5h12m56 13V17m-7 4h14m57 17V21m-7 6h14"
+          stroke="#1c334b" stroke-width="2" fill="none"/>`,
+  gas: `
+    <rect width="190" height="70" fill="#cde4e5"/>
+    <path d="M0 55h190v15H0Z" fill="#99c2c8"/>
+    <path d="M8 56h25l9-12h19m-5 0h21" stroke="#6b979d" stroke-width="7" fill="none"/>
+    <path d="M91 54c-15-4-17-16-10-25 0 7 5 8 5 8-1-14 11-16 12-30 12 10 8 21 10 25
+             5-1 7-6 7-10 14 17 5 32-9 35Z" fill="#1d6184"/>
+    <path d="M99 55c-11-6-3-13 1-20 1 7 6 9 8 6 4 5 3 11-3 14Z" fill="#5fcae7"/>
+    <path d="m124 44 17-17 12 5 19-19m-14 0 14-1v14" stroke="#266946"
+          stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`,
+  chartdown: `
+    <rect width="190" height="70" fill="#f4e0dd"/>
+    <path d="M9 13h171M9 25h171M9 37h171M9 49h171M9 61h171
+             M22 7v54M47 7v54M72 7v54M97 7v54M122 7v54M147 7v54M172 7v54"
+          fill="none" stroke="#dec0c0"/>
+    <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10v5H13Z" fill="#e9b8b6"/>
+    <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10m-12 3 12-3-4-12"
+          fill="none" stroke="#982c42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  roadstorm: `
+    <rect width="190" height="70" fill="#a6b8c8"/>
+    <path d="M0 44 40 26l32 13 48-14 70 16v29H0Z" fill="#758da0"/>
+    <path d="m79 70 58-38h12l41 38Z" fill="#354452"/>
+    <path d="m148 67-2-10m-2-6-1-5m-1-4-1-4" stroke="#eddbab" stroke-width="2" fill="none"/>
+    <path d="M22 24c-4-7 5-13 16-11 4-13 27-15 36-5 13-6 29 3 27 13l14 3Z" fill="#34465b"/>
+    <path d="m33 28-8 10m23-10-10 13m26-13-8 10m24-10-8 11m23-11-8 10m24-10-6 9"
+          stroke="#ecf3f8" stroke-width="2.4" fill="none"/>
+    <path d="m131 44 6-8h20l7 8 5 3v10h-42V47Z" fill="#e7a467"/>
+    <path d="m135 44 4-6h15l5 6Z" fill="#20364b"/>
+    <path d="M130 50h7m22 0h7" stroke="#fff9d6" stroke-width="3"/>
+    <path d="M132 57v4m32-4v4" stroke="#202c3c" stroke-width="5"/>`,
+  toxic: `
+    <rect width="190" height="70" fill="#e6dea9"/>
+    <path d="M0 42 33 35l26 7 41-5 44 3 46-7v37H0Z" fill="#b6a977"/>
+    <path d="m54 42-7 9 22 5-8 14m99-28 8 9 22 2m-22-2-8 7 6 12m-79-23 7 6-7 7"
+          stroke="#776c51" stroke-width="2" fill="none"/>
+    <path d="M110 45c15-7 25-3 36-7 15-6 19 2 29 4 7 2 4 7-5 8-18 4-38-1-57 3-11 1-13-5-3-8Z" fill="#688443"/>
+    <g transform="translate(8 -5) rotate(16 133 29)">
+      <path d="M109 12h45v33c0 9-45 9-45 0Z" fill="#37494a"/>
+      <path d="M109 22h45m-45 17h45" stroke="#71807a" stroke-width="3"/>
+      <ellipse cx="131.5" cy="12" rx="22.5" ry="6" fill="#657971"/>
+      <path d="m132 21 10 14h-20Z" fill="#f5d270"/>
+      <path d="M132 26v4m0 2v1" stroke="#37494a" stroke-width="2"/>
+    </g>
+    <path d="M159 36c1 4 5 7 5 10a5 5 0 0 1-10 0c0-3 4-6 5-10Z" fill="#b4c766"/>`,
   satellite: `
-    <g transform="rotate(-35 10 10)">
-      <rect x="8" y="5" width="4" height="8" rx="1"/>
-      <path d="M6 9h2m4 0h2M2 6h4v6H2Zm12 0h4v6h-4ZM2 9h4m8 0h4
-               M10 13v3m-3-1q3 3 6 0m-7 3q4 3 8 0"/>
-    </g>`,
+    <rect width="190" height="70" fill="#222d4c"/>
+    <path d="M6 66Q90 13 190 71Z" fill="#354763"/>
+    <path d="M13 13h.1m18 22h.1m18-24h.1m15 15h.1m102 22h.1m15-35h.1m-53-5h.1"
+          stroke="#d5e6ed" stroke-width="2.8" stroke-linecap="round"/>
+    <g transform="rotate(-23 110 32)">
+      <path d="M72 32h76" stroke="#f9edd0" stroke-width="3"/>
+      <path d="M66 23h31v18H66Zm57 0h31v18h-31Z" fill="#4f9fcb" stroke="#adcfde" stroke-width="1.5"/>
+      <path d="M76 23v18m10-18v18m47-18v18m10-18v18m-77-9h31m26 0h31" stroke="#263f61"/>
+      <rect x="101" y="19" width="18" height="25" rx="2" fill="#f8d179"/>
+      <path d="M110 19v-9m-11 2q11-11 22 0Z" fill="#f8d179" stroke="#f8d179" stroke-width="2"/>
+    </g>
+    <circle cx="168" cy="27" r="13" fill="#f2cb64"/>
+    <path d="M168 24h.1m-3 5-6 4a10 10 0 0 1 0-10l6 4m6 2 6 4a10 10 0 0 0 0-10l-6 4m-7-8a9 9 0 0 1 8 0l-4 6Z" fill="#222d4c"/>
+    <circle cx="168" cy="28" r="1.6" fill="#222d4c"/>`,
 };
 
 function storyCard(story, index) {
-  const x = 24 + index % 4 * 246;
-  const y = 443 + Math.floor(index / 4) * 89;
-  const w = 238;
-  const h = 85;
-  const [color, tint] = regions[story.region];
-  const icon = Object.hasOwn(icons, story.icon) ? icons[story.icon] : '';
+  const gap = 6;
+  const w = (pageWidth - 4 * gap) / 5;
+  const x = margin + index % 5 * (w + gap);
+  const y = 381 + Math.floor(index / 5) * 176;
+  const h = 170;
+  const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, h, white, `stroke="${rule}"`);
-  rect(x, y, 3, h, color);
-  if (icon) {
-    rect(x + 8, y + 3, 21, 21, tint, 'rx="3"');
-    add(`<g transform="translate(${x + 8.5} ${y + 3.5})" fill="none" stroke="${color}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${icon}</g>`);
-  }
-  badge(index + 4, x + 32, y + 6, 19, 15);
-  label(story.region, box(x + 54, y + 5, 106, 16), color);
-  pill(story.status, x + 161, y + 5, statuses[story.status], 74);
-  const headY = y + 24;
-  const headHeight = text(story.head, box(x + 7, headY, w - 13, 34), {
-    size: 15, min: 15, weight: 700, maxLines: 2,
+  add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} 1)">${cardScenes[story.art]}</g>`);
+
+  const captionFont = fontFor(700);
+  const captionSpace = w - 8;
+  const captionSize = Math.max(15, Math.min(21, Math.floor(captionSpace / captionFont.width(story.label, 1) / 0.85)));
+  const captionAdvance = captionFont.width(story.label, captionSize);
+  const captionScale = Math.max(0.85, Math.min(1, Math.floor(1000 * captionSpace / captionAdvance) / 1000));
+  const captionWidth = Math.min(w, Math.ceil(captionAdvance * captionScale) + 10);
+  rect(x, y + 46, captionWidth, 24, ink);
+  text(story.label, box(x, y + 46, captionWidth, 24), {
+    size: captionSize, min: 15, weight: 700, fill: '#ffffff',
+    align: 'middle', vertical: 'middle', maxLines: 1, inset: 4, widthScales: [captionScale],
   });
-  const subY = Math.ceil(headY + headHeight);
-  text(story.sub, box(x + 9, subY, w - 18, 12.5), { maxLines: 1 });
-  const sourceY = subY + 12.5;
+
+  const tagY = y + 72;
+  const statusWidth = Math.ceil(fontFor(700).width(story.status, 11)) + 5;
+  const statusX = x + w - 3 - statusWidth;
+  badge(index + stories.leads.length + 1, x + 3, tagY, 18, 16);
+  text(story.region, box(x + 24, tagY, statusX - x - 26, 16), {
+    weight: 700, fill: color, vertical: 'middle', maxLines: 1, inset: 0, widthScales: [1, 0.92],
+  });
+  pill(story.status, statusX, tagY, statuses[story.status], statusWidth);
+
+  const headY = y + 90;
+  const headHeight = text(story.head, box(x + 4, headY, w - 8, 41), {
+    size: 18, min: 16, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
+    widthScales: [1, 0.89],
+  });
+  const subY = headY + headHeight + 0.3;
+  const sourceY = y + 156;
+  text(story.sub, box(x + 4, subY, w - 8, sourceY - subY), {
+    size: 11.5, min: 11.5, maxLines: 2, inset: 0, gap: 0.2,
+  });
+
+  sourceLine(story, box(x + 4, sourceY, w - 8, 13));
+}
+
+function sourceLine(story, { x, y, w, h }, prefix = '') {
   const reportTime = story.t ? `${story.t} UTC` : '';
   const timeWidth = Math.ceil(fontFor(400).width(reportTime, 11));
-  const sourceX = x + 7;
-  const timeX = x + w - 4 - timeWidth;
+  const timeX = x + w - timeWidth;
   const sourceRight = reportTime ? timeX - 4 : timeX;
-  text('Source: ' + story.src, box(sourceX, sourceY, sourceRight - sourceX, 13), {
-    fill: muted, maxLines: 1, inset: 0,
+  text(prefix + story.src, box(x, y, sourceRight - x, h), {
+    fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96],
   });
   if (reportTime) {
-    text(reportTime, box(timeX, sourceY, timeWidth, 13), {
+    text(reportTime, box(timeX, y, timeWidth, h), {
       fill: muted, align: 'end', maxLines: 1, inset: 0,
     });
   }
@@ -453,7 +577,8 @@ function distanceToSegment([x, y], [ax, ay], [bx, by]) {
 
 function worldMap({ x, y, w, h }) {
   const sea = '#eef3f2';
-  const legend = Object.keys(regions).filter(region => presentRegions.has(region));
+  const legend = Object.keys(regions).filter(region => pinRegions.has(region));
+  if (pinRegions.has('OTHER')) legend.push('OTHER');
   const legendRowHeight = 14;
   const legendHeight = Math.ceil(legend.length / 2) * legendRowHeight + 5;
   const mapLeft = x + 1;
@@ -499,7 +624,7 @@ function worldMap({ x, y, w, h }) {
   const pins = mappedStories.map((story, index) => ({
     index: index + 1,
     point: project(story.lon, story.lat),
-    colors: regionNames(story).map(region => regions[region][0]),
+    colors: regionNames(story).map(region => regionPalette(region)[0]),
   }));
   const labelRadius = 8.5;
   const distance = ([ax, ay], [bx, by]) => Math.hypot(ax - bx, ay - by);
@@ -556,7 +681,7 @@ function worldMap({ x, y, w, h }) {
   for (const [index, region] of legend.entries()) {
     const columnX = x + 8 + index % 2 * (w / 2);
     const rowY = mapBottom + 2 + Math.floor(index / 2) * legendRowHeight;
-    const color = regions[region][0];
+    const color = regionPalette(region)[0];
     rect(columnX, rowY + 3.75, 6.5, 6.5, color);
     label(region, box(columnX + 10, rowY, w / 2 - 21, legendRowHeight), color);
   }
@@ -567,9 +692,6 @@ function briefs({ x, y, w, h }) {
   const rows = Math.ceil(stories.briefs.length / 2);
   const rowHeight = (h - headerHeight - 2) / rows;
   const columnWidth = w / 2;
-  if (rowHeight < 11 * (fontFor(400).ascent + fontFor(400).descent)) {
-    throw new Error(`Cannot fit ${stories.briefs.length} briefs in two columns at 11px`);
-  }
   rect(x, y, w, h, white, `stroke="${rule}"`);
   rect(x, y, w, headerHeight, '#e2e9e9');
   label('ALSO ON ' + stories.day, box(x + 8, y + 2, w - 16, 16));
@@ -580,13 +702,18 @@ function briefs({ x, y, w, h }) {
     const row = index % rows;
     const rowY = y + headerHeight + row * rowHeight;
     if (row % 2 === 0) rect(columnX + 1, rowY, columnWidth - 2, rowHeight, '#f3f5f3');
-    rect(columnX + 5, rowY + (rowHeight - 6.5) / 2, 6.5, 6.5, regions[brief.region][0]);
-    text(mappedStories.length + index + 1, box(columnX + 13, rowY, 14, rowHeight), {
-      weight: 700, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
+    const size = 12.5;
+    const place = brief.place + ':';
+    const placeX = columnX + 26;
+    const placeWidth = fontFor(700).width(place + ' ', size);
+    const options = { size, min: size, vertical: 'middle', maxLines: 1, inset: 0 };
+    text(mappedStories.length + index + 1, box(columnX + 5, rowY, 16, rowHeight), {
+      ...options, weight: 700, align: 'middle', fill: muted,
     });
-    text(brief.text, box(columnX + 29, rowY, columnWidth - 31, rowHeight), {
-      size: 12, vertical: 'middle', maxLines: 1, inset: 0.8,
+    text(place, box(placeX, rowY, placeWidth, rowHeight), {
+      ...options, weight: 700, fill: regionPalette(brief.region)[0],
     });
+    text(brief.text, box(placeX + placeWidth, rowY, columnWidth - 28 - placeWidth, rowHeight), options);
   }
 }
 
@@ -627,9 +754,9 @@ masthead();
 strips();
 stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
-const lowerY = 712;
-const lowerHeight = 211;
-const mapWidth = 270;
+const lowerY = 733;
+const lowerHeight = 190;
+const mapWidth = 269;
 const panelGap = 8;
 worldMap(box(margin, lowerY, mapWidth, lowerHeight));
 briefs(box(margin + mapWidth + panelGap, lowerY, pageWidth - mapWidth - panelGap, lowerHeight));
