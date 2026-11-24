@@ -75,7 +75,7 @@
     {"region": "EUROPE", "field": "SPACE", "place": "Germany", "text": "weighs report of Russian space-nuke plan", "src": "Guardian"},
     {"region": "EUROPE", "field": "BUSINESS", "place": "UK", "text": "Capita shares crash 70%", "src": "BBC"},
     {"region": "EUROPE", "field": "CYBER", "place": "UK", "text": "Next says data hit in cyber breach", "src": "BBC"},
-    {"region": "EUROPE", "field": "SPORT", "place": "UK", "text": "Tyson Fury reveals schizophrenia", "src": "BBC"},
+    {"region": "EUROPE", "field": "PUBLIC SAFETY", "place": "UK", "text": "12,000 evacuated at Manchester gig", "src": "NBC"},
     {"region": "AFRICA", "field": "DIPLOMACY", "place": "Kenya", "text": "and DR Congo restore ties", "src": "BBC"},
     {"region": "AFRICA", "field": "CONFLICT", "place": "Libya", "text": "east seeks UN probe of Kyiv troops", "src": "F24"},
     {"region": "AFRICA", "field": "CRIME", "place": "Zimbabwe", "text": "top preacher held over assault claims", "src": "BBC"},
@@ -95,12 +95,12 @@
     {"region": "NORTH AMERICA", "field": "LAW", "place": "US", "text": "2 states sue SpaceX over Grok images", "src": "AJ"},
     {"region": "NORTH AMERICA", "field": "WEATHER", "place": "US", "text": "storms threaten Thanksgiving trips", "src": "NBC"},
     {"region": "NORTH AMERICA", "field": "LAW", "place": "US", "text": "court revives Trump hush-money bid", "src": "PBS"},
-    {"region": "NORTH AMERICA", "field": "MARKETS", "place": "US", "text": "Anthropic options debut briskly", "src": "Reuters"},
+    {"region": "NORTH AMERICA", "field": "BUSINESS", "place": "US", "text": "CrowdStrike to buy Zscaler for $44bn", "src": "CNBC"},
     {"region": "NORTH AMERICA", "field": "MIGRATION", "place": "US", "text": "admits deporting a citizen to Mexico", "src": "Guardian"},
     {"region": "NORTH AMERICA", "field": "POLITICS", "place": "US", "text": "DNC plans 12 primary debates", "src": "Politico"},
     {"region": "LATIN AMERICA", "field": "TECH", "place": "Barbados", "text": "UN chief seeks AI safety pact", "src": "F24"},
     {"region": "LATIN AMERICA", "field": "CRIME", "place": "Colombia", "text": "gangs attack security forces", "src": "WSJ"},
-    {"region": "LATIN AMERICA", "field": "SPORT", "place": "Argentina", "text": "Paredes collapses in TV interview", "src": "AJ"}
+    {"region": "NORTH AMERICA", "field": "ENVIRONMENT", "place": "US", "text": "Trump halts Iowa toxic blast plan", "src": "PBS"}
   ],
   "datecheck": {
     "title": "DATE CHECK: LEFT OUT, FIRST REPORTED SUN 22 NOV OR EARLIER",
