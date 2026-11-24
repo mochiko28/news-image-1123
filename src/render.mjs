@@ -91,13 +91,15 @@ function text(value, bounds, options = {}) {
   const {
     size = 11, min = 11, weight = 400, fill = ink, align = 'start',
     vertical = 'top', maxLines = Infinity, inset = 1.2, gap = 0.7,
-    widthScales = [1],
+    widthScales = [1], letterSpacing = 0,
   } = options;
   const font = fontFor(weight);
 
   for (const scale of widthScales) {
     for (let fontSize = size; fontSize >= min; fontSize = fontSize === min ? -1 : Math.max(min, fontSize - 1)) {
-      const lines = wrap(String(value), w - 2 * inset, line => scale * font.width(line, fontSize));
+      const lines = wrap(String(value), w - 2 * inset, line =>
+        scale * (font.width(line, fontSize) + letterSpacing * Math.max(0, [...line].length - 1)),
+      );
       if (!lines || lines.length > maxLines) continue;
       const lineHeight = (font.ascent + font.descent) * fontSize;
       const height = lines.length * lineHeight + (lines.length - 1) * gap;
@@ -107,8 +109,9 @@ function text(value, bounds, options = {}) {
       const anchorX = { start: x + inset, middle: x + w / 2, end: x + w - inset }[align];
       const baseline = start + font.ascent * fontSize;
       const transform = scale === 1 ? '' : ` transform="scale(${scale} 1)"`;
+      const spacing = letterSpacing ? ` letter-spacing="${letterSpacing}"` : '';
       for (const [index, content] of lines.entries()) {
-        add(`<text x="${n(anchorX / scale)}" y="${n(baseline + index * (lineHeight + gap))}" font-size="${fontSize}" font-weight="${weight}" text-anchor="${align}" fill="${fill}" data-box="${[x, y, w, h].map(n).join(' ')}"${transform}>${xml(content)}</text>`);
+        add(`<text x="${n(anchorX / scale)}" y="${n(baseline + index * (lineHeight + gap))}" font-size="${fontSize}" font-weight="${weight}" text-anchor="${align}" fill="${fill}" data-box="${[x, y, w, h].map(n).join(' ')}"${transform}${spacing}>${xml(content)}</text>`);
       }
       return height;
     }
@@ -708,9 +711,15 @@ function briefs({ x, y, w, h }) {
   const rows = Math.ceil(stories.briefs.length / 2);
   const rowHeight = (h - headerHeight - 2) / rows;
   const columnWidth = w / 2;
+  const sourceOptions = { size: 11, fill: '#6b7280', align: 'end', vertical: 'middle', maxLines: 1, inset: 0 };
+  const regularFont = fontFor(400);
+  const sourceNote = 'AJ = Al Jazeera · F24 = France 24';
+  const noteWidth = Math.ceil(regularFont.width(sourceNote, sourceOptions.size));
+  const noteX = x + w - 8 - noteWidth;
   rect(x, y, w, h, white, `stroke="${rule}"`);
   rect(x, y, w, headerHeight, '#e2e9e9');
-  label('ALSO ON ' + stories.day, box(x + 8, y + 2, w - 16, 16));
+  label('ALSO ON ' + stories.day, box(x + 8, y + 2, noteX - x - 14, 16));
+  text(sourceNote, box(noteX, y + 2, noteWidth, 16), sourceOptions);
   line(x + columnWidth, y + headerHeight, x + columnWidth, y + h - 1);
 
   for (const [index, brief] of stories.briefs.entries()) {
@@ -729,7 +738,18 @@ function briefs({ x, y, w, h }) {
     text(place, box(placeX, rowY, placeWidth, rowHeight), {
       ...options, weight: 700, fill: regionPalette(regionNames(brief)[0])[0],
     });
-    text(brief.text, box(placeX + placeWidth, rowY, columnWidth - 28 - placeWidth, rowHeight), options);
+    const source = brief.src?.trim();
+    const right = columnX + columnWidth - 2;
+    const sourceWidth = source ? Math.ceil(regularFont.width(source, sourceOptions.size)) : 0;
+    const sourceX = right - sourceWidth;
+    const textX = placeX + placeWidth;
+    const textWidth = sourceX - textX - (source ? 7 : 0);
+    const body = brief.text.trim().replace(/\s+/g, ' ');
+    const excess = regularFont.width(body, size) - textWidth;
+    const gaps = Math.max(1, [...body].length - 1);
+    const letterSpacing = Math.min(0, Math.floor(-1000 * excess / gaps) / 1000);
+    text(body, box(textX, rowY, textWidth, rowHeight), { ...options, letterSpacing });
+    if (source) text(source, box(sourceX, rowY, sourceWidth, rowHeight), sourceOptions);
   }
 }
 

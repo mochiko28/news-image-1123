@@ -53,10 +53,11 @@ for (const [, markup, content] of tags) {
   const size = Number(attr['font-size']);
   const weight = Number(attr['font-weight']);
   const anchor = attr['text-anchor'];
+  const letterSpacing = Number(attr['letter-spacing'] ?? 0);
   const scale = attr.transform === undefined ? 1
     : Number(attr.transform.match(/^scale\(([\d.]+) 1\)$/)?.[1]);
 
-  if (coordinates.length !== 4 || ![...coordinates, x, baseline, size].every(Number.isFinite) ||
+  if (coordinates.length !== 4 || ![...coordinates, x, baseline, size, letterSpacing].every(Number.isFinite) ||
       !Number.isFinite(scale) || scale <= 0 || width <= 0 || height <= 0 || size < 11 || ![400, 700].includes(weight) ||
       !['start', 'middle', 'end'].includes(anchor)) {
     errors.push(`Invalid text box or font attributes for "${value}".`);
@@ -64,7 +65,7 @@ for (const [, markup, content] of tags) {
   }
 
   const font = fontFor(weight);
-  const advance = font.width(value, size) * scale;
+  const advance = (font.width(value, size) + letterSpacing * Math.max(0, [...value].length - 1)) * scale;
   const start = x * scale - advance * { start: 0, middle: 0.5, end: 1 }[anchor];
   const bounds = { left, top, right: left + width, bottom: top + height };
   const extent = {
