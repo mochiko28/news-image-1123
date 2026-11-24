@@ -15,7 +15,7 @@
     {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
     {"v": "-5.8%", "l": "KOSPI at Monday's low"},
     {"v": "+30%", "l": "Nvidia shares as Huang returns"},
-    {"v": "-70%", "l": "Capita shares as its boss quits"}
+    {"v": "~$1tn", "l": "added to Nvidia's market value"}
   ],
   "leads": [
     {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "OFFICIAL", "scene": "warship", "t": "06:10",
@@ -70,14 +70,14 @@
      "sub": "Over Covid-era cancelled flights", "src": "Guardian"},
     {"region": "EUROPE", "field": "SPACE", "status": "OFFICIAL", "icon": "satellite", "t": "14:18", "lat": 52.5, "lon": 13.4,
      "head": "Germany alarmed by Russian space-nuke reports",
-     "sub": "Would breach the 1967 Outer Space treaty", "src": "Guardian"}
+     "sub": "NATO's Rutte vows to defend space", "src": "Guardian, France 24"}
   ],
   "briefs": [
     {"region": "EUROPE", "text": "Moscow says Estonia is near \"open war\"; Tallinn denies"},
     {"region": "EUROPE", "text": "Odesa schools go remote after strikes on the power grid"},
     {"region": "EUROPE", "text": "Poland says Russia twice plotted to kill a Ukrainian rapper"},
     {"region": "EUROPE", "text": "IG Metall metalworkers strike across Germany"},
-    {"region": "EUROPE", "text": "Red Cross: soon too late to regulate autonomous weapons"},
+    {"region": "EUROPE", "text": "EU proposes sports ban in new Russia sanctions package"},
     {"region": "EUROPE", "text": "Capita shares crash 70% as CEO quits over pensions failure"},
     {"region": "EUROPE", "text": "UK may scrap Natural England and the Environment Agency"},
     {"region": "EUROPE", "text": "Danish top court backs evictions under \"ghetto law\""},
@@ -93,13 +93,13 @@
     {"region": "SOUTH-EAST ASIA", "text": "Indonesia: toll confirmed at 24, ~30 still missing in fire"},
     {"region": "OCEANIA", "text": "Cricket: India and New Zealand draw first Test"},
     {"region": "OCEANIA", "text": "Australian music icon Molly Meldrum dies aged 83"},
-    {"region": "OCEANIA", "text": "Macquarie word of the year: \"pervert glasses\""},
+    {"region": "NORTH AMERICA", "text": "US blacklists Megaspeed, firm at centre of Nvidia scandal"},
+    {"region": "NORTH AMERICA", "text": "US sanctions Iran's \"shadow banking\" networks"},
+    {"region": "NORTH AMERICA", "text": "Rep. Jimmy Gomez quits after ethics misconduct report"},
     {"region": "NORTH AMERICA", "text": "Trump halts Army's Iowa explosives blast pending courts"},
-    {"region": "NORTH AMERICA", "text": "FIFA: US-led 2031, UK 2035 Women's World Cup hosts"},
-    {"region": "NORTH AMERICA", "text": "Democrats plan 12 primary debates for 2028, from June"},
     {"region": "NORTH AMERICA", "text": "DOJ admits a US citizen was wrongly deported to Mexico"},
-    {"region": "NORTH AMERICA", "text": "Mets agree record $450M deal with Skubal, sources say"},
     {"region": "LATIN AMERICA", "text": "Mexico detains 8 cartel gunmen after attack on troops"},
+    {"region": "LATIN AMERICA", "text": "Colombia: cocaine gangs hit security forces in attacks"},
     {"region": "LATIN AMERICA", "text": "UN's Guterres, in Barbados, urges AI rules within a year"}
   ],
   "datecheck": {
