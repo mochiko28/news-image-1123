@@ -8,7 +8,7 @@ const pageWidth = pageSize - 2 * margin;
 const leadTop = 141;
 const leadHeight = 203;
 const cardTop = leadTop + leadHeight + 5;
-const cardHeight = 192;
+const cardHeight = 199;
 const panelGap = 6;
 const ink = '#14243b';
 const muted = '#46566a';
@@ -502,7 +502,7 @@ function storyCard(story, index) {
   const w = (pageWidth - 4 * panelGap) / 5;
   const x = margin + index % 5 * (w + panelGap);
   const y = cardTop + Math.floor(index / 5) * (cardHeight + panelGap);
-  const sceneHeight = 60;
+  const sceneHeight = 64;
   const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
@@ -547,14 +547,18 @@ function storyCard(story, index) {
 
   const headY = tagY + 17;
   const headWidth = w - 8;
-  const headHeight = text(story.head, box(x + 4, headY, headWidth, 74), {
-    size: 22, min: 21, weight: 700, maxLines: 3, inset: 0, gap: 0.5,
-  });
-  const subY = headY + headHeight + 0.3;
   const sourceY = y + cardHeight - 13;
-  text(story.sub, box(x + 4, subY, w - 8, sourceY - subY), {
-    size: 12, min: 12, maxLines: 3, inset: 0, gap: 0.2,
+  const subOptions = { size: 12, min: 12, maxLines: 3, inset: 0, gap: 0.2 };
+  const subFont = fontFor(400);
+  const subLines = wrap(story.sub, headWidth, content => subFont.width(content, subOptions.size));
+  const subHeight = subLines.length * (subFont.ascent + subFont.descent) * subOptions.size +
+    (subLines.length - 1) * subOptions.gap;
+  const subGap = 0.3;
+  const headHeight = text(story.head, box(x + 4, headY, headWidth, sourceY - headY - subHeight - subGap), {
+    size: 24, min: 21, weight: 700, maxLines: 3, inset: 0, gap: 0.5,
   });
+  const subY = headY + headHeight + subGap;
+  text(story.sub, box(x + 4, subY, headWidth, sourceY - subY), subOptions);
 
   sourceLine(story, box(x + 4, sourceY, w - 8, 13));
 }
@@ -862,70 +866,51 @@ function worldMap({ x, y, w, h }) {
 
 function briefs({ x, y, w, h }) {
   const headerHeight = 16;
-  const columnCount = 3;
-  const baseRows = Math.floor(stories.briefs.length / columnCount);
-  const extraRows = stories.briefs.length % columnCount;
-  const rowHeight = (h - headerHeight - 2) / Math.ceil(stories.briefs.length / columnCount);
-  const size = 12.5;
-  const placeOffset = 19;
-  const rightInset = 3;
-  const sourceGap = 3;
+  const columnCount = 2;
+  const rows = Math.ceil(stories.briefs.length / columnCount);
+  const columnWidth = w / columnCount;
+  const rowHeight = (h - headerHeight - 2) / rows;
+  const size = 13.5;
+  const placeOffset = 25;
+  const rightInset = 6;
+  const sourceGap = 5;
   const options = { size, min: size, vertical: 'middle', maxLines: 1, inset: 0 };
-  const sourceOptions = { size: 11, fill: '#6b7280', align: 'end', vertical: 'middle', maxLines: 1, inset: 0 };
+  const sourceOptions = { ...options, fill: muted, align: 'end' };
+  const noteOptions = { ...sourceOptions, size: 11, min: 11 };
   const regularFont = fontFor(400);
   const boldFont = fontFor(700);
-  const entries = stories.briefs.map((brief, index) => {
-    const place = brief.place + ':';
-    const body = brief.text.trim().replace(/\s+/g, ' ');
-    const source = brief.src?.trim();
-    const placeAdvance = boldFont.width(place + ' ', size);
-    const copyAdvance = placeAdvance + regularFont.width(body, size);
-    const sourceWidth = source ? Math.ceil(regularFont.width(source, sourceOptions.size)) : 0;
-    const fixedWidth = placeOffset + rightInset + sourceWidth + (source ? sourceGap : 0);
-    return { brief, index, place, body, source, placeAdvance, copyAdvance, sourceWidth, fixedWidth };
-  });
-  const columns = Array.from({ length: columnCount }, (_, column) => {
-    const start = column * baseRows + Math.min(column, extraRows);
-    return entries.slice(start, start + baseRows + (column < extraRows ? 1 : 0));
-  });
-  const preferredWidths = columns.map(column =>
-    Math.max(0, ...column.map(entry => entry.fixedWidth + entry.copyAdvance)),
-  );
-  const widthAdjustment = (w - preferredWidths.reduce((sum, width) => sum + width, 0)) / columnCount;
   const sourceNote = 'AJ = Al Jazeera · F24 = France 24';
-  const noteWidth = Math.ceil(regularFont.width(sourceNote, sourceOptions.size));
+  const noteWidth = Math.ceil(regularFont.width(sourceNote, noteOptions.size));
   const noteX = x + w - 8 - noteWidth;
   rect(x, y, w, h, white, `stroke="${rule}"`);
   rect(x, y, w, headerHeight, '#e2e9e9');
   label('ALSO ON ' + stories.day, box(x + 8, y, noteX - x - 14, headerHeight));
-  text(sourceNote, box(noteX, y, noteWidth, headerHeight), sourceOptions);
-  let columnX = x;
-  for (const [column, briefsInColumn] of columns.entries()) {
-    const columnWidth = preferredWidths[column] + widthAdjustment;
-    if (column) line(columnX, y + headerHeight, columnX, y + h - 1);
-    for (const [row, entry] of briefsInColumn.entries()) {
-      const { brief, index, place, body, source, placeAdvance, copyAdvance, sourceWidth, fixedWidth } = entry;
-      const rowY = y + headerHeight + row * rowHeight;
-      if (row % 2 === 0) rect(columnX + 1, rowY, columnWidth - 2, rowHeight, '#f3f5f3');
-      const scale = Math.min(1, Math.floor(1000 * (columnWidth - fixedWidth) / copyAdvance) / 1000);
-      const placeX = columnX + placeOffset;
-      const placeWidth = placeAdvance * scale;
-      const textX = placeX + placeWidth;
-      const textWidth = columnWidth - fixedWidth - placeWidth;
-      const copyOptions = { ...options, widthScales: [scale] };
-      text(mappedStories.length + index + 1, box(columnX + 2, rowY, 15, rowHeight), {
-        ...options, weight: 700, align: 'middle', fill: muted,
-      });
-      text(place, box(placeX, rowY, placeWidth, rowHeight), {
-        ...copyOptions, weight: 700, fill: regionPalette(regionNames(brief)[0])[0],
-      });
-      text(body, box(textX, rowY, textWidth, rowHeight), copyOptions);
-      if (source) {
-        const sourceX = columnX + columnWidth - rightInset - sourceWidth;
-        text(source, box(sourceX, rowY, sourceWidth, rowHeight), sourceOptions);
-      }
+  text(sourceNote, box(noteX, y, noteWidth, headerHeight), noteOptions);
+  line(x + columnWidth, y + headerHeight, x + columnWidth, y + h - 1);
+  for (const [index, brief] of stories.briefs.entries()) {
+    const columnX = x + Math.floor(index / rows) * columnWidth;
+    const row = index % rows;
+    const rowY = y + headerHeight + row * rowHeight;
+    if (row % 2 === 0) rect(columnX + 1, rowY, columnWidth - 2, rowHeight, '#f3f5f3');
+    const place = brief.place + ':';
+    const placeX = columnX + placeOffset;
+    const placeWidth = boldFont.width(place + ' ', size);
+    const textX = placeX + placeWidth;
+    const source = brief.src?.trim();
+    const sourceWidth = source ? Math.ceil(regularFont.width(source, size)) : 0;
+    const sourceX = columnX + columnWidth - rightInset - sourceWidth;
+    const textRight = source ? sourceX - sourceGap : sourceX;
+
+    text(mappedStories.length + index + 1, box(columnX + 3, rowY, 18, rowHeight), {
+      ...options, weight: 700, align: 'middle', fill: muted,
+    });
+    text(place, box(placeX, rowY, placeWidth, rowHeight), {
+      ...options, weight: 700, fill: regionPalette(regionNames(brief)[0])[0],
+    });
+    text(brief.text, box(textX, rowY, textRight - textX, rowHeight), options);
+    if (source) {
+      text(source, box(sourceX, rowY, sourceWidth, rowHeight), sourceOptions);
     }
-    columnX += columnWidth;
   }
 }
 
@@ -976,11 +961,12 @@ timeline();
 stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
 const lowerY = cardTop + Math.ceil(stories.cards.length / 5) * (cardHeight + panelGap);
-const lowerHeight = 183;
-const mapWidth = 182;
+const dateCheckY = 932;
+const lowerHeight = dateCheckY - lowerY - 4;
+const mapWidth = 260;
 worldMap(box(margin, lowerY, mapWidth, lowerHeight));
 briefs(box(margin + mapWidth + panelGap, lowerY, pageWidth - mapWidth - panelGap, lowerHeight));
-dateCheck(box(margin, lowerY + lowerHeight + 4, pageWidth, 42));
+dateCheck(box(margin, dateCheckY, pageWidth, 42));
 footer();
 add('</svg>');
 
