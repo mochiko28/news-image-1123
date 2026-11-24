@@ -767,23 +767,24 @@ function worldMap({ x, y, w, h }) {
   }));
   const labelRadius = 8.5;
   const distance = ([ax, ay], [bx, by]) => Math.hypot(ax - bx, ay - by);
-  // Try the nearest offsets first, keeping label circles clear of dots and leaders.
-  const offsets = [14, 17, 20, 24, 29, 35, 42, 50, 60, 72].flatMap(radius =>
+  const offsetRadii = [14, 17, 20, 24, 29, 35, 42, 50, 60, 72];
+  const offsets = offsetRadii.flatMap(radius =>
     Array.from({ length: 24 }, (_, step) => {
       const angle = -Math.PI / 3 + step * Math.PI / 12;
-      return [radius * Math.cos(angle), radius * Math.sin(angle)];
+      return { radius, dx: radius * Math.cos(angle), dy: radius * Math.sin(angle) };
     }),
   );
   const candidates = pins.map(pin => {
     const [px, py] = pin.point;
-    const centers = offsets.map(([dx, dy]) => [px + dx, py + dy]).filter(center =>
+    const positions = offsets.map(({ radius, dx, dy }) => ({ radius, center: [px + dx, py + dy] }));
+    const clearPositions = positions.filter(({ center }) =>
       center[0] >= mapLeft + 10 && center[0] <= mapRight - 10 &&
       center[1] >= mapTop + 10 && center[1] <= mapBottom - 10 &&
       pins.every(other => distance(center, other.point) >= 11 &&
         (distance(pin.point, other.point) < 2 ||
           distanceToSegment(other.point, pin.point, center) >= 1.5)),
     );
-    return { pin, centers };
+    return { pin, positions: clearPositions };
   });
   // Place the most constrained pin first and try another position when it blocks a neighbor.
   function placePins(remaining) {
@@ -794,7 +795,7 @@ function worldMap({ x, y, w, h }) {
       const next = others.map(({ pin: other, centers: available }) => ({
         pin: other,
         centers: available.filter(otherCenter =>
-          distance(center, otherCenter) >= 2 * labelRadius + 2 &&
+          distance(center, otherCenter) >= 2 * labelRadius + 3 &&
           distanceToSegment(center, other.point, otherCenter) >= labelRadius + 1 &&
           distanceToSegment(otherCenter, pin.point, center) >= labelRadius + 1 &&
           !leadersCross(pin.point, center, other.point, otherCenter)),
@@ -806,10 +807,17 @@ function worldMap({ x, y, w, h }) {
     }
     return false;
   }
-  if (!placePins(candidates)) throw new Error('Could not place all map pins');
+  // Increase the maximum offset only when no complete placement fits with shorter leaders.
+  const placed = offsetRadii.some(limit => placePins(candidates.map(({ pin, positions }) => ({
+    pin,
+    centers: positions.filter(({ radius }) => radius <= limit).map(({ center }) => center),
+  }))));
+  if (!placed) throw new Error('Could not place all map pins');
 
   for (const { point: [px, py], center: [cx, cy], colors: [color] } of pins) {
-    add(`<path d="M${n(px)} ${n(py)}L${n(cx)} ${n(cy)}" stroke="${color}" stroke-width=".75"/>`);
+    const path = `M${n(px)} ${n(py)}L${n(cx)} ${n(cy)}`;
+    add(`<path d="${path}" stroke="#fffefa" stroke-width="2"/>`);
+    add(`<path d="${path}" stroke="${color}" stroke-width="1"/>`);
   }
   for (const { point, colors: [color] } of pins) {
     circle(...point, 1.1, color, 'stroke="#fffefa" stroke-width=".4"');
@@ -821,7 +829,7 @@ function worldMap({ x, y, w, h }) {
     }
     circle(cx, cy, labelRadius, 'none', 'stroke="#fffefa" stroke-width="1"');
     text(index, box(cx - 8, cy - 7, 16, 14), {
-      weight: 700, fill: '#ffffff', align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
+      size: 12, weight: 700, fill: '#ffffff', align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
     });
   }
 
