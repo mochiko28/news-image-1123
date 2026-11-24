@@ -12,20 +12,20 @@
     {"t": "16:50","text": "Finland summons Russian envoy"}
   ],
   "leads": [
-    {"region": "NORTH AMERICA","field": "TECH","status": "OFFICIAL","scene": "chartup","t": "14:06","lat": 37.4,"lon": -122.0,
-     "head": "Huang back at Nvidia; Wall St surges","sub": "Trump says he \"convinced\" the board. Democrats vow a probe. Nvidia gains ~$1tn in value.","src": "Reuters, BBC, France 24, MarketWatch"},
     {"region": "NATO · EUROPE","field": "SECURITY","status": "CONFIRMED","scene": "nato","t": "16:50","lat": 60.17,"lon": 24.94,
      "head": "NATO calls urgent talks over Russia","sub": "Finland summons Russian envoy over suspected airspace violation. NATO radar plane for Poland. Moscow says Estonia risks “open war”.","src": "WaPo, France 24, NBC, Guardian"},
     {"region": "AFRICA","field": "HEALTH","status": "REPORTED","scene": "ebola","t": "06:00","lat": 0.5,"lon": 29.5,
-     "head": "DR Congo’s hidden Ebola deaths","sub": "Reuters finds graves that reveal a higher toll. WHO chief calls for peace amid heavy fighting.","src": "Reuters, Al Jazeera"}
+     "head": "DR Congo’s hidden Ebola deaths","sub": "Reuters finds graves that reveal a higher toll. WHO chief calls for peace amid heavy fighting.","src": "Reuters, Al Jazeera"},
+    {"region": "SOUTH ASIA","field": "DIPLOMACY","status": "CONFIRMED","scene": "aidmap","t": "13:39","lat": 27.7,"lon": 85.3,
+     "head": "India pledges $1.6bn to Nepal in a reset","sub": "Flood relief as new PM Balendra Shah meets Modi in Delhi.","src": "BBC, Al Jazeera"}
   ],
   "cards": [
     {"region": "UK · USA","field": "SPORT","status": "OFFICIAL","icon": "ball","art": "trophy","label": "WORLD CUPS SET","t": "15:09","lat": 51.5,"lon": -0.1,
      "head": "FIFA picks Women's World Cup hosts","sub": "Women's: US, Mexico, Costa Rica, Jamaica in 2031; UK in 2035","src": "BBC Sport, DW"},
     {"region": "AUSTRALIA","field": "CULTURE","status": "CONFIRMED","icon": "chart","art": "vinyl","label": "MOLLY MELDRUM, 83","t": "01:03","lat": -37.8,"lon": 144.96,
      "head": "Australian music legend Molly Meldrum dies","sub": "Countdown host saluted by Kylie Minogue, Jimmy Barnes","src": "BBC, Reuters"},
-    {"region": "NEPAL · INDIA","field": "DIPLOMACY","status": "CONFIRMED","icon": "chart","art": "aidmap","label": "$1.6BN PLEDGE","t": "13:39","lat": 27.7,"lon": 85.3,
-     "head": "India pledges $1.6bn to Nepal in a reset","sub": "Flood relief as new PM Balendra Shah meets Modi","src": "BBC, Al Jazeera"},
+    {"region": "NORTH AMERICA","field": "TECH","status": "OFFICIAL","art": "chartup","label": "NVIDIA +30%","t": "14:06","lat": 37.4,"lon": -122.0,
+     "head": "Huang back at Nvidia; Wall St surges","sub": "Nasdaq +6.5% MON 23 NOV. Trump says he 'convinced' the board. Democrats vow a probe. Nvidia gains ~$1tn in value.","src": "Reuters, BBC, France 24, MarketWatch"},
     {"region": "GAZA","field": "ENVIRONMENT","status": "CONFIRMED","icon": "drop","art": "toxic","label": "TOXIC RISK","t": "04:00","lat": 31.4,"lon": 34.4,
      "head": "Oxfam reports toxic pollution in Gaza","sub": "Oxfam: signs of possible contamination almost everywhere","src": "Guardian, BBC, Al Jazeera"},
     {"region": "BELGIUM","field": "LABOUR","status": "CONFIRMED","art": "plane","label": "FLIGHTS GROUNDED","t": "03:15","lat": 50.85,"lon": 4.35,

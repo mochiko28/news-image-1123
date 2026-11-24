@@ -40,7 +40,6 @@ const placeRegions = {
   IRAN: 'MIDDLE EAST',
   GAZA: 'MIDDLE EAST',
   ASIA: 'EAST ASIA',
-  'NEPAL · INDIA': 'SOUTH ASIA',
   AUSTRALIA: 'OCEANIA',
   US: 'NORTH AMERICA',
   UK: 'EUROPE',
@@ -193,34 +192,33 @@ const natoSceneHeight = 60;
 const scenes = {
   nato: `
     <rect width="320" height="${natoSceneHeight}" fill="#15365c"/>
-    <g transform="scale(1 0.74)">
-      <path d="M0 11h320M0 25h320M0 39h320M49 0v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49"
-            stroke="#83b4d1" opacity=".25"/>
-      <path d="m182 32 10-11 16-3 10 2 8-6 3-8 10-4 8 6-6 8 6 7 12-3 12 4 19-4 10 6-13 12-28-3
-               -9 6-14-4-8 5-10-9-13 2-9-5-9 5Z" fill="#387199" stroke="#588cb0" stroke-width="1.5"/>
-      <circle cx="176" cy="25" r="16" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
-      <path d="m176 4 4 17 17 4-17 4-4 17-4-17-17-4 17-4Z" fill="#fffefa"/>
-      <path d="m176 9 2 14-2 2Zm16 16-14 2-2-2Zm-16 16-2-14 2-2Zm-16-16 14-2 2 2Z" fill="#5284a6"/>
-      <path d="M198 23h7l10 8h24l-10-10h8l16 10h29q9 0 15 4-4 4-12 4h-62l-17-4Z" fill="#fffefa"/>
-      <path d="M242 37h18l-10 7h-9Z" fill="#a4c9df"/>
-      <path d="M252 31v-8m-14 0h28" stroke="#fffefa" stroke-width="2.7" stroke-linecap="round"/>
-      <path d="M276 34h9" stroke="#5686a9" stroke-width="2" stroke-dasharray="2 2"/>
-      <path d="M227 16a15 15 0 0 1 12-10m30 0a15 15 0 0 1 12 10" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
+    <path d="M320 0h-66l-5 8 4 7 5 5-7 8-12 1-5 7 6 6-5 9 8 9h77Z"
+          fill="#3b5574" stroke="#83a2bd"/>
+    <path d="m236 3 18-3-5 8 4 7 5 5-7 8-12 1-9-3-1-5 5-5-3-5Z"
+          fill="#8abbd0" stroke="#d1e4ed" stroke-linejoin="round"/>
+    <path d="m213 29 7-2 9 2 10 0-5 7-10 2-11-3Z" fill="#8abbd0" stroke="#d1e4ed"/>
+    <path d="m212 45 10-4 10 2 3 8-7 6-12-1-7-5Z" fill="#8abbd0" stroke="#d1e4ed"/>
+    <path d="M205 13h24m-39 22h20m25 16h8" stroke="#b6cedf"/>
+    <path d="M257 20 249 34 209 49h-6" fill="none" stroke="#ffcb80" stroke-width="1.4"/>
+    <circle cx="257" cy="20" r="4" fill="#ffcb80" stroke="#15365c" stroke-width="1.5"/>
+    <g transform="translate(107 2) scale(.22)" fill="#d1e4ed" aria-label="Radar plane">
+      <path d="M0 34h13l12 9h22L36 28h9l18 15h35q11 0 17 6-5 5-16 5H29L9 48Z"/>
+      <path d="M61 43V32m-18 0h36M40 23q20-18 41 0" fill="none" stroke="#d1e4ed"
+            stroke-width="4" stroke-linecap="round"/>
     </g>
-    <rect x="4" y="6" width="151" height="25" rx="3" fill="#265787"/>
-    <rect x="4" y="35" width="312" height="24" rx="3" fill="#102a47"/>`,
-  chartup: `
-    <rect width="320" height="${leadSceneHeight}" fill="#e5efe5"/>
-    <g transform="translate(0 16) scale(1.78 0.8)">
-      <path d="M12 15h160M12 27h160M44 5v22M88 5v22M132 5v22"
-            fill="none" stroke="#c2d6c5"/>
-      <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8V27H13Z" fill="#c3e0c8"/>
-      <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8"
-            fill="none" stroke="#1c7038" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="171" cy="8" r="4" fill="#1c7038"/>
-    </g>
-    <rect x="4" y="41" width="141" height="26" rx="3" fill="#145a35"/>
-    <rect x="149" y="41" width="168" height="26" rx="3" fill="#145a35"/>`,
+    <rect x="4" y="43" width="201" height="15" rx="2" fill="#102a47"/>`,
+  aidmap: `
+    <rect width="320" height="${leadSceneHeight}" fill="#143f48"/>
+    <path d="M219 13h94m-94 15h94m-94 15h94m-94 15h94M239 4v62m23-62v62m23-62v62"
+          stroke="#8ab4b2" opacity=".35"/>
+    <path d="m243 7 10-3 6 5-2 5 6 6 9 7 12 3 6-4 8 1 5-7 9-3 5 4-6 5-2 7-5 2-4 8-6-3-2-7
+             -9 4-6 7-7 2-4 10-7 8-5-4-4-11-6-10-3-9-7 1-7-7 6-3 5-10Z"
+          fill="#88b8b3" stroke="#c4dcce" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="m263 20 7 2 7 4 9 2-2 5-8-2-7-3-6-5Z" fill="#ffcb80" stroke="#fff0b2"/>
+    <path d="M253 48q11-1 19-14m-7 1 7-1-1 7" fill="none" stroke="#143f48"
+          stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m285 17-4 9m-50 27 14-7" fill="none" stroke="#c4dcce"/>
+    <rect x="4" y="15" width="207" height="33" rx="3" fill="#0e3037"/>`,
   ebola: `
     <rect width="320" height="${leadSceneHeight}" fill="#f3e5cf"/>
     <path d="M0 35Q66 12 147 32T320 28V70H0Z" fill="#dac097"/>
@@ -238,14 +236,18 @@ const scenes = {
 
 const sceneLabels = {
   nato: [
-    { value: 'URGENT TALKS', x: 4, y: 6, w: 151, h: 25, size: 18.5, fill: '#fffefa' },
-    { value: 'FINLAND SUMMONS ENVOY', x: 4, y: 35, w: 312, h: 24, size: 18, fill: '#fffefa' },
+    { value: 'URGENT', x: 5, y: 3, w: 105, h: 19, size: 17, fill: white },
+    { value: 'NATO TALKS', x: 5, y: 22, w: 143, h: 22, size: 20, fill: white },
+    { value: 'SUSPECTED AIRSPACE VIOLATION', x: 4, y: 43, w: 201, h: 15, size: 11, fill: '#ffcb80' },
+    { value: 'Finland', x: 161, y: 6, w: 45, h: 13, size: 11, fill: white },
+    { value: 'Estonia', x: 147, y: 28, w: 45, h: 13, size: 11, fill: white },
+    { value: 'Poland', x: 243, y: 45, w: 44, h: 13, size: 11, fill: white },
+    { value: 'Russia', x: 271, y: 15, w: 43, h: 14, size: 12, fill: white },
   ],
-  chartup: [
-    { value: 'NVIDIA SHARES', x: 8, y: 4, w: 115, h: 16, size: 14, fill: '#145a35' },
-    { value: 'MON 23 NOV', x: 213, y: 4, w: 104, h: 16, size: 14, fill: '#145a35' },
-    { value: 'NVIDIA +30%', x: 4, y: 41, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
-    { value: 'NASDAQ +6.5%', x: 149, y: 41, w: 168, h: 26, size: 22, fill: '#fffefa' },
+  aidmap: [
+    { value: '$1.6BN TO NEPAL', x: 4, y: 15, w: 207, h: 33, size: 23, fill: '#fff0b2' },
+    { value: 'India', x: 192, y: 47, w: 40, h: 16, size: 12, fill: white },
+    { value: 'Nepal', x: 264, y: 3, w: 45, h: 16, size: 12, fill: '#fff0b2' },
   ],
   ebola: [
     { value: 'HIDDEN EBOLA DEATHS', x: 4, y: 41, w: 312, h: 26, size: 22, fill: '#fffefa' },
@@ -291,7 +293,8 @@ function leadPanel(story, index) {
   text(story.head, box(contentX, headlineY, contentWidth, headlineHeight), {
     size: 30, min: 28, weight: 700, maxLines: 2, inset: 1, gap: 0.3,
   });
-  text(story.sub, box(contentX, bodyY, contentWidth, sourceY - sourceGap - bodyY), {
+  const subWidth = story.scene === 'aidmap' ? 230 : contentWidth;
+  text(story.sub, box(contentX, bodyY, subWidth, sourceY - sourceGap - bodyY), {
     size: 12, min: 12, maxLines: isNato ? 3 : 2, gap: 0.2,
   });
   sourceLine(story, box(contentX, sourceY, contentWidth, 13), 'Source: ');
@@ -456,17 +459,13 @@ const cardScenes = {
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10v5H13Z" fill="#e9b8b6"/>
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10m-12 3 12-3-4-12"
           fill="none" stroke="#982c42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
-  aidmap: `
-    <rect width="190" height="70" fill="#15365c"/>
-    <path d="M0 13h190M0 28h190M0 43h190M0 58h190M20 0v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70"
-          stroke="#85b6d1" opacity=".24"/>
-    <path d="m40 5 9-2 5 6-3 4 6 4 15 4 7 1 5-4 3-5 9-2 5 4-6 5-3 5-6-1-2 7-4-6-5-1-2 4
-             -7 5-6 2-4 5-5 3-4-5-3-5-3-6-5-1-6-5 6 1-2-5 5-2 4-4Z"
-          fill="#79a6bb" stroke="#c3dce4" stroke-width="1.2" stroke-linejoin="round"/>
-    <path d="m55 15 5-3 6 3 4 1 5 3-1 4-6-2-6-1-6-3Z"
-          fill="#ec9158" stroke="#fff0b2" stroke-width="1.3" stroke-linejoin="round"/>
-    <path d="M52 35q9 1 13-10" fill="none" stroke="#15365c" stroke-width="2.7" stroke-linecap="round"/>
-    <path d="m60 26 7-5 2 8Z" fill="#15365c"/>`,
+  chartup: `
+    <rect width="190" height="70" fill="#e5efe5"/>
+    <path d="M10 11h170M10 23h170M10 35h170M42 6v31m34-31v31m34-31v31m34-31v31"
+          fill="none" stroke="#b9d2bd"/>
+    <path d="m12 31 27-3 20 3 28-10 25 2 23-11 20 3 24-8v31H12Z" fill="#c3e0c8"/>
+    <path d="m12 31 27-3 20 3 28-10 25 2 23-11 20 3 24-8m-12-1 12 1-6 10"
+          fill="none" stroke="#1c7038" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
   toxic: `
     <rect width="190" height="70" fill="#e6dea9"/>
     <path d="M0 42 33 35l26 7 41-5 44 3 46-7v37H0Z" fill="#b6a977"/>
@@ -502,16 +501,13 @@ function storyCard(story, index) {
   const w = (pageWidth - 4 * panelGap) / 5;
   const x = margin + index % 5 * (w + panelGap);
   const y = cardTop + Math.floor(index / 5) * (cardHeight + panelGap);
-  const sceneHeight = 64;
+  const isNvidia = story.art === 'chartup';
+  const sceneHeight = isNvidia ? 53 : 64;
   const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
 
-  if (story.art === 'aidmap') {
-    text('$1.6bn', box(x + 105, y + 2, w - 111, 36), {
-      size: 25, weight: 700, fill: '#fff0b2', align: 'middle', vertical: 'middle', maxLines: 1,
-    });
-  } else if (story.art === 'trophy') {
+  if (story.art === 'trophy') {
     const tagOptions = {
       weight: 700, fill: white, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
     };
@@ -530,7 +526,7 @@ function storyCard(story, index) {
   const captionWidth = Math.min(w, Math.ceil(captionAdvance * captionScale) + 8);
   const captionHeight = 26;
   const captionY = y + sceneHeight - captionHeight;
-  rect(x, captionY, captionWidth, captionHeight, ink);
+  rect(x, captionY, captionWidth, captionHeight, isNvidia ? '#145a35' : ink);
   text(story.label, box(x, captionY, captionWidth, captionHeight), {
     size: captionSize, min: 15, weight: 700, fill: '#ffffff',
     align: 'middle', vertical: 'middle', maxLines: 1, inset: 3, widthScales: [captionScale],
@@ -547,8 +543,9 @@ function storyCard(story, index) {
 
   const headY = tagY + 17;
   const headWidth = w - 8;
-  const sourceY = y + cardHeight - 13;
-  const subOptions = { size: 12, min: 12, maxLines: 3, inset: 0, gap: 0.2 };
+  const sourceHeight = isNvidia ? 26 : 13;
+  const sourceY = y + cardHeight - sourceHeight;
+  const subOptions = { size: 12, min: 12, maxLines: isNvidia ? 4 : 3, inset: 0, gap: 0.2 };
   const subFont = fontFor(400);
   const subLines = wrap(story.sub, headWidth, content => subFont.width(content, subOptions.size));
   const subHeight = subLines.length * (subFont.ascent + subFont.descent) * subOptions.size +
@@ -556,11 +553,12 @@ function storyCard(story, index) {
   const subGap = 0.3;
   const headHeight = text(story.head, box(x + 4, headY, headWidth, sourceY - headY - subHeight - subGap), {
     size: 24, min: 21, weight: 700, maxLines: 3, inset: 0, gap: 0.5,
+    widthScales: isNvidia ? [1, 0.82] : [1],
   });
   const subY = headY + headHeight + subGap;
   text(story.sub, box(x + 4, subY, headWidth, sourceY - subY), subOptions);
 
-  sourceLine(story, box(x + 4, sourceY, w - 8, 13));
+  sourceLine(story, box(x + 4, sourceY, w - 8, sourceHeight));
 }
 
 function sourceLine(story, { x, y, w, h }, prefix = '') {
@@ -568,9 +566,18 @@ function sourceLine(story, { x, y, w, h }, prefix = '') {
   const timeWidth = Math.ceil(fontFor(400).width(reportTime, 11));
   const timeX = x + w - timeWidth;
   const sourceRight = reportTime ? timeX - 4 : timeX;
-  text(prefix + story.src, box(x, y, sourceRight - x, h), {
-    fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93],
-  });
+  const options = { fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93] };
+  let source = prefix + story.src;
+  const rowHeight = 13;
+  if (h > rowHeight) {
+    const font = fontFor(400);
+    const [firstLine, ...remaining] = wrap(source, w, content => font.width(content, 11));
+    text(firstLine, box(x, y, w, rowHeight), options);
+    source = remaining.join(' ');
+    y += rowHeight;
+    h -= rowHeight;
+  }
+  text(source, box(x, y, sourceRight - x, h), options);
   if (reportTime) {
     text(reportTime, box(timeX, y, timeWidth, h), {
       fill: muted, align: 'end', maxLines: 1, inset: 0,
