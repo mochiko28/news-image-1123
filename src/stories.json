@@ -5,7 +5,7 @@
   "note": "Every item below was first reported on Monday 23 November 2026; times are first reports in UTC. Older stories sit in the Date Check box and are not counted.",
   "timeline": [
     {"t": "00:18", "text": "Asia opens in an AI sell-off"},
-    {"t": "06:00", "text": "Belgian airspace shuts"},
+    {"t": "03:15", "text": "Belgian strike grounds flights"},
     {"t": "06:10", "text": "Kyiv: ships hit off Libya"},
     {"t": "09:34", "text": "Strikes kill 15 near Kyiv"},
     {"t": "14:06", "text": "Nvidia reinstates Huang"},
@@ -58,13 +58,13 @@
      "sub": "Closes 3.3% lower after a 5.8% plunge", "src": "Al Jazeera, CNBC"},
     {"region": "USA", "field": "WEATHER", "status": "CONFIRMED", "icon": "drop", "art": "roadstorm", "label": "BOTH COASTS", "t": "10:18", "lat": 40.0, "lon": -100.0,
      "head": "Storms threaten US holiday travel",
-     "sub": "West Coast braces for more flooding", "src": "ABC, NBC"},
+     "sub": "East: \"bomb cyclone\" risk; West: floods", "src": "ABC, NBC, USA Today"},
     {"region": "GAZA", "field": "ENVIRONMENT", "status": "REPORTED", "icon": "drop", "art": "toxic", "label": "TOXIC RISK", "t": "04:00", "lat": 31.4, "lon": 34.4,
      "head": "Report: war left Gaza a \"toxic wasteland\"",
      "sub": "Oxfam: signs of contamination almost everywhere", "src": "Guardian, BBC, Al Jazeera"},
-    {"region": "GERMANY · SPACE", "field": "SPACE", "status": "OFFICIAL", "icon": "satellite", "art": "satellite", "label": "SPACE NUKE?", "t": "14:18", "lat": 52.5, "lon": 13.4,
-     "head": "Berlin alarmed by Russian space-nuke reports",
-     "sub": "NATO's Rutte vows to defend space", "src": "Guardian, France 24"}
+    {"region": "GERMANY · SPACE", "field": "SPACE", "status": "OFFICIAL", "icon": "satellite", "art": "satellite", "label": "SPACE THREAT", "t": "14:18", "lat": 52.5, "lon": 13.4,
+     "head": "NATO vows to defend space after nuke report",
+     "sub": "German media: Russia may launch an armed satellite", "src": "Guardian, France 24"}
   ],
   "briefs": [
     {"region": "EUROPE", "place": "Estonia", "text": "Moscow warns of \"open war\"; Tallinn denies"},
@@ -93,7 +93,7 @@
   "datecheck": {
     "title": "DATE CHECK: LEFT OUT, FIRST REPORTED SUN 22 NOV OR EARLIER",
     "items": [
-      "COP31 ends without a deal; Benghazi drone attack itself (Sun)",
+      "COP31 ends without a deal; first Benghazi blast reports (Sun)",
       "Alcaraz ATP Finals; Khartoum strikes; Istanbul march (Sun)",
       "Democrats' House majority called; 49ers in Mexico City (Sun)",
       "Indonesia factory fire breaks out (Sat); UK-EU deal (Fri)",

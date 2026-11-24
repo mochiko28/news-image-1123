@@ -141,7 +141,7 @@ function masthead() {
   const { day, date, kicker } = stories;
   const fieldCount = new Set(allStories.map(story => story.field).filter(Boolean)).size;
   const [dayOfMonth, month, year] = date.split(' ');
-  const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · ALL FROM ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
+  const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · ALL NEW ON ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
 
   rect(24, 14, pageWidth, 101, ink);
   rect(24, 14, 5, 101, '#d75450');
