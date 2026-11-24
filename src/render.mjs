@@ -314,6 +314,7 @@ const sceneLabels = {
     { value: 'ANGARA: HIT?', x: 183, y: 57, w: 134, h: 23, size: 18, fill: '#fffefa' },
   ],
   chartup: [
+    { value: 'NVIDIA SHARES, MONDAY', x: 8, y: 4, w: 190, h: 16, size: 14, fill: '#145a35' },
     { value: 'NVIDIA +30%', x: 4, y: 53, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
     { value: 'NASDAQ +6.5%', x: 149, y: 53, w: 168, h: 26, size: 22, fill: '#fffefa' },
   ],
