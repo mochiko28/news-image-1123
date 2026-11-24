@@ -8,10 +8,8 @@ const pageWidth = pageSize - 2 * margin;
 const leadTop = 141;
 const leadHeight = 203;
 const cardTop = leadTop + leadHeight + 5;
-const cardHeight = 195;
-const cardColumns = 4;
+const cardHeight = 199;
 const panelGap = 6;
-const cardWidth = (pageWidth - (cardColumns - 1) * panelGap) / cardColumns;
 const ink = '#14243b';
 const muted = '#46566a';
 const paper = '#f7f5ef';
@@ -42,7 +40,8 @@ const placeRegions = {
   BANGLADESH: 'SOUTH ASIA',
   BELGIUM: 'EUROPE',
   IRAN: 'MIDDLE EAST',
-  'ASIA · US': 'EAST ASIA · NORTH AMERICA',
+  GAZA: 'MIDDLE EAST',
+  ASIA: 'EAST ASIA',
   AUSTRALIA: 'OCEANIA',
   US: 'NORTH AMERICA',
   UK: 'EUROPE',
@@ -373,16 +372,13 @@ const cardScenes = {
     <circle cx="147" cy="26" r="20" fill="#a52e37" stroke="#fffefa" stroke-width="2"/>
     <path d="M141 17v18m12-18v18" stroke="#fffefa" stroke-width="5" stroke-linecap="round"/>`,
   markets: `
-    <rect width="190" height="70" fill="#e5efe5"/>
-    <path d="M0 0h92v70H0Z" fill="#f4e0dd"/>
-    <path d="M9 13h171M9 25h171M9 37h171M9 49h171
-             M22 6v44M45 6v44M68 6v44M92 6v44M116 6v44M140 6v44M164 6v44"
-          fill="none" stroke="#aeb9b4" opacity=".65"/>
-    <g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M13 12l22 8 16-3 22 15 19 10" stroke="#a52e37"/>
-      <path d="M92 42l19-13 17 2 20-13 13 1 16-11m-11 1 11-1-3 10" stroke="#1c7038"/>
-    </g>
-    <circle cx="92" cy="42" r="3" fill="#fffefa" stroke="#14243b" stroke-width="1.5"/>`,
+    <rect width="190" height="70" fill="#d5e7e6"/>
+    <path d="M4 13h181M4 26h181M4 39h181M4 52h181M21 5v54m24-54v54m24-54v54m24-54v54m24-54v54m24-54v54m24-54v54"
+          fill="none" stroke="#a6c6c8"/>
+    <path d="M10 46V32h15V19h10v13h10v14h13V26h17v20h16V32h14v14h14V27h16v19h9V34h14v12h25v24H10Z"
+          fill="#82afb3"/>
+    <path d="m13 10 23 8 21-5 23 13 20-5 23 13 22-3 30 12m-7-10 7 10-12 3"
+          stroke="#a52e37" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
   courts: `
     <rect width="190" height="70" fill="#ede2c8"/>
     <path d="M0 42h190v28H0Z" fill="#c5af82"/>
@@ -471,6 +467,27 @@ const cardScenes = {
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10v5H13Z" fill="#e9b8b6"/>
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10m-12 3 12-3-4-12"
           fill="none" stroke="#982c42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  chartup: `
+    <rect width="190" height="70" fill="#e5efe5"/>
+    <path d="M10 11h170M10 23h170M10 35h170M42 6v31m34-31v31m34-31v31m34-31v31"
+          fill="none" stroke="#b9d2bd"/>
+    <path d="m12 31 27-3 20 3 28-10 25 2 23-11 20 3 24-8v31H12Z" fill="#c3e0c8"/>
+    <path d="m12 31 27-3 20 3 28-10 25 2 23-11 20 3 24-8m-12-1 12 1-6 10"
+          fill="none" stroke="#1c7038" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  toxic: `
+    <rect width="190" height="70" fill="#e6dea9"/>
+    <path d="M0 42 33 35l26 7 41-5 44 3 46-7v37H0Z" fill="#b6a977"/>
+    <path d="m54 42-7 9 22 5-8 14m99-28 8 9 22 2m-22-2-8 7 6 12m-79-23 7 6-7 7"
+          stroke="#776c51" stroke-width="2" fill="none"/>
+    <path d="M110 45c15-7 25-3 36-7 15-6 19 2 29 4 7 2 4 7-5 8-18 4-38-1-57 3-11 1-13-5-3-8Z" fill="#688443"/>
+    <g transform="translate(8 -5) rotate(16 133 29)">
+      <path d="M109 12h45v33c0 9-45 9-45 0Z" fill="#37494a"/>
+      <path d="M109 22h45m-45 17h45" stroke="#71807a" stroke-width="3"/>
+      <ellipse cx="131.5" cy="12" rx="22.5" ry="6" fill="#657971"/>
+      <path d="m132 21 10 14h-20Z" fill="#f5d270"/>
+      <path d="M132 26v4m0 2v1" stroke="#37494a" stroke-width="2"/>
+    </g>
+    <path d="M159 36c1 4 5 7 5 10a5 5 0 0 1-10 0c0-3 4-6 5-10Z" fill="#b4c766"/>`,
   satellite: `
     <rect width="190" height="70" fill="#222d4c"/>
     <path d="M6 66Q90 13 190 71Z" fill="#354763"/>
@@ -489,25 +506,21 @@ const cardScenes = {
 };
 
 function storyCard(story, index) {
-  const w = cardWidth;
-  const x = margin + index % cardColumns * (w + panelGap);
-  const y = cardTop + Math.floor(index / cardColumns) * (cardHeight + panelGap);
-  const sceneHeight = 78;
-  const sceneScaleX = w / 190;
-  const sceneScaleY = sceneHeight / 70;
+  const w = (pageWidth - 4 * panelGap) / 5;
+  const x = margin + index % 5 * (w + panelGap);
+  const y = cardTop + Math.floor(index / 5) * (cardHeight + panelGap);
+  const sceneHeight = 64;
   const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
-  add(`<g transform="translate(${n(x)} ${y}) scale(${sceneScaleX} ${sceneScaleY})">${cardScenes[story.art]}</g>`);
+  add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
 
   if (story.art === 'trophy') {
     const tagOptions = {
       weight: 700, fill: white, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
     };
-    const tagBox = (offset, width) => box(x + offset * sceneScaleX, y + 13 * sceneScaleY,
-      width * sceneScaleX, 26 * sceneScaleY);
-    text('2031', tagBox(5, 70), { ...tagOptions, size: 22 });
-    text('2035', tagBox(115, 50), { ...tagOptions, size: 22 });
-    text('UK', tagBox(168, 18), { ...tagOptions, size: 12 });
+    text('2031', box(x + 5, y + 9, 70, 25), { ...tagOptions, size: 22 });
+    text('2035', box(x + 115, y + 9, 50, 25), { ...tagOptions, size: 22 });
+    text('UK', box(x + 168, y + 9, 18, 25), { ...tagOptions, size: 12 });
   }
 
   const boldFont = fontFor(700);
@@ -520,7 +533,7 @@ function storyCard(story, index) {
   const captionWidth = Math.min(w, Math.ceil(captionAdvance * captionScale) + 8);
   const captionHeight = 26;
   const captionY = y + sceneHeight - captionHeight;
-  rect(x, captionY, captionWidth, captionHeight, ink);
+  rect(x, captionY, captionWidth, captionHeight, story.art === 'chartup' ? '#145a35' : ink);
   text(story.label, box(x, captionY, captionWidth, captionHeight), {
     size: captionSize, min: 15, weight: 700, fill: '#ffffff',
     align: 'middle', vertical: 'middle', maxLines: 1, inset: 3, widthScales: [captionScale],
@@ -533,10 +546,6 @@ function storyCard(story, index) {
   text(story.region, box(x + 24, tagY, statusX - x - 26, 16), {
     weight: 700, fill: color, vertical: 'middle', maxLines: 1, inset: 0, widthScales: [1, 0.92],
   });
-  if (story.field === 'MARKETS') {
-    const fieldX = x + 31 + boldFont.width(story.region, 11);
-    label(story.field, box(fieldX, tagY, statusX - fieldX - 4, 16), muted);
-  }
   pill(story.status, statusX, tagY, statuses[story.status], statusWidth);
 
   const headY = tagY + 17;
@@ -550,8 +559,7 @@ function storyCard(story, index) {
     (subLines.length - 1) * subOptions.gap;
   const subGap = 0.3;
   const headHeight = text(story.head, box(x + 4, headY, headWidth, sourceY - headY - subHeight - subGap), {
-    size: 26, min: 24, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
-    widthScales: [1, 0.97, 0.91, 0.84, 0.82],
+    size: 24, min: 21, weight: 700, maxLines: 3, inset: 0, gap: 0.5,
   });
   const subY = headY + headHeight + subGap;
   text(story.sub, box(x + 4, subY, headWidth, sourceY - subY), subOptions);
@@ -564,7 +572,7 @@ function sourceLine(story, { x, y, w, h }, prefix = '') {
   const timeWidth = Math.ceil(fontFor(400).width(reportTime, 11));
   const timeX = x + w - timeWidth;
   const sourceRight = reportTime ? timeX - 4 : timeX;
-  const options = { fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93, 0.92, 0.9] };
+  const options = { fill: muted, maxLines: 1, inset: 0, widthScales: [1, 0.96, 0.93, 0.92] };
   text(prefix + story.src, box(x, y, sourceRight - x, h), options);
   if (reportTime) {
     text(reportTime, box(timeX, y, timeWidth, h), {
@@ -865,7 +873,7 @@ function briefs({ x, y, w, h }) {
   const rows = Math.ceil(stories.briefs.length / columnCount);
   const columnWidth = w / columnCount;
   const rowHeight = (h - headerHeight - 2) / rows;
-  const size = 13;
+  const size = 13.5;
   const placeOffset = 25;
   const rightInset = 6;
   const sourceGap = 5;
@@ -955,7 +963,7 @@ masthead();
 timeline();
 stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
-const lowerY = cardTop + Math.ceil(stories.cards.length / cardColumns) * (cardHeight + panelGap);
+const lowerY = cardTop + Math.ceil(stories.cards.length / 5) * (cardHeight + panelGap);
 const dateCheckY = 932;
 const lowerHeight = dateCheckY - lowerY - 4;
 const mapWidth = 260;
