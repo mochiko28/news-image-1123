@@ -5,8 +5,10 @@ const stories = JSON.parse(readFileSync(new URL('./stories.json', import.meta.ur
 const pageSize = 1024;
 const margin = 24;
 const pageWidth = pageSize - 2 * margin;
-const cardTop = 381;
-const cardHeight = 176;
+const leadTop = 141;
+const leadHeight = 203;
+const cardTop = leadTop + leadHeight + 5;
+const cardHeight = 192;
 const panelGap = 6;
 const ink = '#14243b';
 const muted = '#46566a';
@@ -160,7 +162,7 @@ function masthead() {
   });
 }
 
-function strips() {
+function timeline() {
   const timelineSize = 12.5;
   const timelineLineHeight = 14;
   const timelineOptions = { size: timelineSize, min: timelineSize, maxLines: 1, inset: 0 };
@@ -184,49 +186,32 @@ function strips() {
       timelineOptions);
     timelineX += width;
   }
-
-  const numbersY = 141;
-  const numbersHeight = 34;
-  rect(24, numbersY, pageWidth, numbersHeight, '#e5ebed');
-  text('THE DAY IN NUMBERS', box(32, numbersY, 94, numbersHeight), {
-    size: 13, min: 13, weight: 700, vertical: 'middle',
-  });
-  const numberWidth = (pageWidth - 106) / stories.numbers.length;
-  for (const [index, { v, l }] of stories.numbers.entries()) {
-    const x = 130 + index * numberWidth;
-    line(x, numbersY + 3, x, numbersY + numbersHeight - 3, '#aab8bf');
-    const valueWidth = Math.ceil(fontFor(700).width(v, 30)) + 6;
-    text(v, box(x + 9, numbersY, valueWidth, numbersHeight), {
-      size: 30, min: 30, weight: 700, vertical: 'middle', maxLines: 1,
-    });
-    text(l, box(x + 13 + valueWidth, numbersY, numberWidth - 16 - valueWidth, numbersHeight), {
-      size: 12.5, min: 12.5, vertical: 'middle', maxLines: 2,
-    });
-  }
 }
 
-const leadSceneHeight = 82;
-const natoSceneHeight = 72;
+const leadSceneHeight = 70;
+const natoSceneHeight = 60;
 const scenes = {
   nato: `
     <rect width="320" height="${natoSceneHeight}" fill="#15365c"/>
-    <path d="M0 11h320M0 25h320M0 39h320M49 0v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49"
-          stroke="#83b4d1" opacity=".25"/>
-    <path d="m182 32 10-11 16-3 10 2 8-6 3-8 10-4 8 6-6 8 6 7 12-3 12 4 19-4 10 6-13 12-28-3
-             -9 6-14-4-8 5-10-9-13 2-9-5-9 5Z" fill="#387199" stroke="#588cb0" stroke-width="1.5"/>
-    <circle cx="176" cy="25" r="16" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
-    <path d="m176 4 4 17 17 4-17 4-4 17-4-17-17-4 17-4Z" fill="#fffefa"/>
-    <path d="m176 9 2 14-2 2Zm16 16-14 2-2-2Zm-16 16-2-14 2-2Zm-16-16 14-2 2 2Z" fill="#5284a6"/>
-    <path d="M198 23h7l10 8h24l-10-10h8l16 10h29q9 0 15 4-4 4-12 4h-62l-17-4Z" fill="#fffefa"/>
-    <path d="M242 37h18l-10 7h-9Z" fill="#a4c9df"/>
-    <path d="M252 31v-8m-14 0h28" stroke="#fffefa" stroke-width="2.7" stroke-linecap="round"/>
-    <path d="M276 34h9" stroke="#5686a9" stroke-width="2" stroke-dasharray="2 2"/>
-    <path d="M227 16a15 15 0 0 1 12-10m30 0a15 15 0 0 1 12 10" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
-    <rect x="4" y="12" width="151" height="25" rx="3" fill="#265787"/>
-    <rect x="4" y="47" width="312" height="24" rx="3" fill="#102a47"/>`,
+    <g transform="scale(1 0.74)">
+      <path d="M0 11h320M0 25h320M0 39h320M49 0v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49m43-49v49"
+            stroke="#83b4d1" opacity=".25"/>
+      <path d="m182 32 10-11 16-3 10 2 8-6 3-8 10-4 8 6-6 8 6 7 12-3 12 4 19-4 10 6-13 12-28-3
+               -9 6-14-4-8 5-10-9-13 2-9-5-9 5Z" fill="#387199" stroke="#588cb0" stroke-width="1.5"/>
+      <circle cx="176" cy="25" r="16" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
+      <path d="m176 4 4 17 17 4-17 4-4 17-4-17-17-4 17-4Z" fill="#fffefa"/>
+      <path d="m176 9 2 14-2 2Zm16 16-14 2-2-2Zm-16 16-2-14 2-2Zm-16-16 14-2 2 2Z" fill="#5284a6"/>
+      <path d="M198 23h7l10 8h24l-10-10h8l16 10h29q9 0 15 4-4 4-12 4h-62l-17-4Z" fill="#fffefa"/>
+      <path d="M242 37h18l-10 7h-9Z" fill="#a4c9df"/>
+      <path d="M252 31v-8m-14 0h28" stroke="#fffefa" stroke-width="2.7" stroke-linecap="round"/>
+      <path d="M276 34h9" stroke="#5686a9" stroke-width="2" stroke-dasharray="2 2"/>
+      <path d="M227 16a15 15 0 0 1 12-10m30 0a15 15 0 0 1 12 10" fill="none" stroke="#a4c9df" stroke-width="1.5"/>
+    </g>
+    <rect x="4" y="6" width="151" height="25" rx="3" fill="#265787"/>
+    <rect x="4" y="35" width="312" height="24" rx="3" fill="#102a47"/>`,
   chartup: `
     <rect width="320" height="${leadSceneHeight}" fill="#e5efe5"/>
-    <g transform="translate(0 2) scale(1.78)">
+    <g transform="translate(0 2) scale(1.78 1.35)">
       <path d="M12 15h160M12 27h160M44 5v22M88 5v22M132 5v22"
             fill="none" stroke="#c2d6c5"/>
       <path d="M13 24 39 21 64 23 94 17 116 19 134 13 152 15 171 8V27H13Z" fill="#c3e0c8"/>
@@ -234,59 +219,60 @@ const scenes = {
             fill="none" stroke="#1c7038" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
       <circle cx="171" cy="8" r="4" fill="#1c7038"/>
     </g>
-    <rect x="4" y="53" width="141" height="26" rx="3" fill="#145a35"/>
-    <rect x="149" y="53" width="168" height="26" rx="3" fill="#145a35"/>`,
+    <rect x="4" y="41" width="141" height="26" rx="3" fill="#145a35"/>
+    <rect x="149" y="41" width="168" height="26" rx="3" fill="#145a35"/>`,
   plane: `
     <rect width="320" height="${leadSceneHeight}" fill="#deeaee"/>
-    <path d="M163 4v43" stroke="#a8bdc5"/>
-    <path d="M10 44h143" stroke="#748c98" stroke-width="3"/>
-    <path d="M17 44h129" stroke="#fffefa" stroke-dasharray="10 6"/>
-    <g transform="translate(-4 0) scale(1.29)">
-      <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
-      <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
-      <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
-      <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
-      <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
-    </g>
-    <path d="M171 43h139m-139 4h139" stroke="#748c98" stroke-width="2"/>
-    <path d="M178 45h125" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
-    <g transform="translate(-49 1) scale(1.25)">
-      <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
-      <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
-      <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
-      <circle cx="192" cy="31" r="3" fill="#14243b"/>
-      <circle cx="218" cy="31" r="3" fill="#14243b"/>
-      <circle cx="239" cy="31" r="3" fill="#14243b"/>
-      <circle cx="263" cy="31" r="3" fill="#14243b"/>
-    </g>
-    <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
-      <circle cx="147" cy="17" r="13"/>
-      <circle cx="298" cy="17" r="13"/>
-    </g>
-    <path d="M140 17h14m137 0h14" stroke="#fffefa" stroke-width="4"/>`,
+    <g transform="scale(1 0.74)">
+      <path d="M163 4v43" stroke="#a8bdc5"/>
+      <path d="M10 44h143" stroke="#748c98" stroke-width="3"/>
+      <path d="M17 44h129" stroke="#fffefa" stroke-dasharray="10 6"/>
+      <g transform="translate(-4 0) scale(1.29)">
+        <path d="M15 10h10l10 10h31L52 7h12l24 13h22q11 0 17 6-3 4-13 4H45L25 24Z" fill="#233d55"/>
+        <path d="M88 24h24" stroke="#deeaee" stroke-width="2" stroke-dasharray="3 3"/>
+        <path d="M58 28h27L73 34H61Z" fill="#536b7b"/>
+        <circle cx="45" cy="32" r="2.5" fill="#14243b"/>
+        <circle cx="106" cy="32" r="2.5" fill="#14243b"/>
+      </g>
+      <path d="M171 43h139m-139 4h139" stroke="#748c98" stroke-width="2"/>
+      <path d="M178 45h125" stroke="#748c98" stroke-width="6" stroke-dasharray="2 8"/>
+      <g transform="translate(-49 1) scale(1.25)">
+        <path d="M178 16q0-4 5-4h43v19h-48ZM232 12h33q13 0 18 15l-6 4h-45Z" fill="#233d55"/>
+        <path d="M178 27h103" stroke="#54788e" stroke-width="3"/>
+        <path d="M184 19h36m18 0h32" stroke="#deeaee" stroke-width="5" stroke-dasharray="8 4"/>
+        <circle cx="192" cy="31" r="3" fill="#14243b"/>
+        <circle cx="218" cy="31" r="3" fill="#14243b"/>
+        <circle cx="239" cy="31" r="3" fill="#14243b"/>
+        <circle cx="263" cy="31" r="3" fill="#14243b"/>
+      </g>
+      <g fill="#ad2f39" stroke="#fffefa" stroke-width="1.5">
+        <circle cx="147" cy="17" r="13"/>
+        <circle cx="298" cy="17" r="13"/>
+      </g>
+      <path d="M140 17h14m137 0h14" stroke="#fffefa" stroke-width="4"/>
+    </g>`,
 };
 
 const sceneLabels = {
   nato: [
-    { value: 'URGENT TALKS', x: 4, y: 12, w: 151, h: 25, size: 18.5, fill: '#fffefa' },
-    { value: 'FINLAND SUMMONS ENVOY', x: 4, y: 47, w: 312, h: 24, size: 18, fill: '#fffefa' },
+    { value: 'URGENT TALKS', x: 4, y: 6, w: 151, h: 25, size: 18.5, fill: '#fffefa' },
+    { value: 'FINLAND SUMMONS ENVOY', x: 4, y: 35, w: 312, h: 24, size: 18, fill: '#fffefa' },
   ],
   chartup: [
     { value: 'NVIDIA SHARES, MONDAY', x: 8, y: 4, w: 190, h: 16, size: 14, fill: '#145a35' },
-    { value: 'NVIDIA +30%', x: 4, y: 53, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
-    { value: 'NASDAQ +6.5%', x: 149, y: 53, w: 168, h: 26, size: 22, fill: '#fffefa' },
+    { value: 'NVIDIA +30%', x: 4, y: 41, w: 141, h: 26, size: 21.5, fill: '#fffefa' },
+    { value: 'NASDAQ +6.5%', x: 149, y: 41, w: 168, h: 26, size: 22, fill: '#fffefa' },
   ],
   plane: [
-    { value: 'ALL FLIGHTS GROUNDED', x: 0, y: 46, w: 320, h: 20.5, size: 18.5 },
-    { value: '06:00-20:00', x: 0, y: 66.5, w: 320, h: 15.5, size: 14 },
+    { value: 'ALL FLIGHTS GROUNDED', x: 0, y: 34, w: 320, h: 20.5, size: 18.5 },
+    { value: '06:00-20:00', x: 0, y: 54.5, w: 320, h: 15.5, size: 14 },
   ],
 };
 
 function leadPanel(story, index) {
   const x = 24 + index * 328;
-  const y = 177;
+  const y = leadTop;
   const w = index === 2 ? 320 : 318;
-  const height = 199;
   const sceneScale = w / 320;
   const contentX = x + 11;
   const contentWidth = w - 22;
@@ -295,12 +281,12 @@ function leadPanel(story, index) {
   const tagY = y + (isNato ? natoSceneHeight : leadSceneHeight) + 3;
   const statusX = x + w - 91;
   const headlineY = tagY + 17;
-  const headlineHeight = 51;
+  const headlineHeight = 67;
   const bodyY = headlineY + headlineHeight;
-  const sourceY = y + height - 14;
+  const sourceY = y + leadHeight - 14;
   const sourceGap = isNato ? 1 : 4;
 
-  rect(x, y, w, height, white, `stroke="${rule}"`);
+  rect(x, y, w, leadHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${x} ${y}) scale(${sceneScale} 1)">${scenes[story.scene]}</g>`);
   for (const { value, x: offsetX, y: offsetY, w: width, h, size, fill } of sceneLabels[story.scene] ?? []) {
     text(value, box(x + offsetX * sceneScale, y + offsetY, width * sceneScale, h), {
@@ -320,7 +306,7 @@ function leadPanel(story, index) {
   label(story.field, box(tagX + 2, tagY, statusX - tagX - 6, 16), muted);
   pill(story.status, statusX, tagY, statuses[story.status], 80);
   text(story.head, box(contentX, headlineY, contentWidth, headlineHeight), {
-    size: 23, min: 20, weight: 700, maxLines: 2, gap: 0.3,
+    size: 30, min: 28, weight: 700, maxLines: 2, inset: 1, gap: 0.3,
   });
   text(story.sub, box(contentX, bodyY, contentWidth, sourceY - sourceGap - bodyY), {
     size: 12, min: 12, maxLines: isNato ? 3 : 2, gap: 0.2,
@@ -432,31 +418,33 @@ const cardScenes = {
     <rect width="190" height="70" fill="#397650"/>
     <path d="M30 0h32L40 70H7Zm50 0h30l5 70H75Zm48 0h32l23 70h-33Z" fill="#44845a"/>
     <path d="M0 35h190" stroke="#a4c49a" opacity=".5"/>
-    <rect x="5" y="22" width="70" height="22" rx="2" fill="#14243b"/>
-    <rect x="115" y="22" width="70" height="22" rx="2" fill="#14243b"/>
-    <g transform="translate(19 3)">
+    <rect x="5" y="13" width="70" height="26" rx="2" fill="#14243b"/>
+    <rect x="115" y="13" width="70" height="26" rx="2" fill="#14243b"/>
+    <g transform="translate(19 2) scale(1 0.55)">
       <rect width="42" height="18" fill="#fffefa"/>
       <path d="M0 0h42v2H0zm0 4h42v2H0zm0 4h42v2H0zm0 4h42v2H0zm0 4h42v2H0z" fill="#b63743"/>
       <rect width="18" height="10" fill="#253d67"/>
       <path d="M3 3h.1m5.9 0h.1m5.9 0h.1M6 7h.1m5.9 0h.1" stroke="#fffefa"
             stroke-width="1.8" stroke-linecap="round"/>
     </g>
-    <g transform="translate(129 3)">
+    <g transform="translate(129 2) scale(1 0.55)">
       <rect width="42" height="18" fill="#253d67"/>
       <path d="M0 0h5l37 16v2h-5L0 2Zm42 0h-5L0 16v2h5L42 2Z" fill="#fffefa"/>
       <path d="m0 0 21 9h-4L0 2Zm42 0L21 9V7L38 0Zm0 18L21 9h4l17 7ZM0 18l21-9v2L4 18Z" fill="#b63743"/>
       <path d="M0 6h17V0h8v6h17v6H25v6h-8v-6H0Z" fill="#fffefa"/>
       <path d="M0 7.5h19V0h4v7.5h19v3H23V18h-4v-7.5H0Z" fill="#b63743"/>
     </g>
-    <ellipse cx="95" cy="43" rx="16" ry="2" fill="#2f6044"/>
-    <path d="M86 38h18l4 5H82Z" fill="#775133"/>
-    <path d="M87 36h16v4H87Z" fill="#efbd57"/>
-    <path d="M91 36c0-6 1-14 4-21h4c-2 8-1 15 1 21Z" fill="#dca248"/>
-    <path d="M90 16c-8 5-3 9 7 10 11 1 4 6-7 9" stroke="#f5ca61" stroke-width="4"
-          stroke-linecap="round" fill="none"/>
-    <path d="M90 15c-7 5-3 8 7 9" stroke="#fff0a0" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-    <circle cx="95" cy="10" r="7" fill="#f5ca61" stroke="#a66f35" stroke-width="1.5"/>
-    <path d="m95 6 4 3-2 4h-4l-2-4Z" fill="#a66f35"/>`,
+    <g transform="scale(1 0.85)">
+      <ellipse cx="95" cy="43" rx="16" ry="2" fill="#2f6044"/>
+      <path d="M86 38h18l4 5H82Z" fill="#775133"/>
+      <path d="M87 36h16v4H87Z" fill="#efbd57"/>
+      <path d="M91 36c0-6 1-14 4-21h4c-2 8-1 15 1 21Z" fill="#dca248"/>
+      <path d="M90 16c-8 5-3 9 7 10 11 1 4 6-7 9" stroke="#f5ca61" stroke-width="4"
+            stroke-linecap="round" fill="none"/>
+      <path d="M90 15c-7 5-3 8 7 9" stroke="#fff0a0" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <circle cx="95" cy="10" r="7" fill="#f5ca61" stroke="#a66f35" stroke-width="1.5"/>
+      <path d="m95 6 4 3-2 4h-4l-2-4Z" fill="#a66f35"/>
+    </g>`,
   chartdown: `
     <rect width="190" height="70" fill="#f4e0dd"/>
     <path d="M9 13h171M9 25h171M9 37h171M9 49h171M9 61h171
@@ -511,22 +499,22 @@ function storyCard(story, index) {
   const w = (pageWidth - 4 * panelGap) / 5;
   const x = margin + index % 5 * (w + panelGap);
   const y = cardTop + Math.floor(index / 5) * (cardHeight + panelGap);
-  const sceneHeight = 72;
+  const sceneHeight = 60;
   const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, cardHeight, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
 
   if (story.art === 'aidmap') {
-    text('$1.6bn', box(x + 105, y + 4, w - 111, 36), {
+    text('$1.6bn', box(x + 105, y + 2, w - 111, 36), {
       size: 25, weight: 700, fill: '#fff0b2', align: 'middle', vertical: 'middle', maxLines: 1,
     });
   } else if (story.art === 'trophy') {
     const tagOptions = {
       weight: 700, fill: white, align: 'middle', vertical: 'middle', maxLines: 1, inset: 0,
     };
-    text('2031', box(x + 5, y + 21, 70, 25), { ...tagOptions, size: 22 });
-    text('2035', box(x + 115, y + 21, 50, 25), { ...tagOptions, size: 22 });
-    text('UK', box(x + 168, y + 21, 18, 25), { ...tagOptions, size: 12 });
+    text('2031', box(x + 5, y + 9, 70, 25), { ...tagOptions, size: 22 });
+    text('2035', box(x + 115, y + 9, 50, 25), { ...tagOptions, size: 22 });
+    text('UK', box(x + 168, y + 9, 18, 25), { ...tagOptions, size: 12 });
   }
 
   const boldFont = fontFor(700);
@@ -554,14 +542,10 @@ function storyCard(story, index) {
   });
   pill(story.status, statusX, tagY, statuses[story.status], statusWidth);
 
-  const headY = tagY + 18;
+  const headY = tagY + 17;
   const headWidth = w - 8;
-  const widthScales = [1, 0.98, 0.96, 0.94, 0.92, 0.90];
-  const largeHeadLines = wrap(story.head, headWidth, value => boldFont.width(value, 20) * widthScales.at(-1));
-  const headSize = largeHeadLines && largeHeadLines.length <= 2 ? 20 : 19;
-  const headHeight = text(story.head, box(x + 4, headY, headWidth, 45), {
-    size: headSize, min: 17, weight: 700, maxLines: 2, inset: 0, gap: 0.5,
-    widthScales,
+  const headHeight = text(story.head, box(x + 4, headY, headWidth, 74), {
+    size: 22, min: 21, weight: 700, maxLines: 3, inset: 0, gap: 0.5,
   });
   const subY = headY + headHeight + 0.3;
   const sourceY = y + cardHeight - 13;
@@ -985,7 +969,7 @@ function footer() {
 add(`<svg xmlns="http://www.w3.org/2000/svg" width="${pageSize}" height="${pageSize}" viewBox="0 0 ${pageSize} ${pageSize}" font-family="FreeSans" font-kerning="none">`);
 rect(0, 0, pageSize, pageSize, paper);
 masthead();
-strips();
+timeline();
 stories.leads.forEach(leadPanel);
 stories.cards.forEach(storyCard);
 const lowerY = cardTop + Math.ceil(stories.cards.length / 5) * (cardHeight + panelGap);
