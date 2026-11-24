@@ -37,6 +37,7 @@ const placeRegions = {
   IRAN: 'MIDDLE EAST',
   GAZA: 'MIDDLE EAST',
   'SOUTH KOREA': 'EAST ASIA',
+  'NEPAL · INDIA': 'SOUTH ASIA',
   USA: 'NORTH AMERICA',
   'UK · USA': 'EUROPE · NORTH AMERICA',
 };
@@ -360,18 +361,17 @@ const cardScenes = {
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10v5H13Z" fill="#e9b8b6"/>
     <path d="m13 14 28 5 24-9 24 22 20-8 22 16 19-7 10 14 20 10m-12 3 12-3-4-12"
           fill="none" stroke="#982c42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
-  roadstorm: `
-    <rect width="190" height="70" fill="#a6b8c8"/>
-    <path d="M0 44 40 26l32 13 48-14 70 16v29H0Z" fill="#758da0"/>
-    <path d="m79 70 58-38h12l41 38Z" fill="#354452"/>
-    <path d="m148 67-2-10m-2-6-1-5m-1-4-1-4" stroke="#eddbab" stroke-width="2" fill="none"/>
-    <path d="M22 24c-4-7 5-13 16-11 4-13 27-15 36-5 13-6 29 3 27 13l14 3Z" fill="#34465b"/>
-    <path d="m33 28-8 10m23-10-10 13m26-13-8 10m24-10-8 11m23-11-8 10m24-10-6 9"
-          stroke="#ecf3f8" stroke-width="2.4" fill="none"/>
-    <path d="m131 44 6-8h20l7 8 5 3v10h-42V47Z" fill="#e7a467"/>
-    <path d="m135 44 4-6h15l5 6Z" fill="#20364b"/>
-    <path d="M130 50h7m22 0h7" stroke="#fff9d6" stroke-width="3"/>
-    <path d="M132 57v4m32-4v4" stroke="#202c3c" stroke-width="5"/>`,
+  aidmap: `
+    <rect width="190" height="70" fill="#15365c"/>
+    <path d="M0 13h190M0 28h190M0 43h190M0 58h190M20 0v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70m22-70v70"
+          stroke="#85b6d1" opacity=".24"/>
+    <path d="m40 5 9-2 5 6-3 4 6 4 15 4 7 1 5-4 3-5 9-2 5 4-6 5-3 5-6-1-2 7-4-6-5-1-2 4
+             -7 5-6 2-4 5-5 3-4-5-3-5-3-6-5-1-6-5 6 1-2-5 5-2 4-4Z"
+          fill="#79a6bb" stroke="#c3dce4" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="m55 15 5-3 6 3 4 1 5 3-1 4-6-2-6-1-6-3Z"
+          fill="#ec9158" stroke="#fff0b2" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M52 35q9 1 13-10" fill="none" stroke="#15365c" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="m60 26 7-5 2 8Z" fill="#15365c"/>`,
   toxic: `
     <rect width="190" height="70" fill="#e6dea9"/>
     <path d="M0 42 33 35l26 7 41-5 44 3 46-7v37H0Z" fill="#b6a977"/>
@@ -413,6 +413,12 @@ function storyCard(story, index) {
   const [color] = regionPalette(regionNames(story)[0]);
   rect(x, y, w, h, white, `stroke="${rule}"`);
   add(`<g transform="translate(${n(x)} ${y}) scale(${w / 190} ${sceneHeight / 70})">${cardScenes[story.art]}</g>`);
+
+  if (story.art === 'aidmap') {
+    text('$1.6bn', box(x + 105, y + 4, w - 111, 36), {
+      size: 25, weight: 700, fill: '#fff0b2', align: 'middle', vertical: 'middle', maxLines: 1,
+    });
+  }
 
   const captionFont = fontFor(700);
   const captionSpace = w - 8;
