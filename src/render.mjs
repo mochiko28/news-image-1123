@@ -150,16 +150,17 @@ function pill(value, x, y, palette, width) {
 function masthead() {
   const { day, date, kicker } = stories;
   const fieldCount = new Set(allStories.map(story => story.field).filter(Boolean)).size;
-  const [dayOfMonth, month, year] = date.split(' ');
-  const stats = `${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · FIRST REPORTED OR UPDATED ${day} ${dayOfMonth} ${month.slice(0, 3)} ${year}`;
+  const [dayOfMonth, month] = date.split(' ');
+  const stats = `${kicker} · ${allStories.length} STORIES · ${presentRegions.size} REGIONS · ${fieldCount} FIELDS · FIRST REPORTED OR UPDATED ${day.slice(0, 3)} ${dayOfMonth} ${month.slice(0, 3)}`;
 
   rect(24, 6, pageWidth, 90, ink);
   rect(24, 6, 5, 90, '#d75450');
-  label(kicker, box(41, 7, 942, 13), '#d8e5ed');
-  text(day + ' ' + date, box(39, 20, 945, 62), {
-    size: 56, min: 56, weight: 700, fill: '#ffffff', vertical: 'middle', maxLines: 1,
+  text(day + ' ' + date, box(39, 7, 945, 71), {
+    size: 64, min: 56, weight: 700, fill: '#ffffff', vertical: 'middle', maxLines: 1, inset: 4,
   });
-  label(stats, box(41, 82, 942, 13), '#d8e5ed');
+  text(stats, box(39, 78, 945, 17), {
+    size: 15, min: 13, weight: 700, fill: '#ffffff', vertical: 'middle', maxLines: 1, inset: 4,
+  });
 }
 
 function strips() {
