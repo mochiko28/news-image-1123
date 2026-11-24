@@ -37,7 +37,7 @@
   "cards": [
     {"region": "UKRAINE", "field": "CONFLICT", "status": "OFFICIAL", "icon": "blast", "art": "rubble", "label": "15 KILLED", "t": "09:34", "lat": 50.8, "lon": 30.3,
      "head": "Kyiv-region strike toll rises to 15",
-     "sub": "Monday: boy, 7, pulled alive from rubble in Dymer", "src": "Al Jazeera, France 24"},
+     "sub": "Monday count after Sunday's strikes; boy, 7, saved", "src": "Al Jazeera, France 24"},
     {"region": "NATO · FINLAND", "field": "SECURITY", "status": "CONFIRMED", "icon": "shield", "art": "nato", "label": "URGENT TALKS", "t": "16:50", "lat": 60.2, "lon": 24.9,
      "head": "NATO meets as Russia tensions rise",
      "sub": "Finland summons Russian envoy; NATO radar plane for Poland", "src": "WaPo, France 24, NBC"},
