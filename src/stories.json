@@ -72,7 +72,7 @@
     {"region": "EUROPE", "field": "DIPLOMACY", "place": "EU", "text": "eyes Russia sports ban in sanctions", "src": "AJ"},
     {"region": "EUROPE", "field": "MIGRATION", "place": "Denmark", "text": "court backs \"ghetto law\"", "src": "DW"},
     {"region": "EUROPE", "field": "LABOUR", "place": "Germany", "text": "metalworkers strike over pay", "src": "DW"},
-    {"region": "EUROPE", "field": "SPACE", "place": "Germany", "text": "probes reports of Russian nukes in space", "src": "Guardian"},
+    {"region": "EUROPE", "field": "SPACE", "place": "Germany", "text": "weighs report of Russian space-nuke plan", "src": "Guardian"},
     {"region": "EUROPE", "field": "BUSINESS", "place": "UK", "text": "Capita shares crash 70%", "src": "BBC"},
     {"region": "EUROPE", "field": "CYBER", "place": "UK", "text": "Next says data hit in cyber breach", "src": "BBC"},
     {"region": "EUROPE", "field": "SPORT", "place": "UK", "text": "Tyson Fury reveals schizophrenia", "src": "BBC"},
@@ -96,10 +96,10 @@
     {"region": "NORTH AMERICA", "field": "WEATHER", "place": "US", "text": "storms threaten Thanksgiving trips", "src": "NBC"},
     {"region": "NORTH AMERICA", "field": "LAW", "place": "US", "text": "court revives Trump hush-money bid", "src": "PBS"},
     {"region": "NORTH AMERICA", "field": "MARKETS", "place": "US", "text": "Anthropic options debut briskly", "src": "Reuters"},
+    {"region": "NORTH AMERICA", "field": "MIGRATION", "place": "US", "text": "admits deporting a citizen to Mexico", "src": "Guardian"},
     {"region": "NORTH AMERICA", "field": "MIGRATION", "place": "Seattle", "text": "airport 'outraged' at ICE arrests", "src": "BBC"},
     {"region": "LATIN AMERICA", "field": "TECH", "place": "Barbados", "text": "UN chief seeks AI safety pact", "src": "F24"},
     {"region": "LATIN AMERICA", "field": "CRIME", "place": "Colombia", "text": "gangs attack security forces", "src": "WSJ"},
-    {"region": "LATIN AMERICA", "field": "CRIME", "place": "Mexico", "text": "troops attacked after drug lord held", "src": "BBC"},
     {"region": "LATIN AMERICA", "field": "SPORT", "place": "Argentina", "text": "Paredes collapses in TV interview", "src": "AJ"}
   ],
   "datecheck": {
