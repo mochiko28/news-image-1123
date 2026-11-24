@@ -12,10 +12,10 @@
     {"t": "20:23", "text": "Wall St rallies on Huang return"}
   ],
   "numbers": [
-    {"v": "7", "l": "sea drones used on the Merkury, Kyiv says"},
+    {"v": "7", "l": "sea drones in the Libya raid, Kyiv says"},
     {"v": "~$1tn", "l": "added to Nvidia's value, BBC says"},
     {"v": "14 hrs", "l": "with Belgian flights grounded"},
-    {"v": "-70%", "l": "Capita shares as its UK boss quits"}
+    {"v": "-70%", "l": "Capita shares as its boss quits"}
   ],
   "leads": [
     {"region": "AFRICA · EUROPE", "field": "CONFLICT", "status": "CLAIM", "scene": "warship", "t": "06:10",
@@ -32,10 +32,10 @@
      "lat": 50.85, "lon": 4.35,
      "head": "National strike halts Belgian flights",
      "sub": "Flights grounded 06:00-20:00 UTC; rail hit. PM gives coalition a year-end deadline to agree cuts.",
-     "src": "BBC, Al Jazeera, DW, France 24"}
+     "src": "BBC, Al Jazeera, France 24"}
   ],
   "cards": [
-    {"region": "UKRAINE", "field": "CONFLICT", "status": "OFFICIAL", "icon": "blast", "art": "rubble", "label": "15 KILLED", "t": "09:34", "lat": 50.8, "lon": 30.3,
+    {"region": "UKRAINE", "field": "CONFLICT", "status": "CONFIRMED", "icon": "blast", "art": "rubble", "label": "15 KILLED", "t": "09:34", "lat": 50.8, "lon": 30.3,
      "head": "Kyiv-region strike toll rises to 15",
      "sub": "Monday count after Sunday's strikes; boy, 7, saved", "src": "Al Jazeera, France 24"},
     {"region": "NATO · FINLAND", "field": "SECURITY", "status": "CONFIRMED", "icon": "shield", "art": "nato", "label": "URGENT TALKS", "t": "16:50", "lat": 60.2, "lon": 24.9,
@@ -52,22 +52,22 @@
      "sub": "Countdown host saluted by Kylie Minogue, Jimmy Barnes", "src": "BBC, Reuters"},
     {"region": "UK · USA", "field": "SPORT", "status": "OFFICIAL", "icon": "ball", "art": "trophy", "label": "WORLD CUPS SET", "t": "15:09", "lat": 51.5, "lon": -0.1,
      "head": "FIFA picks Women's World Cup hosts",
-     "sub": "Women's: US, Mexico, Costa Rica, Jamaica in 2031; UK in 2035", "src": "FIFA, DW"},
-    {"region": "PACIFIC", "field": "CLIMATE", "status": "REPORTED", "icon": "drop", "art": "islands", "label": "COP31 BACKLASH", "t": "09:35", "lat": -8.5, "lon": 179.2,
+     "sub": "Women's: US, Mexico, Costa Rica, Jamaica in 2031; UK in 2035", "src": "BBC Sport, DW"},
+    {"region": "PACIFIC", "field": "CLIMATE", "status": "CONFIRMED", "icon": "drop", "art": "islands", "label": "COP31 BACKLASH", "t": "09:35", "lat": -8.5, "lon": 179.2,
      "head": "Pacific islands condemn COP31 failure",
-     "sub": "Monday reaction after Sunday's talks ended with no deal", "src": "Guardian"},
+     "sub": "Monday reaction after Sunday's talks ended with no deal", "src": "France 24, Reuters"},
     {"region": "NEPAL · INDIA", "field": "DIPLOMACY", "status": "CONFIRMED", "icon": "chart", "art": "aidmap", "label": "$1.6BN PLEDGE", "t": "13:39", "lat": 27.7, "lon": 85.3,
      "head": "India pledges $1.6bn to Nepal in a reset",
-     "sub": "Flood relief as new PM Balendra Shah meets Modi", "src": "BBC, Al Jazeera, DW"},
+     "sub": "Flood relief as new PM Balendra Shah meets Modi", "src": "BBC, Al Jazeera"},
     {"region": "GAZA", "field": "ENVIRONMENT", "status": "CONFIRMED", "icon": "drop", "art": "toxic", "label": "TOXIC RISK", "t": "04:00", "lat": 31.4, "lon": 34.4,
      "head": "Oxfam: war left Gaza a \"toxic wasteland\"",
-     "sub": "Oxfam: signs of contamination almost everywhere", "src": "Guardian, BBC, Al Jazeera"},
+     "sub": "Oxfam: signs of possible contamination almost everywhere", "src": "Guardian, BBC, Al Jazeera"},
     {"region": "INDONESIA", "field": "DISASTER", "status": "CONFIRMED", "icon": "blast", "art": "factoryfire", "label": "24 DEAD", "t": "02:35", "lat": -6.211, "lon": 106.358,
      "head": "Indonesia factory fire toll rises to 24",
      "sub": "Monday update: dozens still missing", "src": "Al Jazeera, Guardian"}
   ],
   "briefs": [
-    {"region": "EUROPE", "field": "SECURITY", "place": "Estonia", "text": "Moscow warns of \"open war\"", "src": "Guardian"},
+    {"region": "EUROPE", "field": "SECURITY", "place": "Estonia", "text": "Moscow accuses it of risking \"open war\"", "src": "Guardian"},
     {"region": "EUROPE", "field": "ENERGY", "place": "Europe", "text": "gas surges on cold-snap forecast", "src": "Guardian"},
     {"region": "EUROPE", "field": "DIPLOMACY", "place": "EU", "text": "eyes Russia sports ban in sanctions", "src": "AJ"},
     {"region": "EUROPE", "field": "MIGRATION", "place": "Denmark", "text": "court backs \"ghetto law\"", "src": "DW"},
@@ -75,20 +75,20 @@
     {"region": "EUROPE", "field": "SPACE", "place": "Germany", "text": "weighs report of Russian space-nuke plan", "src": "Guardian"},
     {"region": "EUROPE", "field": "BUSINESS", "place": "UK", "text": "Capita shares crash 70%", "src": "BBC"},
     {"region": "EUROPE", "field": "CYBER", "place": "UK", "text": "Next says data hit in cyber breach", "src": "BBC"},
-    {"region": "EUROPE", "field": "PUBLIC SAFETY", "place": "UK", "text": "12,000 evacuated at Manchester gig", "src": "NBC"},
-    {"region": "AFRICA", "field": "DIPLOMACY", "place": "Kenya", "text": "and DR Congo restore ties", "src": "BBC"},
-    {"region": "AFRICA", "field": "CONFLICT", "place": "Libya", "text": "east seeks UN probe of Kyiv troops", "src": "F24"},
+    {"region": "EUROPE", "field": "PUBLIC SAFETY", "place": "UK", "text": "12,000 evacuated at Manchester gig", "src": "ABC"},
+    {"region": "AFRICA", "field": "DIPLOMACY", "place": "Kenya", "text": "and DR Congo agree to restore ties", "src": "BBC"},
+    {"region": "AFRICA", "field": "CONFLICT", "place": "Libya", "text": "east seeks UN probe of Ukraine troop claims", "src": "F24"},
     {"region": "AFRICA", "field": "CRIME", "place": "Zimbabwe", "text": "top preacher held over assault claims", "src": "BBC"},
     {"region": "AFRICA", "field": "INFRASTRUCTURE", "place": "Nigeria", "text": "president hit by power cuts", "src": "BBC"},
     {"region": "MIDDLE EAST", "field": "RIGHTS", "place": "Iran", "text": "flogs unveiled singer, lawyers say", "src": "BBC"},
-    {"region": "MIDDLE EAST", "field": "LAW", "place": "Iran", "text": "court orders US to pay $290bn", "src": "F24"},
-    {"region": "MIDDLE EAST", "field": "SECURITY", "place": "Iran", "text": "vows to counter the US blockade", "src": "F24"},
+    {"region": "MIDDLE EAST", "field": "LAW", "place": "Iran", "text": "courts order US to pay $290bn", "src": "F24"},
+    {"region": "MIDDLE EAST", "field": "SECURITY", "place": "Iran", "text": "vows to counter the US blockade", "src": "AJ"},
     {"region": "MIDDLE EAST", "field": "CONFLICT", "place": "Gaza", "text": "Israeli strike kills UNRWA worker", "src": "AJ"},
     {"region": "SOUTH ASIA", "field": "LABOUR", "place": "Bangladesh", "text": "garment workers reject pay offer", "src": "AJ"},
     {"region": "EAST ASIA", "field": "DIPLOMACY", "place": "N Korea", "text": "Kim welcomes 'friendly' new envoys", "src": "WSJ"},
     {"region": "EAST ASIA", "field": "MARKETS", "place": "S Korea", "text": "KOSPI closes 3.3% lower on AI fears", "src": "AJ"},
     {"region": "SOUTH-EAST ASIA", "field": "LAW", "place": "Myanmar", "text": "14 states note ICJ genocide ruling", "src": "F24"},
-    {"region": "OCEANIA", "field": "SCIENCE", "place": "Australia", "text": "veg lunches could cut 15Mt CO2", "src": "Guardian"},
+    {"region": "OCEANIA", "field": "SCIENCE", "place": "Australia", "text": "plant lunches could cut 15Mt a year", "src": "Guardian"},
     {"region": "NORTH AMERICA", "field": "TECH", "place": "US", "text": "blacklists Megaspeed", "src": "DW"},
     {"region": "NORTH AMERICA", "field": "SANCTIONS", "place": "US", "text": "sanctions Iran \"shadow banks\"", "src": "AJ"},
     {"region": "NORTH AMERICA", "field": "POLITICS", "place": "US", "text": "Rep. Jimmy Gomez to resign", "src": "NPR"},
@@ -100,7 +100,7 @@
     {"region": "NORTH AMERICA", "field": "POLITICS", "place": "US", "text": "DNC plans 12 primary debates", "src": "Politico"},
     {"region": "LATIN AMERICA", "field": "TECH", "place": "Barbados", "text": "UN chief seeks AI safety pact", "src": "F24"},
     {"region": "LATIN AMERICA", "field": "CRIME", "place": "Colombia", "text": "gangs attack security forces", "src": "WSJ"},
-    {"region": "NORTH AMERICA", "field": "ENVIRONMENT", "place": "US", "text": "Trump halts Iowa toxic blast plan", "src": "PBS"}
+    {"region": "NORTH AMERICA", "field": "ENVIRONMENT", "place": "US", "text": "Trump pauses Iowa blast for court ruling", "src": "PBS"}
   ],
   "datecheck": {
     "title": "DATE CHECK: LEFT OUT, FIRST REPORTED SUN 22 NOV OR EARLIER",
