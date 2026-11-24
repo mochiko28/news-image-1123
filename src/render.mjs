@@ -48,7 +48,6 @@ const regionNames = story => story.scene
 const mappedStories = [...stories.leads, ...stories.cards];
 const allStories = [...mappedStories, ...stories.briefs];
 const presentRegions = new Set(allStories.flatMap(regionNames));
-const pinRegions = new Set(mappedStories.flatMap(regionNames));
 
 // Each text line includes the intended layout box for the separate SVG audit.
 const svg = [];
@@ -243,9 +242,14 @@ function leadPanel(story, index) {
   const contentX = x + 11;
   const contentWidth = w - 22;
   const names = regionNames(story);
-  const tagY = y + 40;
+  const tagY = y + 36;
   const sceneHeight = tagY - y - 3;
   const statusX = x + w - 91;
+  const headlineY = tagY + 17;
+  const headlineHeight = 51;
+  const bodyY = headlineY + headlineHeight;
+  const sourceY = y + 157;
+  const sourceGap = 4;
 
   rect(x, y, w, 171, white, `stroke="${rule}"`);
   add(`<g transform="translate(${x} ${y}) scale(${w / 320} ${sceneHeight / 70})">${scenes[story.scene]}</g>`);
@@ -261,13 +265,13 @@ function leadPanel(story, index) {
   }
   label(story.field, box(tagX + 2, tagY, statusX - tagX - 6, 16), muted);
   pill(story.status, statusX, tagY, statuses[story.status], 80);
-  text(story.head, box(contentX, y + 57, contentWidth, 51), {
+  text(story.head, box(contentX, headlineY, contentWidth, headlineHeight), {
     size: 23, min: 20, weight: 700, maxLines: 2, gap: 0.3,
   });
-  text(story.sub, box(contentX, y + 108, contentWidth, 49), {
+  text(story.sub, box(contentX, bodyY, contentWidth, sourceY - sourceGap - bodyY), {
     size: 11, maxLines: 4, gap: 0.2,
   });
-  sourceLine(story, box(contentX, y + 157, contentWidth, 13), 'Source: ');
+  sourceLine(story, box(contentX, sourceY, contentWidth, 13), 'Source: ');
 }
 
 const cardScenes = {
@@ -577,10 +581,11 @@ function distanceToSegment([x, y], [ax, ay], [bx, by]) {
 
 function worldMap({ x, y, w, h }) {
   const sea = '#eef3f2';
-  const legend = Object.keys(regions).filter(region => pinRegions.has(region));
-  if (pinRegions.has('OTHER')) legend.push('OTHER');
+  const legend = [...Object.keys(regions), 'OTHER'].filter(region => presentRegions.has(region))
+    .map(region => ({ region, title: region.toLowerCase().replace(/\b[a-z]/g, letter => letter.toUpperCase()) }));
+  const legendColumns = 3;
   const legendRowHeight = 14;
-  const legendHeight = Math.ceil(legend.length / 2) * legendRowHeight + 5;
+  const legendHeight = Math.ceil(legend.length / legendColumns) * legendRowHeight + 5;
   const mapLeft = x + 1;
   const mapRight = x + w - 1;
   const mapTop = y + 20;
@@ -678,12 +683,23 @@ function worldMap({ x, y, w, h }) {
 
   rect(mapLeft, mapBottom, mapRight - mapLeft, legendHeight, '#f7f9f6');
   line(mapLeft, mapBottom, mapRight, mapBottom, '#d4dfdd');
-  for (const [index, region] of legend.entries()) {
-    const columnX = x + 8 + index % 2 * (w / 2);
-    const rowY = mapBottom + 2 + Math.floor(index / 2) * legendRowHeight;
+  const legendPadding = 6;
+  const labelOffset = 9;
+  const columnWidths = Array(legendColumns).fill(0);
+  for (const [index, { title }] of legend.entries()) {
+    const column = index % legendColumns;
+    const width = Math.ceil(fontFor(700).width(title, 11)) + labelOffset + 3;
+    columnWidths[column] = Math.max(columnWidths[column], width);
+  }
+  const extraWidth = (w - 2 * legendPadding - columnWidths.reduce((sum, width) => sum + width, 0)) / legendColumns;
+  for (const [index, { region, title }] of legend.entries()) {
+    const column = index % legendColumns;
+    const columnX = x + legendPadding + column * extraWidth +
+      columnWidths.slice(0, column).reduce((sum, width) => sum + width, 0);
+    const rowY = mapBottom + 2 + Math.floor(index / legendColumns) * legendRowHeight;
     const color = regionPalette(region)[0];
     rect(columnX, rowY + 3.75, 6.5, 6.5, color);
-    label(region, box(columnX + 10, rowY, w / 2 - 21, legendRowHeight), color);
+    label(title, box(columnX + labelOffset, rowY, columnWidths[column] - labelOffset, legendRowHeight), color);
   }
 }
 
@@ -711,7 +727,7 @@ function briefs({ x, y, w, h }) {
       ...options, weight: 700, align: 'middle', fill: muted,
     });
     text(place, box(placeX, rowY, placeWidth, rowHeight), {
-      ...options, weight: 700, fill: regionPalette(brief.region)[0],
+      ...options, weight: 700, fill: regionPalette(regionNames(brief)[0])[0],
     });
     text(brief.text, box(placeX + placeWidth, rowY, columnWidth - 28 - placeWidth, rowHeight), options);
   }
